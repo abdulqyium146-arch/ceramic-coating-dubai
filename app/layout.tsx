@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     images: ['/images/og-default.jpg'],
   },
   verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+    google: 'G8tZhzPhwZAyUmPivabys9efnK58ghfOWvGWI6b9xMU',
   },
   alternates: {
     canonical: SITE_CONFIG.url,
