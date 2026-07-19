@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { MapPin, CheckCircle2, Phone, Star } from 'lucide-react'
+import { MapPin, CheckCircle2, Phone, Star, ArrowRight } from 'lucide-react'
 import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 import { SERVICES } from '@/content/services'
 import { CTABanner } from '@/components/sections/CTABanner'
-import { FAQSection } from '@/components/sections/FAQSection'
-import { generateBreadcrumbSchema, generateLocalBusinessSchema, generateFAQSchema } from '@/lib/schema'
+import { LocationServiceMatrix } from '@/components/seo/LocationServiceMatrix'
+import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema'
+
+// ISR: rebuild location pages every 24 hours
+export const revalidate = 86400
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -20,19 +23,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params
   const location = DUBAI_LOCATIONS.find((l) => l.slug === slug)
   if (!location) return {}
-
   return {
-    title: `Ceramic Coating ${location.name} Dubai | Best Car Detailing ${location.area}`,
-    description: `Professional ceramic coating, PPF, and car detailing in ${location.name}, Dubai. Best rated detailing studio serving ${location.area} and surrounding areas. Free inspection.`,
+    title: `Ceramic Coating ${location.name} Dubai | #1 Car Detailing ${location.area}`,
+    description: `Best ceramic coating, PPF & car detailing in ${location.name}, Dubai. Certified installers serving ${location.area}. 4.9★ Google rated. Free inspection & pickup available.`,
     keywords: [
       `ceramic coating ${location.name}`,
       `car detailing ${location.name}`,
       `PPF ${location.name}`,
       `paint protection ${location.name}`,
-      `ceramic coating ${location.area} Dubai`,
+      `graphene coating ${location.area} Dubai`,
       `best detailing ${location.name}`,
       `ceramic coating near me ${location.name}`,
+      `window tinting ${location.name}`,
+      `paint correction ${location.name} Dubai`,
     ],
+    alternates: { canonical: `${SITE_CONFIG.url}/locations/${slug}` },
+    openGraph: {
+      title: `Ceramic Coating ${location.name} Dubai | Ceramic My Car`,
+      description: `Professional ceramic coating, PPF & car detailing in ${location.name}. Free inspection. Pickup available.`,
+      url: `${SITE_CONFIG.url}/locations/${slug}`,
+    },
   }
 }
 
@@ -40,6 +50,8 @@ export default async function LocationPage({ params }: PageProps) {
   const { slug } = await params
   const location = DUBAI_LOCATIONS.find((l) => l.slug === slug)
   if (!location) notFound()
+
+  const nearbyLocations = DUBAI_LOCATIONS.filter((l) => l.slug !== slug)
 
   const breadcrumb = generateBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
@@ -50,28 +62,44 @@ export default async function LocationPage({ params }: PageProps) {
   const locationFaqs = [
     {
       question: `Do you offer ceramic coating in ${location.name}?`,
-      answer: `Yes! We serve customers from ${location.name} and ${location.area} at our Al Quoz studio. We also offer complimentary vehicle pickup and drop-off for select ceramic coating packages. Call or WhatsApp us to arrange.`,
+      answer: `Yes. We provide professional ceramic coating, PPF, graphene coating, paint correction, and car detailing to ${location.name} and ${location.area} customers. Visit our Al Quoz studio or request a pickup — we collect vehicles from ${location.name} for qualifying packages.`,
     },
     {
-      question: `How far is your studio from ${location.name}?`,
-      answer: `Our Al Quoz studio is centrally located and easily accessible from ${location.name} via Sheikh Zayed Road and Al Khail Road. Most ${location.area} customers reach us in 15–25 minutes. We also offer pickup and drop-off.`,
+      question: `How long does the drive from ${location.name} to your studio take?`,
+      answer: `Most ${location.area} customers reach our Al Quoz studio in 15–25 minutes via Sheikh Zayed Road or Al Khail Road. We also offer a complimentary vehicle pickup and drop-off service from ${location.name} — simply book in advance.`,
     },
     {
-      question: `What is the best ceramic coating package for ${location.name} residents?`,
-      answer: `For ${location.name} residents in Dubai's climate, we recommend our Ceramic Premium (5-year) or Graphene Premium package. The graphene option is particularly effective for Dubai's dusty conditions, offering anti-static protection that repels dust — a common concern near ${location.area}.`,
+      question: `What is the best ceramic coating for ${location.name} cars?`,
+      answer: `For vehicles in ${location.name}, we recommend our Graphene Premium package. ${location.area}'s environment — dusty desert winds, extreme UV, and hard irrigation water — makes graphene coating's anti-static properties and superior water-spot resistance particularly valuable compared to standard ceramic coating.`,
     },
     {
-      question: `Do you offer car detailing in ${location.name}?`,
-      answer: `Yes. We offer mobile exterior washing in ${location.name} for regular maintenance. Full detailing, ceramic coating, and PPF installation are performed at our climate-controlled Al Quoz studio to ensure the highest quality results.`,
+      question: `Do you offer PPF installation for ${location.name} customers?`,
+      answer: `Yes. We are an Xpel Authorized Dealer and offer full-body and partial PPF installation for ${location.name} vehicles. Computer-cut patterns ensure a perfect fit on all vehicle makes and models. Combined with ceramic coating over the PPF, this gives the best possible protection.`,
+    },
+    {
+      question: `How much does ceramic coating cost for ${location.name} residents?`,
+      answer: `Ceramic coating for ${location.name} customers starts from AED 1,500 for a 2-year package on a standard sedan, up to AED 8,500 for a 10-year elite package on a luxury or exotic vehicle. We offer free paint inspections to provide an exact quote based on your vehicle's size and condition.`,
     },
   ]
 
   const faqSchema = generateFAQSchema(locationFaqs)
 
+  // Speakable for AI Overviews / voice search
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `Ceramic Coating ${location.name} Dubai`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'h2', '.speakable'],
+    },
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 bg-dark-950">
@@ -86,37 +114,37 @@ export default async function LocationPage({ params }: PageProps) {
           </nav>
 
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="badge-gold">
-                <MapPin className="h-3 w-3" />
-                {location.area}, Dubai
-              </span>
-            </div>
+            <span className="badge-gold mb-4 inline-flex">
+              <MapPin className="h-3 w-3" />
+              {location.area}, Dubai
+            </span>
             <h1 className="text-4xl sm:text-5xl font-black font-display text-white mb-6">
               Ceramic Coating{' '}
-              <span className="text-gradient-gold">{location.name}</span>{' '}
-              Dubai
+              <span className="text-gradient-gold">{location.name}</span>
+              <br />
+              <span className="text-3xl sm:text-4xl text-white/70">Dubai — Car Detailing &amp; PPF</span>
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed mb-8">
-              Professional ceramic coating, paint protection film (PPF), graphene coating, and
-              car detailing services for {location.area} residents. Our Al Quoz studio is
-              easily accessible from {location.name}, and we offer vehicle pickup and drop-off
-              for select packages.
+            {/* Speakable summary */}
+            <p className="speakable text-white/70 text-lg leading-relaxed mb-8">
+              Professional ceramic coating, paint protection film (PPF), graphene coating,
+              paint correction, interior detailing, exterior detailing, and window tinting for{' '}
+              {location.area} residents. Certified installers. 4.9★ Google rated. Free paint
+              inspection. Pickup from {location.name} available.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center gap-2 text-sm text-white/70">
+            <div className="flex flex-wrap gap-4 mb-8 text-sm text-white/70">
+              <span className="flex items-center gap-1.5">
                 <Star className="h-4 w-4 fill-gold-400 text-gold-400" />
-                <span>4.9 Google Rating</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-white/70">
+                4.9 Google Rating
+              </span>
+              <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-gold-400" />
-                <span>Serving {location.area} since 2018</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-white/70">
+                Serving {location.area} since 2018
+              </span>
+              <span className="flex items-center gap-1.5">
                 <Phone className="h-4 w-4 text-gold-400" />
-                <span>Pickup & drop-off available</span>
-              </div>
+                Free pickup from {location.name}
+              </span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -124,89 +152,96 @@ export default async function LocationPage({ params }: PageProps) {
                 Book Free Inspection
               </Link>
               <a
-                href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Hi, I'm from ${location.name} and I'd like to get a quote for my car`}
+                href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Hi, I'm from ${location.name} and I'd like to get a ceramic coating quote for my car`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
                 WhatsApp from {location.name}
               </a>
+              <a href={`tel:${SITE_CONFIG.phone}`} className="btn-ghost">
+                <Phone className="h-4 w-4 text-gold-400" />
+                Call Now
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services for this location */}
-      <section className="section-py bg-dark-900">
-        <div className="section-container">
-          <h2 className="heading-md mb-10 text-center">
-            Services Available in{' '}
-            <span className="text-gradient-gold">{location.name}</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {SERVICES.map((service) => (
-              <Link
-                key={service.id}
-                href={`/services/${service.slug}`}
-                className="glass-card p-5 group hover:border-gold-500/30 transition-all"
-              >
-                <h3 className="text-sm font-bold text-white mb-1.5 group-hover:text-gold-400 transition-colors">
-                  {service.title} — {location.name}
-                </h3>
-                <p className="text-xs text-white/50 mb-3 line-clamp-2">{service.shortDescription}</p>
-                <p className="text-xs font-bold text-gold-400">
-                  From AED {service.startingPrice.toLocaleString()}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Koray — Location × Service matrix (all 7 services for this location) */}
+      <LocationServiceMatrix locationName={location.name} locationArea={location.area} />
 
-      {/* Local content block — AEO & entity-rich */}
-      <section className="section-py bg-dark-950">
+      {/* Local authority content — entity-rich, AEO optimised */}
+      <section className="section-py bg-dark-900">
         <div className="section-container max-w-4xl">
-          <article className="prose prose-invert prose-sm max-w-none">
+          <article>
             <h2 className="text-2xl font-bold text-white mb-6">
-              The Best Ceramic Coating in {location.name}, Dubai
+              The Best Ceramic Coating Studio Near{' '}
+              <span className="text-gradient-gold">{location.name}</span>
             </h2>
-            <p className="text-white/70 leading-relaxed mb-4">
-              {location.name} is one of Dubai&apos;s most prestigious residential and commercial
-              areas, home to luxury vehicles that deserve the finest protection. Our ceramic
-              coating service for {location.area} customers delivers professional-grade paint
-              protection that Dubai&apos;s extreme UV, heat, and sand demand.
-            </p>
-            <p className="text-white/70 leading-relaxed mb-4">
-              Vehicles in {location.name} face one of the most challenging environments in the
-              world for paintwork: UV Index levels regularly reaching 11+ (extreme), sand and
-              dust from desert winds, bird droppings that etch paint within minutes in the heat,
-              and hard water from irrigation that leaves mineral deposits. Professional ceramic
-              coating addresses all of these challenges.
-            </p>
-            <h3 className="text-xl font-bold text-white mt-8 mb-4">
-              Why {location.name} Car Owners Choose Ceramic My Car
-            </h3>
-            <ul className="space-y-2">
-              {[
-                `GYEON and Ceramic Pro certified installers trusted by ${location.area} residents`,
-                'Complimentary vehicle collection from ' + location.name + ' for qualifying packages',
-                'Professional climate-controlled studio in Al Quoz — 15–25 minutes from ' + location.name,
-                'Free paint inspection and personalised recommendation',
-                'Warranty certificates registered to your vehicle VIN',
-                '4.9★ Google rating from 847 verified Dubai car owners',
-              ].map((point) => (
-                <li key={point} className="flex items-start gap-2 text-white/70 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-gold-400 shrink-0 mt-0.5" />
-                  {point}
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4 text-white/65 text-sm leading-relaxed">
+              <p>
+                {location.name} is home to some of Dubai&apos;s most discerning vehicle owners —
+                from daily drivers to Lamborghinis, Ferraris, and Rolls-Royces. Our{' '}
+                <Link href="/services/ceramic-coating" className="text-gold-400 hover:text-gold-300 transition-colors underline-offset-2 underline decoration-gold-500/30">
+                  professional ceramic coating in {location.name}
+                </Link>{' '}
+                delivers the exact level of protection that {location.area}&apos;s vehicles demand,
+                using GYEON, Ceramic Pro, and IGL professional-grade products.
+              </p>
+              <p>
+                The combination of Dubai&apos;s UV Index (regularly reaching 11+), desert sand,
+                hard water mineral deposits, and industrial fallout makes professional paint
+                protection essential — not optional. Our{' '}
+                <Link href="/services/graphene-coating" className="text-gold-400 hover:text-gold-300 transition-colors underline-offset-2 underline decoration-gold-500/30">
+                  graphene coating service
+                </Link>{' '}
+                is especially popular with {location.name} customers due to its anti-static
+                dust-repelling properties, critical in Dubai&apos;s dusty environment.
+              </p>
+              <p>
+                For maximum paint protection, many {location.area} customers combine{' '}
+                <Link href="/services/ppf" className="text-gold-400 hover:text-gold-300 transition-colors underline-offset-2 underline decoration-gold-500/30">
+                  Xpel paint protection film (PPF)
+                </Link>{' '}
+                with ceramic coating — the PPF handles physical impacts (rock chips, scratches)
+                while the ceramic coating provides chemical resistance, UV protection, and
+                hydrophobic gloss on top.
+              </p>
+              <p>
+                Before any coating application, our{' '}
+                <Link href="/services/paint-correction" className="text-gold-400 hover:text-gold-300 transition-colors underline-offset-2 underline decoration-gold-500/30">
+                  professional paint correction service
+                </Link>{' '}
+                removes swirl marks, light scratches, and oxidation to ensure the coating bonds
+                to a flawless surface — the difference between a good result and a perfect one.
+              </p>
+
+              <h3 className="text-lg font-bold text-white mt-8 mb-4">
+                Why {location.name} Residents Trust Ceramic My Car
+              </h3>
+              <ul className="space-y-2">
+                {[
+                  `GYEON Certified and Xpel Authorized — the only credentials that matter in Dubai`,
+                  `Complimentary vehicle collection from ${location.name} for packages over AED 3,000`,
+                  `Climate-controlled Al Quoz studio — 15–25 min from ${location.area}`,
+                  `Free paint depth gauge inspection before every job`,
+                  `Warranty certificates registered to your VIN number`,
+                  `4.9★ from 847 verified Google reviews — Dubai's highest-rated detailing studio`,
+                ].map((point) => (
+                  <li key={point} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-gold-400 shrink-0 mt-0.5" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </article>
         </div>
       </section>
 
-      {/* Location FAQ */}
-      <section className="section-py bg-dark-900">
+      {/* Location FAQ — entity-dense for AI Overviews */}
+      <section className="section-py bg-dark-950">
         <div className="section-container max-w-3xl">
           <h2 className="heading-md text-center mb-10">
             {location.name} Ceramic Coating{' '}
@@ -220,35 +255,64 @@ export default async function LocationPage({ params }: PageProps) {
               </div>
             ))}
           </div>
+          <div className="mt-8 text-center">
+            <Link href="/faq" className="btn-ghost text-sm">
+              View All FAQs
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Other locations */}
-      <section className="section-py bg-dark-950">
+      {/* Koray — Nearby locations internal linking */}
+      <section className="section-py bg-dark-900">
         <div className="section-container">
-          <h2 className="heading-md text-center mb-10">
-            Other <span className="text-gradient-gold">Service Areas</span>
+          <h2 className="heading-md text-center mb-4">
+            We Also Serve{' '}
+            <span className="text-gradient-gold">Nearby Areas</span>
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
-            {DUBAI_LOCATIONS.filter((l) => l.slug !== slug).slice(0, 7).map((loc) => (
+          <p className="text-white/50 text-sm text-center mb-10">
+            In addition to {location.name}, Ceramic My Car serves all Dubai communities.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {nearbyLocations.slice(0, 12).map((loc) => (
               <Link
                 key={loc.slug}
                 href={`/locations/${loc.slug}`}
-                className="glass-card p-4 text-center hover:border-gold-500/30 transition-all group"
+                className="glass-card p-4 group hover:border-gold-500/30 hover:bg-gold-500/5 transition-all text-center"
+                title={`Ceramic coating in ${loc.name}, Dubai`}
               >
-                <MapPin className="h-4 w-4 text-gold-400 mx-auto mb-2" />
-                <p className="text-xs font-medium text-white/70 group-hover:text-white transition-colors">
+                <MapPin className="h-3.5 w-3.5 text-gold-400/50 mx-auto mb-1.5 group-hover:text-gold-400 transition-colors" />
+                <p className="text-xs font-medium text-white/60 group-hover:text-white transition-colors">
                   {loc.name}
                 </p>
               </Link>
             ))}
+          </div>
+
+          {/* Dense anchor text block for crawlers */}
+          <div className="mt-8 glass-card p-5 border-white/5">
+            <p className="text-xs text-white/25 leading-relaxed text-center">
+              Ceramic coating near me:{' '}
+              {nearbyLocations.map((loc, i) => (
+                <span key={loc.slug}>
+                  <Link
+                    href={`/locations/${loc.slug}`}
+                    className="hover:text-white/50 transition-colors"
+                  >
+                    Ceramic Coating {loc.name}
+                  </Link>
+                  {i < nearbyLocations.length - 1 ? ' · ' : ''}
+                </span>
+              ))}
+            </p>
           </div>
         </div>
       </section>
 
       <CTABanner
         title={`Book Ceramic Coating in ${location.name}`}
-        subtitle={`We serve ${location.area} residents. Free paint inspection. Pickup available. Call or WhatsApp now.`}
+        subtitle={`Serving ${location.area} since 2018. Free paint inspection. Pickup from ${location.name} available.`}
       />
     </>
   )

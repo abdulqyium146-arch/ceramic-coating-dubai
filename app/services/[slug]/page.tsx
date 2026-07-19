@@ -1,13 +1,17 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { CheckCircle2, Clock, Shield, ArrowRight, Phone } from 'lucide-react'
+import { CheckCircle2, Clock, Shield, ArrowRight } from 'lucide-react'
 import { SERVICES, SERVICE_SLUGS } from '@/content/services'
 import { CTABanner } from '@/components/sections/CTABanner'
-import { FAQSection } from '@/components/sections/FAQSection'
 import { Testimonials } from '@/components/sections/Testimonials'
+import { TopicalClusterLinks } from '@/components/seo/TopicalClusterLinks'
+import { ServiceAreaLinks } from '@/components/seo/ServiceAreaLinks'
 import { generateBreadcrumbSchema, generateFAQSchema, generateServiceSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
+
+// ISR: rebuild service pages every 24 hours
+export const revalidate = 86400
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -25,10 +29,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: service.seoTitle,
     description: service.seoDescription,
     keywords: service.keywords,
+    alternates: { canonical: `${SITE_CONFIG.url}/services/${slug}` },
     openGraph: {
       title: service.seoTitle,
       description: service.seoDescription,
-      images: [{ url: service.image, width: 1200, height: 630 }],
+      url: `${SITE_CONFIG.url}/services/${slug}`,
+      type: 'website',
     },
   }
 }
@@ -38,14 +44,11 @@ export default async function ServicePage({ params }: PageProps) {
   const service = SERVICES.find((s) => s.slug === slug)
   if (!service) notFound()
 
-  const otherServices = SERVICES.filter((s) => s.slug !== slug).slice(0, 3)
-
   const breadcrumb = generateBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
     { name: 'Services', url: `${SITE_CONFIG.url}/services` },
     { name: service.title, url: `${SITE_CONFIG.url}/services/${slug}` },
   ])
-
   const serviceSchema = generateServiceSchema({
     name: service.title,
     description: service.description,
@@ -53,19 +56,33 @@ export default async function ServicePage({ params }: PageProps) {
     image: `${SITE_CONFIG.url}${service.image}`,
     price: service.startingPrice,
   })
-
   const faqSchema = generateFAQSchema(service.faqs)
+
+  // Speakable schema — targets AI Overviews and voice search
+  const speakableSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: service.seoTitle,
+    description: service.seoDescription,
+    url: `${SITE_CONFIG.url}/services/${slug}`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'h2', '.speakable'],
+    },
+  }
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 bg-dark-950">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.08)_0%,transparent_60%)]" />
         <div className="section-container relative">
+          {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs text-white/40 mb-8" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
@@ -83,11 +100,10 @@ export default async function ServicePage({ params }: PageProps) {
                 {service.title}{' '}
                 <span className="text-gradient-gold">Dubai</span>
               </h1>
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
+              {/* Speakable summary — AI Overview target */}
+              <p className="speakable text-white/70 text-lg leading-relaxed mb-8">
                 {service.description}
               </p>
-
-              {/* Meta */}
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="glass-card px-4 py-3 text-center">
                   <Clock className="h-4 w-4 text-gold-400 mx-auto mb-1" />
@@ -100,7 +116,6 @@ export default async function ServicePage({ params }: PageProps) {
                   <p className="text-sm font-semibold text-white">{service.warranty}</p>
                 </div>
               </div>
-
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className="btn-primary">
                   Get Free Quote
@@ -116,7 +131,6 @@ export default async function ServicePage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Image placeholder */}
             <div className="relative h-72 lg:h-96 rounded-3xl overflow-hidden glass-card">
               <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-dark-900 flex items-center justify-center">
                 <div className="text-center">
@@ -130,15 +144,14 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Benefits + Included */}
       <section className="section-py bg-dark-900">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Benefits List */}
             <div>
               <h2 className="heading-md mb-8">
                 Why Choose{' '}
-                <span className="text-gradient-gold">{service.title}</span>?
+                <span className="text-gradient-gold">{service.title}?</span>
               </h2>
               <ul className="space-y-4" role="list">
                 {service.benefits.map((benefit) => (
@@ -150,10 +163,9 @@ export default async function ServicePage({ params }: PageProps) {
               </ul>
             </div>
 
-            {/* What's Included */}
             <div>
               <h2 className="heading-md mb-8">
-                {"What's"} <span className="text-gradient-gold">Included</span>
+                What&apos;s <span className="text-gradient-gold">Included</span>
               </h2>
               <ul className="space-y-3" role="list">
                 {service.features.map((feature) => (
@@ -170,7 +182,10 @@ export default async function ServicePage({ params }: PageProps) {
                   AED {service.startingPrice.toLocaleString()}
                 </p>
                 <p className="text-xs text-white/40 mt-1">Price varies by vehicle size and condition</p>
-                <Link href="/contact" className="btn-primary mt-4 w-full justify-center">
+                <Link href="/pricing" className="btn-secondary mt-3 w-full justify-center text-xs">
+                  View Full Pricing
+                </Link>
+                <Link href="/contact" className="btn-primary mt-3 w-full justify-center">
                   Get Exact Quote
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -180,17 +195,15 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* FAQ for this service */}
+      {/* Service FAQ — entity-rich Q&A for AI Overviews */}
       {service.faqs.length > 0 && (
         <section className="section-py bg-dark-950">
-          <div className="section-container">
-            <div className="text-center mb-12">
-              <h2 className="heading-md mb-4">
-                {service.title}{' '}
-                <span className="text-gradient-gold">FAQ</span>
-              </h2>
-            </div>
-            <div className="max-w-3xl mx-auto space-y-4">
+          <div className="section-container max-w-3xl">
+            <h2 className="heading-md text-center mb-10">
+              {service.title}{' '}
+              <span className="text-gradient-gold">FAQ</span>
+            </h2>
+            <div className="space-y-4">
               {service.faqs.map((faq, index) => (
                 <div key={index} className="glass-card p-6">
                   <h3 className="text-sm font-bold text-white mb-3">{faq.question}</h3>
@@ -198,35 +211,21 @@ export default async function ServicePage({ params }: PageProps) {
                 </div>
               ))}
             </div>
+            <div className="mt-8 text-center">
+              <Link href="/faq" className="btn-ghost text-sm">
+                View All FAQs
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           </div>
         </section>
       )}
 
-      {/* Other Services */}
-      <section className="section-py bg-dark-900">
-        <div className="section-container">
-          <h2 className="heading-md text-center mb-10">
-            Other <span className="text-gradient-gold">Services</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {otherServices.map((s) => (
-              <Link
-                key={s.id}
-                href={`/services/${s.slug}`}
-                className="glass-card p-6 group hover:border-gold-500/30 transition-all"
-              >
-                <h3 className="text-sm font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">
-                  {s.title}
-                </h3>
-                <p className="text-xs text-white/50 mb-3 line-clamp-2">{s.shortDescription}</p>
-                <span className="text-xs font-semibold text-gold-400">
-                  From AED {s.startingPrice.toLocaleString()} →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Koray — Topical cluster: related services with context */}
+      <TopicalClusterLinks currentSlug={slug} />
+
+      {/* Koray — Location matrix: this service × all 14 Dubai areas */}
+      <ServiceAreaLinks serviceTitle={service.title} serviceSlug={slug} />
 
       <Testimonials />
       <CTABanner />
