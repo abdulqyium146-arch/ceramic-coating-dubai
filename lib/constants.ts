@@ -5,9 +5,9 @@ export const SITE_CONFIG = {
     "Dubai's #1 premium ceramic coating, PPF, graphene coating, and car detailing studio. Serving Dubai Marina, Business Bay, JVC, Palm Jumeirah, Downtown Dubai, and all of UAE.",
   url: 'https://ceramic-my-car.com',
   logo: '/images/logo.svg',
-  phone: '+971 50 123 4567',
-  phoneDisplay: '+971 50 123 4567',
-  whatsapp: '971501234567',
+  phone: '+971555153180',
+  phoneDisplay: '+971 55 515 3180',
+  whatsapp: '971555153180',
   email: 'info@ceramic-my-car.com',
   address: {
     street: 'Al Quoz Industrial Area 4',
