@@ -8,6 +8,7 @@ import { Testimonials } from '@/components/sections/Testimonials'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { CTABanner } from '@/components/sections/CTABanner'
 import { LocationsSection } from '@/components/sections/LocationsSection'
+import { GalleryPreview } from '@/components/gallery/GalleryPreview'
 import { generateFAQSchema } from '@/lib/schema'
 import { FAQS } from '@/content/faqs'
 import { SERVICES } from '@/content/services'
@@ -120,6 +121,7 @@ export default function HomePage() {
       </section>
 
       <CTABanner />
+      <GalleryPreview />
       <Testimonials />
       <LocationsSection />
 
