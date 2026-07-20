@@ -88,12 +88,19 @@ export default function AboutPage() {
       <section className="section-py bg-dark-900">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="glass-card p-8 h-80 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-8xl mb-4">🏆</div>
-                <p className="text-white font-bold">Ceramic My Car Studio</p>
-                <p className="text-white/50 text-sm">Al Quoz, Dubai since 2018</p>
-              </div>
+            {/* Real studio map — shows Google our actual location on the About page */}
+            <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/20"
+                 style={{ height: '360px' }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462561.6574537445!2d55.22748795!3d25.076022449999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xac5a5ed97cd28ab9%3A0x6a3cc5ff15ccf54!2sCeramic%20My%20Car%20%7C%20Best%20Detailing%20Studio%20in%20Dubai!5e0!3m2!1sen!2s!4v1784538548445!5m2!1sen!2s"
+                title="Ceramic My Car studio — Al Quoz, Dubai on Google Maps"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
             </div>
             <div>
               <h2 className="heading-md mb-6">

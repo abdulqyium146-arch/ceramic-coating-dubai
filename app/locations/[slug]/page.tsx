@@ -326,6 +326,82 @@ export default async function LocationPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* ── Studio Map — geo-signal for Local SEO ───────────────────────── */}
+      {/* Embedding the map on every location page strengthens Google's
+          understanding that this business serves [location] from Al Quoz */}
+      <section className="section-py bg-dark-950 border-t border-white/5" aria-label={`How to reach Ceramic My Car from ${location.name}`}>
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+            {/* Text — NAP + travel context for this specific location */}
+            <div>
+              <span className="badge-gold mb-4 inline-flex">
+                <MapPin className="h-3 w-3" />
+                Our Studio
+              </span>
+              <h2 className="text-2xl font-bold text-white mb-4">
+                Serving{' '}
+                <span className="text-gradient-gold">{location.name}</span>{' '}
+                from Al Quoz
+              </h2>
+              <p className="text-white/60 text-sm leading-relaxed mb-6">
+                Our climate-controlled studio is located in Al Quoz Industrial Area,
+                just 15–25 minutes from {location.name} via Sheikh Zayed Road or
+                Al Khail Road. We also offer complimentary vehicle pickup from{' '}
+                {location.name} for qualifying packages over AED 3,000.
+              </p>
+
+              <address className="not-italic space-y-3 text-sm mb-6">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="h-4 w-4 text-gold-400 mt-0.5 shrink-0" />
+                  <div className="text-white/70">
+                    <span className="font-semibold text-white">Al Quoz Industrial Area 1</span>
+                    <br />Dubai, United Arab Emirates
+                  </div>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="h-4 w-4 text-gold-400 shrink-0" />
+                  <a href={`tel:${SITE_CONFIG.phone}`} className="text-white/70 hover:text-gold-400 transition-colors font-medium">
+                    {SITE_CONFIG.phoneDisplay}
+                  </a>
+                </div>
+              </address>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://maps.google.com/maps?q=Ceramic+My+Car+Dubai+Al+Quoz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-sm"
+                >
+                  Get Directions
+                </a>
+                <Link href="/contact" className="btn-ghost text-sm">
+                  Request Pickup from {location.name}
+                </Link>
+              </div>
+            </div>
+
+            {/* Google Map */}
+            <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/20"
+                 style={{ height: '380px' }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462561.6574537445!2d55.22748795!3d25.076022449999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xac5a5ed97cd28ab9%3A0x6a3cc5ff15ccf54!2sCeramic%20My%20Car%20%7C%20Best%20Detailing%20Studio%20in%20Dubai!5e0!3m2!1sen!2s!4v1784538548445!5m2!1sen!2s"
+                title={`Ceramic My Car studio location — serving ${location.name}, Dubai`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+
+          </div>
+        </div>
+      </section>
+      {/* ──────────────────────────────────────────────────────────────────── */}
+
       <CTABanner
         title={`Book Ceramic Coating in ${location.name}`}
         subtitle={`Serving ${location.area} since 2018. Free paint inspection. Pickup from ${location.name} available.`}
