@@ -38,3 +38,8 @@ next-env.d.ts
 
 # Vercel
 .vercel
+
+# Raw/unprocessed uploads (processed copies live in public/gallery/)
+app/gallery/*.webp
+app/gallery/*.jpg
+app/gallery/*.png

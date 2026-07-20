@@ -38,6 +38,11 @@ const nextConfig: NextConfig = {
         source: '/images/(.*)',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      // Gallery images — immutable (WebP, content-hashed via Next.js optimizer)
+      {
+        source: '/gallery/(.*)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
       // Medium cache for favicons
       {
         source: '/:file(favicon.*|apple-icon.*|android-chrome.*|favicon-.*)',
