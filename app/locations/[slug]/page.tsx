@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, CheckCircle2, Phone, Star, ArrowRight } from 'lucide-react'
 import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
@@ -102,7 +103,22 @@ export default async function LocationPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-dark-950">
+      <section className="relative pt-32 pb-20 bg-dark-950 overflow-hidden">
+        {/* Real studio car photo at low opacity — establishes premium context */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-bg.webp"
+            alt=""
+            fill
+            className="object-cover object-center"
+            style={{ opacity: 0.14 }}
+            priority
+            quality={60}
+            sizes="100vw"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark-950/60 via-dark-950/40 to-dark-950/80" />
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.08)_0%,transparent_60%)]" />
         <div className="section-container relative">
           <nav className="flex items-center gap-2 text-xs text-white/40 mb-8" aria-label="Breadcrumb">

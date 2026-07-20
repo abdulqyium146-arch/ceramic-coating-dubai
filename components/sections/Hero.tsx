@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, ChevronDown, Shield, Star, Award } from 'lucide-react'
 import { SITE_CONFIG, STATS } from '@/lib/constants'
@@ -25,15 +26,19 @@ export function Hero() {
         }}
       />
 
-      {/* Hero Image Background */}
+      {/* Hero Image Background — real studio photo at low opacity */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: 'url(/images/hero-bg.jpg)' }}
-          role="img"
-          aria-label="Luxury car with ceramic coating"
+        <Image
+          src="/images/hero-bg.webp"
+          alt="BMW X5 ceramic coating Dubai — Ceramic My Car studio Al Quoz"
+          fill
+          className="object-cover object-center"
+          style={{ opacity: 0.22 }}
+          priority
+          quality={70}
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/40 via-dark-950/60 to-dark-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/50 via-dark-950/60 to-dark-950" />
       </div>
 
       {/* Content */}

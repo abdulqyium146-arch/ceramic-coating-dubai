@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import { CheckCircle2, Clock, Shield, ArrowRight } from 'lucide-react'
 import { SERVICES, SERVICE_SLUGS } from '@/content/services'
@@ -79,7 +80,22 @@ export default async function ServicePage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-dark-950">
+      <section className="relative pt-32 pb-20 bg-dark-950 overflow-hidden">
+        {/* Service-specific background image at very low opacity */}
+        <div className="absolute inset-0">
+          <Image
+            src={service.image}
+            alt=""
+            fill
+            className="object-cover object-center"
+            style={{ opacity: 0.12 }}
+            priority
+            quality={60}
+            sizes="100vw"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark-950/60 via-dark-950/40 to-dark-950" />
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.08)_0%,transparent_60%)]" />
         <div className="section-container relative">
           {/* Breadcrumb */}
@@ -131,13 +147,23 @@ export default async function ServicePage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="relative h-72 lg:h-96 rounded-3xl overflow-hidden glass-card">
-              <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-dark-900 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">🚗</div>
-                  <p className="text-white/50 text-sm">{service.title}</p>
-                  <p className="text-white/30 text-xs">Dubai, UAE</p>
-                </div>
+            <div className="relative h-72 lg:h-96 rounded-3xl overflow-hidden border border-white/[0.08]">
+              <Image
+                src={service.image.replace('.jpg', '.webp')}
+                alt={`${service.title} Dubai — professional result at Ceramic My Car studio`}
+                fill
+                className="object-cover object-center"
+                priority
+                quality={85}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Gradient overlay so edges blend into dark background */}
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/70 via-dark-950/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-dark-950/30 via-transparent to-transparent" />
+              {/* Service label badge */}
+              <div className="absolute bottom-4 left-4">
+                <span className="badge-gold text-xs">{service.title}</span>
+                <p className="text-xs text-white/50 mt-1.5">Al Quoz Studio · Dubai, UAE</p>
               </div>
             </div>
           </div>

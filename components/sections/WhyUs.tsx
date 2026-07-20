@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Shield, Clock, Award, Users, Wrench, ThumbsUp } from 'lucide-react'
 
 const REASONS = [
@@ -43,7 +44,22 @@ const REASONS = [
 
 export function WhyUs() {
   return (
-    <section className="section-py relative bg-dark-900" aria-labelledby="why-us-heading">
+    <section className="section-py relative bg-dark-900 overflow-hidden" aria-labelledby="why-us-heading">
+      {/* Real studio photo at very low opacity — shows professionalism without distracting */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/whyus-bg.webp"
+          alt=""
+          fill
+          className="object-cover object-center"
+          style={{ opacity: 0.06 }}
+          quality={50}
+          sizes="100vw"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-900/80 via-dark-900/50 to-dark-900/80" />
+      </div>
+
       {/* Decorative divider */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent" />
 

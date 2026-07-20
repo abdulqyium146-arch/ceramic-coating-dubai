@@ -27,7 +27,7 @@ export const SERVICES: Service[] = [
     description:
       "Our professional-grade nano-ceramic coating creates a permanent bond with your vehicle's paintwork, forming an ultra-hard, 9H-rated protective layer. This advanced silicon dioxide (SiO2) formula delivers unmatched hydrophobic properties, UV protection, chemical resistance, and an incredible depth of gloss that transforms how your car looks and feels.",
     iconName: 'Shield',
-    image: '/images/services/ceramic-coating.jpg',
+    image: '/images/services/ceramic-coating.webp',
     benefits: [
       'Up to 9H hardness rating — harder than factory paint',
       'Extreme hydrophobic effect — water beads and rolls off instantly',
@@ -96,7 +96,7 @@ export const SERVICES: Service[] = [
     description:
       "Paint Protection Film (PPF) is the ultimate physical barrier for your vehicle's paintwork. Our self-healing urethane film is virtually invisible, absorbing the impact of rock chips, scratches, road debris, and minor abrasions. With Xpel, SunTek, and 3M film options, we provide computer-cut, precision-fit protection that preserves your paint's perfection.",
     iconName: 'Layers',
-    image: '/images/services/ppf.jpg',
+    image: '/images/services/ppf.webp',
     benefits: [
       'Self-healing technology — minor scratches disappear with heat',
       'Physical protection from rock chips and road debris',
@@ -155,7 +155,7 @@ export const SERVICES: Service[] = [
     description:
       "Graphene coating represents the next evolution in paint protection technology. By infusing graphene — the world's strongest material — into the ceramic coating formula, we achieve superior hardness, reduced water spotting, anti-static properties, and unmatched heat resistance. Ideal for Dubai's extreme conditions.",
     iconName: 'Hexagon',
-    image: '/images/services/graphene-coating.jpg',
+    image: '/images/services/graphene-coating.webp',
     benefits: [
       'Superior hardness beyond standard ceramic',
       'Anti-static properties repel dust and contamination',
@@ -207,7 +207,7 @@ export const SERVICES: Service[] = [
     description:
       "Paint correction is the art and science of restoring your vehicle's paintwork to a flawless finish. Using professional machine polishers, cutting compounds, and finishing polishes, our certified detailers eliminate swirl marks, light scratches, water etching, oxidation, and hazing to restore — and often exceed — the original factory gloss.",
     iconName: 'Sparkles',
-    image: '/images/services/paint-correction.jpg',
+    image: '/images/services/paint-correction.webp',
     benefits: [
       'Eliminates up to 95% of swirl marks and light scratches',
       'Removes water etching and mineral deposits',
@@ -261,7 +261,7 @@ export const SERVICES: Service[] = [
     description:
       'Our premium interior detailing service transforms your cabin into showroom condition. From deep cleaning leather seats and conditioning them with premium products, to steam cleaning carpets, sanitizing air vents, and applying fabric protection — every surface is treated with care.',
     iconName: 'Car',
-    image: '/images/services/interior-detailing.jpg',
+    image: '/images/services/interior-detailing.webp',
     benefits: [
       'Deep vacuum and extraction of all surfaces',
       'Leather cleaning, conditioning, and protection',
@@ -309,7 +309,7 @@ export const SERVICES: Service[] = [
     description:
       "Our exterior detailing is more than a car wash — it's a complete paint care process. Starting with a safe two-bucket hand wash, followed by iron decontamination, clay bar treatment, and finished with a premium carnauba wax or paint sealant for protection and gloss.",
     iconName: 'Zap',
-    image: '/images/services/exterior-detailing.jpg',
+    image: '/images/services/exterior-detailing.webp',
     benefits: [
       'Two-bucket safe wash method prevents new scratches',
       'Iron decontamination removes embedded iron fallout',
@@ -358,7 +358,7 @@ export const SERVICES: Service[] = [
     description:
       "Dubai's intense UV radiation and heat make quality window tinting essential, not optional. Our nano-ceramic window films from Xpel, SunTek, and 3M reject up to 99% of UV rays and up to 70% of infrared heat, keeping your cabin cooler, protecting your interior, and reducing air conditioning load.",
     iconName: 'Sun',
-    image: '/images/services/window-tinting.jpg',
+    image: '/images/services/window-tinting.webp',
     benefits: [
       'Up to 99% UV rejection protects skin and interior',
       'Up to 70% infrared heat rejection — cooler cabin',
