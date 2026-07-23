@@ -32,5 +32,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...servicePages, ...locationPages]
+  // 7 services × 14 locations = 98 service × location pages
+  const serviceLocationPages: MetadataRoute.Sitemap = DUBAI_LOCATIONS.flatMap((loc) =>
+    SERVICE_SLUGS.map((slug) => ({
+      url: `${baseUrl}/locations/${loc.slug}/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    }))
+  )
+
+  return [...staticPages, ...servicePages, ...locationPages, ...serviceLocationPages]
 }

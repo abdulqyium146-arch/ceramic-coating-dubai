@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/'],
+        disallow: ['/_next/', '/admin/'],
       },
       {
         userAgent: 'GPTBot',
@@ -32,7 +32,10 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'meta-externalagent', allow: '/' },
       { userAgent: 'Amazonbot', allow: '/' },
     ],
-    sitemap: `${SITE_CONFIG.url}/sitemap.xml`,
+    sitemap: [
+      `${SITE_CONFIG.url}/sitemap.xml`,
+      `${SITE_CONFIG.url}/sitemap-images.xml`,
+    ],
     host: SITE_CONFIG.url,
   }
 }
