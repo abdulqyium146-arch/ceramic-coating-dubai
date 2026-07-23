@@ -25,6 +25,12 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'Claude-Web',
         allow: '/',
       },
+      // Additional AI crawlers — allow full indexing for GEO/AIO
+      { userAgent: 'anthropic-ai', allow: '/' },
+      { userAgent: 'Bytespider', allow: '/' },
+      { userAgent: 'cohere-ai', allow: '/' },
+      { userAgent: 'meta-externalagent', allow: '/' },
+      { userAgent: 'Amazonbot', allow: '/' },
     ],
     sitemap: `${SITE_CONFIG.url}/sitemap.xml`,
     host: SITE_CONFIG.url,

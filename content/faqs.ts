@@ -111,4 +111,46 @@ export const FAQS: FAQ[] = [
     answer:
       "Yes. All our services include warranties: Ceramic Coating — 2 to 10 years depending on the product tier. PPF — 10-year manufacturer's warranty on the film. Window Tinting — Lifetime manufacturer's warranty. All warranties are backed by the product manufacturer and are registered to your vehicle by VIN number.",
   },
+  {
+    id: '16',
+    category: 'Interior Detailing',
+    question: 'Can ceramic coating be applied to car interior surfaces?',
+    answer:
+      "Yes. Interior ceramic coating can be applied to leather seats, dashboard plastics, fabric, glass, and all interior trim. Interior car ceramic coating provides UV protection against cracking and fading (critical in Dubai's 50°C cabin temperatures), stain resistance on leather and fabric, easy-clean hydrophobic properties, and an anti-bacterial layer. Our interior ceramic coating package starts from AED 800 and is one of the most underrated services for protecting your car's value.",
+  },
+  {
+    id: '17',
+    category: 'Ceramic Coating',
+    question: 'Where can I find ceramic coating near me in Dubai?',
+    answer:
+      "Ceramic My Car's studio is in Al Quoz, Dubai — 10–25 minutes from every major community via Sheikh Zayed Road or Al Khail Road. Nearest ceramic coating to: Dubai Marina (15 min), Business Bay (10 min), JVC (15 min), Palm Jumeirah (20 min), Downtown Dubai (12 min), Dubai Hills (20 min), Mirdif (25 min). We also offer complimentary vehicle pickup from your location for packages over AED 3,000. Call us or WhatsApp to arrange.",
+  },
+  {
+    id: '18',
+    category: 'Ceramic Coating',
+    question: 'What is nano ceramic coating and how is it different?',
+    answer:
+      '"Nano ceramic coating" and "ceramic coating" are the same product — nano refers to the nanotechnology: SiO2 (silicon dioxide) particles are engineered at the nanometer scale to penetrate microscopic paint pores and bond permanently at a molecular level. All professional ceramic coatings today are nano-coatings. Our GYEON and Ceramic Pro products use the latest nano-SiO2 and nano-SiC (silicon carbide) formulas delivering 9H hardness, self-cleaning hydrophobic properties, and UV resistance rated for Dubai\'s extreme climate.',
+  },
+  {
+    id: '19',
+    category: 'General',
+    question: 'Do you offer ceramic coating for Abu Dhabi and Ajman customers?',
+    answer:
+      "Yes. We serve customers from Abu Dhabi, Ajman, Sharjah, Ras Al Khaimah, and across the UAE. Many Abu Dhabi residents choose Ceramic My Car for our GYEON and Xpel certifications, 4.9★ rating, and the quality difference. Our Al Quoz studio is approximately 90 minutes from Abu Dhabi centre. We offer complimentary vehicle collection from Abu Dhabi for packages over AED 5,000. Call or WhatsApp us to arrange UAE-wide service.",
+  },
+  {
+    id: '20',
+    category: 'PPF',
+    question: 'Where can I get paint protection film (PPF) near me in Dubai?',
+    answer:
+      "Ceramic My Car is an Xpel Authorized Dealer offering PPF installation near you in Dubai. Our Al Quoz studio is accessible from all Dubai communities in 10–25 minutes. We use computer-cut Xpel Ultimate Plus film — the highest-rated PPF in the world — with patterns cut to fit any vehicle make and model precisely. For car paint protection film near me: we offer a free PPF consultation, full-body and partial coverage options, and combine PPF with ceramic coating over the top for ultimate protection.",
+  },
+  {
+    id: '21',
+    category: 'Ceramic Coating',
+    question: 'What is the best ceramic coating for cars in Dubai?',
+    answer:
+      "The best ceramic coating for cars in Dubai depends on your priorities: (1) Graphene Coating — best overall for Dubai: anti-static dust repellency, superior heat dissipation, excellent water-spot resistance, 5–10 year warranty. Starting from AED 2,500. (2) Ceramic Coating — ideal all-rounder: deep gloss, UV protection, hydrophobic properties, 2–10 year warranty. Starting from AED 1,500. (3) PPF + Ceramic Combo — best paint protection: physical rock chip protection from PPF plus chemical/UV resistance from ceramic. We offer free consultations to recommend the best car coating for your vehicle and driving style.",
+  },
 ]

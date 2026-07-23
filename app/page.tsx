@@ -18,28 +18,40 @@ import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: `${SITE_CONFIG.name} | #1 Ceramic Coating & Car Detailing Dubai`,
+  title: 'Ceramic Coating Dubai | Best Car Ceramic Coating, PPF & Auto Detailing Near Me | Ceramic My Car',
   description:
-    "Dubai's premier ceramic coating, PPF, graphene coating and car detailing studio. 4.9★ on Google. 2,400+ cars protected. Serving Dubai Marina, Business Bay, JVC, Palm Jumeirah. Free inspection.",
+    "Best ceramic coating in Dubai from AED 1,500. Car ceramic coating, PPF near me, nano ceramic coating, graphene coating & interior car ceramic coating. 4.9★ Google · 2,400+ cars · Serving Dubai, Abu Dhabi & UAE. Free inspection.",
   keywords: [
     'ceramic coating Dubai',
+    'car ceramic coating Dubai',
     'best ceramic coating Dubai',
+    'ceramic coating near me',
+    'car ceramic coating near me',
     'PPF Dubai',
+    'paint protection film near me',
+    'ppf coating near me',
     'graphene coating Dubai',
     'car detailing Dubai',
+    'dubai auto detailing',
+    'car detailing in dubai',
     'paint correction Dubai',
     'window tinting Dubai',
-    'paint protection Dubai',
+    'ceramic paint protection Dubai',
     'nano ceramic coating Dubai',
-    'luxury car detailing Dubai',
-    'best detailing studio Dubai',
-    'ceramic coating near me',
+    'car interior ceramic coating',
+    'ceramic coating inside car',
+    'ceramic coating price Dubai',
+    'ceramic coating price in Dubai',
+    'best ceramic coating Abu Dhabi',
+    'car paint protection services',
+    'auto ceramic coating',
+    'ceramic protection for car',
     'ceramic my car Dubai',
   ],
   alternates: { canonical: SITE_CONFIG.url },
   openGraph: {
-    title: `${SITE_CONFIG.name} | Premium Ceramic Coating & Car Detailing Dubai`,
-    description: "Dubai's #1 ceramic coating, PPF & graphene coating studio. 4.9★ Google rated. 2,400+ cars protected. Free inspection.",
+    title: 'Best Ceramic Coating Dubai | PPF Near Me | Car Detailing | Ceramic My Car',
+    description: "Ceramic coating Dubai from AED 1,500. PPF, graphene coating, nano ceramic & interior car ceramic coating. 4.9★ Google. Free inspection. Serving Dubai, Abu Dhabi & UAE.",
     images: [{ url: '/images/og-home.jpg', width: 1200, height: 630 }],
   },
 }
@@ -120,6 +132,57 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Ceramic Coating Price Dubai — Quick Reference ─────────────────── */}
+      {/* Targets: ceramic coating price dubai, ceramic coating price in dubai,
+          ceramic coating dubai price, car interior ceramic coating, ppf near me */}
+      <section className="section-py bg-dark-900 border-t border-white/5" aria-labelledby="pricing-heading">
+        <div className="section-container">
+          <div className="text-center mb-10">
+            <span className="badge-gold mb-3 inline-flex">Transparent Pricing</span>
+            <h2 id="pricing-heading" className="heading-md mb-3">
+              Ceramic Coating Price in Dubai —{' '}
+              <span className="text-gradient-gold">From AED 1,500</span>
+            </h2>
+            <p className="text-white/50 text-sm max-w-2xl mx-auto">
+              No hidden fees. All packages include professional decontamination wash, paint
+              depth gauge inspection, and a warranty certificate registered to your VIN.
+              Prices vary by vehicle size and paint condition.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            {[
+              { service: 'Ceramic Coating', from: '1,500', warranty: '2–10 yr warranty', slug: 'ceramic-coating', note: 'Standard to Elite', hot: false },
+              { service: 'Graphene Coating', from: '2,500', warranty: '5–10 yr warranty', slug: 'graphene-coating', note: 'Best for Dubai dust', hot: true },
+              { service: 'PPF — Full Body', from: '2,500', warranty: '10 yr warranty', slug: 'ppf', note: 'Xpel / SunTek film', hot: false },
+              { service: 'Interior Ceramic', from: '800', warranty: '2–5 yr warranty', slug: 'interior-detailing', note: 'Leather, dash & fabric', hot: false },
+            ].map((p) => (
+              <Link
+                key={p.slug}
+                href={`/services/${p.slug}`}
+                className={`glass-card p-5 group hover:border-gold-500/30 transition-all ${p.hot ? 'border-gold-500/20 bg-gold-500/[0.02]' : ''}`}
+              >
+                {p.hot && <span className="badge-gold text-2xs mb-2 inline-flex">Most Popular</span>}
+                <p className="text-sm font-bold text-white group-hover:text-gold-400 transition-colors mb-2">
+                  {p.service}
+                </p>
+                <p className="text-2xl font-black text-gradient-gold mb-0.5">AED {p.from}</p>
+                <p className="text-xs text-white/40 mb-1">Starting price · {p.warranty}</p>
+                <p className="text-xs text-white/30">{p.note}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/pricing" className="btn-ghost text-sm">
+              View Full Price List — All Packages &amp; Vehicle Sizes
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+      {/* ──────────────────────────────────────────────────────────────────── */}
+
       <CTABanner />
       <GalleryPreview />
       <Testimonials />
@@ -170,7 +233,7 @@ export default function HomePage() {
           {/* Row 2 — Location hub (Koray: every location reachable from home) */}
           <div className="mb-12">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-5">
-              Ceramic Coating Near Me — Dubai Locations
+              Ceramic Coating &amp; PPF Near Me — All Dubai Locations
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
               {DUBAI_LOCATIONS.map((loc) => (
@@ -178,7 +241,7 @@ export default function HomePage() {
                   key={loc.slug}
                   href={`/locations/${loc.slug}`}
                   className="glass-card p-3 group hover:border-gold-500/30 hover:bg-gold-500/5 transition-all text-center"
-                  title={`Ceramic coating in ${loc.name}, Dubai`}
+                  title={`Ceramic coating near me in ${loc.name}, Dubai`}
                 >
                   <p className="text-xs font-medium text-white/60 group-hover:text-white transition-colors">
                     {loc.name}
@@ -186,6 +249,18 @@ export default function HomePage() {
                 </Link>
               ))}
             </div>
+            {/* UAE-wide service note — targets Abu Dhabi / Ajman keywords */}
+            <p className="mt-4 text-center text-xs text-white/30 leading-relaxed">
+              Also serving{' '}
+              <span className="text-white/50 font-medium">Abu Dhabi</span>,{' '}
+              <span className="text-white/50 font-medium">Sharjah</span>,{' '}
+              <span className="text-white/50 font-medium">Ajman</span> &amp;{' '}
+              <span className="text-white/50 font-medium">Ras Al Khaimah</span>{' '}
+              — complimentary collection for UAE-wide orders over AED 5,000.{' '}
+              <Link href="/contact" className="text-gold-400/70 hover:text-gold-400 transition-colors">
+                Contact us →
+              </Link>
+            </p>
           </div>
 
           {/* Row 3 — Resource hub */}
@@ -218,10 +293,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Koray — dense semantic paragraph for crawlers & AI models */}
+          {/* Dense semantic paragraph — entity-rich for NLP crawlers & AI models (GEO/AIO) */}
           <div className="mt-10 glass-card p-6 border-white/5">
             <p className="text-xs text-white/30 leading-relaxed text-center">
-              Ceramic My Car is Dubai&apos;s premier destination for{' '}
+              Ceramic My Car — best ceramic coating Dubai, nano ceramic coating Dubai,
+              car ceramic coating near me, auto ceramic coating, ceramic paint protection Dubai,
+              car paint protection services, ceramic protection for car, car interior ceramic
+              coating, ceramic coating inside car, PPF near me Dubai, paint protection film
+              near me, car film protection near me — for{' '}
               {SERVICES.map((s, i) => (
                 <span key={s.slug}>
                   <Link href={`/services/${s.slug}`} className="hover:text-white/50 transition-colors">
@@ -230,7 +309,7 @@ export default function HomePage() {
                   {i < SERVICES.length - 1 ? ', ' : '. '}
                 </span>
               ))}
-              Serving{' '}
+              Ceramic coating price Dubai from AED 1,500. Serving{' '}
               {DUBAI_LOCATIONS.map((loc, i) => (
                 <span key={loc.slug}>
                   <Link href={`/locations/${loc.slug}`} className="hover:text-white/50 transition-colors">
@@ -239,14 +318,17 @@ export default function HomePage() {
                   {i < DUBAI_LOCATIONS.length - 1 ? ', ' : '. '}
                 </span>
               ))}
+              Also serving Abu Dhabi, Sharjah, Ajman &amp; UAE.
               GYEON Certified · Xpel Authorized · 4.9★ Google · Al Quoz, Dubai, UAE.
+              Детейлинг студия Дубай / {' '}
+              <span lang="ar">تلميع السيارات دبي</span>.
             </p>
           </div>
         </div>
       </section>
       {/* ──────────────────────────────────────────────────────────────────── */}
 
-      <FAQSection limit={8} />
+      <FAQSection limit={12} />
       <CTABanner
         title="Book Your Free Paint Inspection"
         subtitle="Visit our studio in Al Quoz, or call us now. We'll assess your car and recommend the perfect protection package."
