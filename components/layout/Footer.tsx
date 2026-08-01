@@ -164,6 +164,40 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Partner Studio */}
+      <div className="border-t border-white/5">
+        <div className="section-container py-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-white/30 mb-4 text-center">
+            Partner Studio
+          </p>
+          <div className="flex justify-center">
+            <a
+              href="https://www.latinkingdetailing.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card px-6 py-4 flex items-center gap-4 hover:border-gold-500/30 hover:bg-gold-500/5 transition-all group max-w-sm w-full"
+              aria-label="Latin King Detailing — car detailing in Manchester, UK"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold-500/10 text-gold-400 group-hover:bg-gold-500/20 transition-colors font-black text-sm">
+                LK
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-bold text-white group-hover:text-gold-400 transition-colors">
+                  Latin King Detailing
+                </p>
+                <p className="text-xs text-white/50 truncate">
+                  Urmston, Manchester, UK
+                </p>
+              </div>
+              <div className="ml-auto flex items-center gap-1 shrink-0">
+                <Star className="h-3.5 w-3.5 fill-gold-400 text-gold-400" />
+                <span className="text-xs font-semibold text-white/70">5.0</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-white/5">
         <div className="section-container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
