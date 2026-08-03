@@ -12,35 +12,59 @@ export function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-dark-950"
       aria-label="Hero section"
     >
-      {/* Background gradient layers */}
-      <div className="absolute inset-0 bg-gradient-dark" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.08)_0%,transparent_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(249,115,22,0.06)_0%,transparent_60%)]" />
+      {/* ── Background layers (bottom → top) ───────────────────────────── */}
 
-      {/* Animated grid lines */}
+      {/* 1. Base dark fill */}
+      <div className="absolute inset-0 bg-dark-950" />
+
+      {/* 2. BMW XM — dark teal luxury SUV in climate-controlled studio.
+              Positioned right-of-centre so the left text zone stays near-black. */}
+      <div className="absolute inset-0">
+        <Image
+          src="/gallery/bmw-xm-ceramic-coating-dubai.webp"
+          alt="BMW XM ceramic coating Dubai — Ceramic My Car premium studio Al Quoz"
+          fill
+          className="object-cover"
+          style={{ opacity: 0.38, objectPosition: '68% center' }}
+          priority
+          quality={80}
+          sizes="100vw"
+        />
+      </div>
+
+      {/* 3. Porsche 718 Boxster — visible only on desktop, far-right edge only,
+              adds colour depth and a second luxury marque to the composition. */}
+      <div className="absolute inset-y-0 right-0 w-[45%] hidden lg:block">
+        <Image
+          src="/gallery/porsche-718-boxster-ceramic-coating-dubai.webp"
+          alt=""
+          fill
+          className="object-cover object-left"
+          style={{ opacity: 0.12 }}
+          quality={60}
+          sizes="45vw"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* 4. Directional gradients — protect text on left, fade bottom to dark */}
+      <div className="absolute inset-0 bg-gradient-to-r from-dark-950 via-dark-950/80 to-dark-950/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-950/40 via-transparent to-dark-950" />
+
+      {/* 5. Gold atmosphere top + bottom-right warm glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_5%_0%,rgba(245,158,11,0.10)_0%,transparent_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_90%_80%,rgba(249,115,22,0.06)_0%,transparent_100%)]" />
+
+      {/* 6. Subtle gold grid — very low opacity texture */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(245,158,11,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.5) 1px, transparent 1px)',
+            'linear-gradient(rgba(245,158,11,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.6) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
         }}
       />
-
-      {/* Hero Image Background — real studio photo at low opacity */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-bg.webp"
-          alt="BMW X5 ceramic coating Dubai — Ceramic My Car studio Al Quoz"
-          fill
-          className="object-cover object-center"
-          style={{ opacity: 0.22 }}
-          priority
-          quality={70}
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/50 via-dark-950/60 to-dark-950" />
-      </div>
+      {/* ──────────────────────────────────────────────────────────────────── */}
 
       {/* Content */}
       <div className="section-container relative z-10 pt-32 pb-20 text-center">
