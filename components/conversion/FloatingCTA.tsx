@@ -2,6 +2,7 @@
 
 import { Phone, MessageCircle } from 'lucide-react'
 import { SITE_CONFIG } from '@/lib/constants'
+import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics'
 
 export function FloatingCTA() {
   const whatsappMessage = encodeURIComponent(
@@ -16,6 +17,7 @@ export function FloatingCTA() {
       {/* Phone Button */}
       <a
         href={`tel:${SITE_CONFIG.phone}`}
+        onClick={() => trackPhoneClick(SITE_CONFIG.phone)}
         className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-dark-800 border border-white/20 text-white shadow-luxury hover:border-gold-500/50 hover:bg-gold-500/10 transition-all duration-200 hover:scale-110"
         aria-label={`Call ${SITE_CONFIG.name}`}
       >
@@ -30,6 +32,7 @@ export function FloatingCTA() {
         href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${whatsappMessage}`}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackWhatsAppClick(SITE_CONFIG.whatsapp)}
         className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-luxury hover:bg-[#20bd5a] transition-all duration-200 hover:scale-110 animate-pulse-gold"
         aria-label="WhatsApp us"
       >

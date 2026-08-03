@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import { Phone, MessageCircle, ArrowRight } from 'lucide-react'
 import { SITE_CONFIG } from '@/lib/constants'
+import { trackPhoneClick, trackWhatsAppClick, trackQuoteRequest } from '@/lib/analytics'
 
 interface CTABannerProps {
   title?: string
@@ -37,6 +40,7 @@ export function CTABanner({
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <Link
               href="/contact"
+              onClick={() => trackQuoteRequest('cta_banner')}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-dark-950 px-6 py-3.5 text-sm font-bold text-white hover:bg-dark-900 transition-colors shadow-luxury"
             >
               Get Free Quote
@@ -44,6 +48,7 @@ export function CTABanner({
             </Link>
             <a
               href={`tel:${SITE_CONFIG.phone}`}
+              onClick={() => trackPhoneClick(SITE_CONFIG.phone)}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-dark-950/20 bg-transparent px-6 py-3.5 text-sm font-bold text-dark-950 hover:bg-dark-950/10 transition-colors"
             >
               <Phone className="h-4 w-4" />
@@ -53,6 +58,7 @@ export function CTABanner({
               href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Hi, I'd like to get a quote`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick(SITE_CONFIG.whatsapp)}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white hover:bg-[#20bd5a] transition-colors"
             >
               <MessageCircle className="h-4 w-4" />

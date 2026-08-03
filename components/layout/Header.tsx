@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { trackPhoneClick, trackWhatsAppClick, trackQuoteRequest } from '@/lib/analytics'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -97,13 +98,18 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={`tel:${SITE_CONFIG.phone}`}
+              onClick={() => trackPhoneClick(SITE_CONFIG.phone)}
               className="flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
               aria-label={`Call ${SITE_CONFIG.phoneDisplay}`}
             >
               <Phone className="h-4 w-4 text-gold-400" />
               <span>{SITE_CONFIG.phoneDisplay}</span>
             </a>
-            <Link href="/contact" className="btn-primary text-xs px-5 py-2.5">
+            <Link
+              href="/contact"
+              onClick={() => trackQuoteRequest('header')}
+              className="btn-primary text-xs px-5 py-2.5"
+            >
               Free Quote
             </Link>
           </div>
@@ -112,6 +118,7 @@ export function Header() {
           <div className="flex items-center gap-3 lg:hidden">
             <a
               href={`tel:${SITE_CONFIG.phone}`}
+              onClick={() => trackPhoneClick(SITE_CONFIG.phone)}
               className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-500/10 text-gold-400 hover:bg-gold-500/20 transition-colors"
               aria-label="Call us"
             >
@@ -170,7 +177,7 @@ export function Header() {
                 href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Hi, I'd like to get a quote for ceramic coating`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => { setMobileOpen(false); trackWhatsAppClick(SITE_CONFIG.whatsapp) }}
                 className="btn-secondary w-full justify-center"
               >
                 WhatsApp Us

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, ChevronDown, Shield, Star, Award } from 'lucide-react'
 import { SITE_CONFIG, STATS } from '@/lib/constants'
+import { trackPhoneClick, trackWhatsAppClick, trackQuoteRequest } from '@/lib/analytics'
 
 export function Hero() {
   return (
@@ -71,19 +72,25 @@ export function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-up [animation-delay:300ms]">
-          <Link href="/contact" className="btn-primary text-base px-8 py-4 rounded-2xl">
+          <Link
+            href="/contact"
+            onClick={() => trackQuoteRequest('hero')}
+            className="btn-primary text-base px-8 py-4 rounded-2xl"
+          >
             Get Free Quote
           </Link>
           <a
             href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Hi, I'd like to get a ceramic coating quote for my car`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick(SITE_CONFIG.whatsapp)}
             className="btn-secondary text-base px-8 py-4 rounded-2xl"
           >
             WhatsApp Us
           </a>
           <a
             href={`tel:${SITE_CONFIG.phone}`}
+            onClick={() => trackPhoneClick(SITE_CONFIG.phone)}
             className="btn-ghost text-base px-6 py-4"
           >
             <Phone className="h-4 w-4 text-gold-400" />
