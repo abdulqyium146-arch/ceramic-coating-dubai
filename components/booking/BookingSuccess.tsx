@@ -72,7 +72,7 @@ export function BookingSuccess({ bookingId, service, date, time, name }: Booking
       <div>
         <h2 className="text-2xl font-bold text-white mb-2">Booking Request Received!</h2>
         <p className="text-white/60">
-          Thank you, {name.split(' ')[0]}. We'll confirm within 2 hours during business hours.
+          Thank you, {name.split(' ')[0]}. We&apos;ll confirm within 2 hours during business hours.
         </p>
       </div>
 

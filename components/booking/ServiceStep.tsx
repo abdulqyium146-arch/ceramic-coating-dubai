@@ -96,7 +96,7 @@ export function ServiceStep({
       {/* Service selection */}
       <div>
         <h3 className="text-base font-semibold text-white mb-1">Select Your Service</h3>
-        <p className="text-sm text-white/50 mb-4">Choose the service you'd like to book.</p>
+        <p className="text-sm text-white/50 mb-4">Choose the service you&apos;d like to book.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {SERVICE_OPTIONS.map((service) => {
             const isSelected = value === service.slug
@@ -162,7 +162,7 @@ export function ServiceStep({
       {/* Vehicle type */}
       <div>
         <h3 className="text-base font-semibold text-white mb-1">Vehicle Type</h3>
-        <p className="text-sm text-white/50 mb-4">Select the type of vehicle you're bringing in.</p>
+        <p className="text-sm text-white/50 mb-4">Select the type of vehicle you&apos;re bringing in.</p>
         <div className="flex flex-wrap gap-2">
           {VEHICLE_TYPES.map((vt) => {
             const isSelected = vehicleType === vt
