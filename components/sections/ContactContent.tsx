@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { Phone, Mail, MapPin, Clock, MessageCircle, Navigation, CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
+import Link from 'next/link'
+import { Phone, Mail, MapPin, Clock, MessageCircle, Navigation, CheckCircle2, Loader2, AlertCircle, CalendarCheck } from 'lucide-react'
 import { SITE_CONFIG } from '@/lib/constants'
 import {
   trackPhoneClick,
@@ -135,7 +136,34 @@ export function ContactContent() {
 
       {/* Quote Form */}
       <div>
-        <h2 className="text-2xl font-bold text-white mb-8">Request a Free Quote</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">Request a Free Quote</h2>
+
+        {/* Book online CTA */}
+        <Link
+          href="/book"
+          className="flex items-center gap-4 glass-card p-5 mb-6 border-gold-500/30 hover:border-gold-500/60 hover:bg-gold-500/5 transition-all group"
+        >
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/15 text-gold-400 group-hover:bg-gold-500/25 transition-colors shrink-0">
+            <CalendarCheck className="h-5 w-5" />
+          </div>
+          <div className="flex-1">
+            <p className="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">
+              Book Online Instantly
+            </p>
+            <p className="text-xs text-white/50 mt-0.5">
+              Fill in our quick booking form — we confirm within 2 hours
+            </p>
+          </div>
+          <span className="text-xs font-bold text-gold-400 group-hover:text-gold-300 transition-colors shrink-0">
+            Book Now →
+          </span>
+        </Link>
+
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex-1 h-px bg-white/10" />
+          <span className="text-xs text-white/30 font-medium uppercase tracking-widest">or send a message</span>
+          <div className="flex-1 h-px bg-white/10" />
+        </div>
 
         {submitted ? (
           <div className="glass-card p-10 flex flex-col items-center text-center gap-4">
