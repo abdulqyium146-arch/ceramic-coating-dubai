@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
-import Link from 'next/link'
-import { Phone, Mail, MapPin, Clock, MessageCircle, Navigation, CheckCircle2 } from 'lucide-react'
+import { useState, useTransition } from 'react'
+import { Phone, Mail, MapPin, Clock, MessageCircle, Navigation, CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
 import { SITE_CONFIG } from '@/lib/constants'
 import {
   trackPhoneClick,
@@ -11,22 +10,37 @@ import {
   trackDirectionsClick,
   trackGenerateLead,
 } from '@/lib/analytics'
+import { submitContactForm } from '@/actions/contact'
 
 export function ContactContent() {
   const [submitted, setSubmitted] = useState(false)
-  const [selectedService, setSelectedService] = useState('')
+  const [serverError, setServerError] = useState('')
+  const [isPending, startTransition] = useTransition()
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
-    // Rely on native HTML5 validation — if invalid, browser shows errors and we never reach here
-    if (!form.checkValidity()) return
-
     const data = new FormData(form)
-    const service = (data.get('service') as string) || 'unknown'
 
-    trackGenerateLead(service)
-    setSubmitted(true)
+    const payload = {
+      name: data.get('name') as string,
+      phone: data.get('phone') as string,
+      email: data.get('email') as string,
+      car: data.get('car') as string,
+      service: data.get('service') as string,
+      message: data.get('message') as string,
+    }
+
+    trackGenerateLead(payload.service || 'enquiry')
+
+    startTransition(async () => {
+      const result = await submitContactForm(payload)
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setServerError(result.error ?? 'Something went wrong. Please try WhatsApp instead.')
+      }
+    })
   }
 
   return (
@@ -123,7 +137,7 @@ export function ContactContent() {
             <CheckCircle2 className="h-14 w-14 text-gold-400" />
             <h3 className="text-xl font-bold text-white">Quote Request Received!</h3>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
-              Thank you — we will review your request and reply within 2 hours during business hours.
+              Thank you — we&apos;ll review your request and reply within 2 hours during business hours.
               For the fastest response, WhatsApp us directly.
             </p>
             <a
@@ -138,7 +152,7 @@ export function ContactContent() {
             </a>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate={false} className="glass-card p-8 space-y-5">
+          <form onSubmit={handleSubmit} className="glass-card p-8 space-y-5">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-xs font-semibold text-white/60 mb-2 uppercase tracking-wider">
@@ -150,7 +164,7 @@ export function ContactContent() {
                   name="name"
                   required
                   placeholder="Ahmed Al Mansoori"
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-all"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none transition-all"
                 />
               </div>
               <div>
@@ -163,7 +177,7 @@ export function ContactContent() {
                   name="phone"
                   required
                   placeholder="+971 50 000 0000"
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-all"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -177,7 +191,7 @@ export function ContactContent() {
                 id="email"
                 name="email"
                 placeholder="ahmed@example.com"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-all"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none transition-all"
               />
             </div>
 
@@ -191,7 +205,7 @@ export function ContactContent() {
                 name="car"
                 required
                 placeholder="e.g. Mercedes GLE 2023 White"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-all"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none transition-all"
               />
             </div>
 
@@ -203,11 +217,10 @@ export function ContactContent() {
                 id="service"
                 name="service"
                 required
-                value={selectedService}
-                onChange={(e) => setSelectedService(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-dark-900 px-4 py-3 text-sm text-white focus:border-gold-500/50 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-all"
+                defaultValue=""
+                className="w-full rounded-xl border border-white/10 bg-dark-900 px-4 py-3 text-sm text-white focus:border-gold-500/50 focus:outline-none transition-all"
               >
-                <option value="">Select a service...</option>
+                <option value="" disabled>Select a service...</option>
                 <option value="ceramic-coating">Ceramic Coating</option>
                 <option value="ppf">Paint Protection Film (PPF)</option>
                 <option value="graphene-coating">Graphene Coating</option>
@@ -216,7 +229,7 @@ export function ContactContent() {
                 <option value="interior-detailing">Interior Detailing</option>
                 <option value="exterior-detailing">Exterior Detailing</option>
                 <option value="window-tinting">Window Tinting</option>
-                <option value="full-package">Full Package (everything)</option>
+                <option value="full-package">Full Package</option>
               </select>
             </div>
 
@@ -229,12 +242,30 @@ export function ContactContent() {
                 name="message"
                 rows={4}
                 placeholder="Any specific requirements, paint condition issues, or questions..."
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none focus:ring-1 focus:ring-gold-500/50 transition-all resize-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-gold-500/50 focus:outline-none transition-all resize-none"
               />
             </div>
 
-            <button type="submit" className="btn-primary w-full justify-center text-base py-4">
-              Send Quote Request
+            {serverError && (
+              <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3">
+                <AlertCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
+                <p className="text-sm text-red-300">{serverError}</p>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={isPending}
+              className="btn-primary w-full justify-center text-base py-4 disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2"
+            >
+              {isPending ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                'Send Quote Request'
+              )}
             </button>
 
             <p className="text-xs text-white/30 text-center">
@@ -247,7 +278,6 @@ export function ContactContent() {
   )
 }
 
-// Standalone directions button — used in the map section below the form
 export function DirectionsButton({ className }: { className?: string }) {
   return (
     <a
