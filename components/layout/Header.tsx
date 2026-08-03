@@ -108,9 +108,16 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => trackQuoteRequest('header')}
-              className="btn-primary text-xs px-5 py-2.5"
+              className="btn-ghost text-xs px-4 py-2.5 border border-white/10"
             >
               Free Quote
+            </Link>
+            <Link
+              href="/book"
+              onClick={() => trackQuoteRequest('header_book')}
+              className="btn-primary text-xs px-5 py-2.5"
+            >
+              Book Now
             </Link>
           </div>
 
@@ -167,18 +174,25 @@ export function Header() {
             ))}
             <div className="pt-4 pb-2 flex flex-col gap-3">
               <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
+                href="/book"
+                onClick={() => { setMobileOpen(false); trackQuoteRequest('mobile_book') }}
                 className="btn-primary w-full justify-center"
               >
-                Get Free Quote
+                Book Now
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="btn-secondary w-full justify-center"
+              >
+                Free Quote
               </Link>
               <a
                 href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Hi, I'd like to get a quote for ceramic coating`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => { setMobileOpen(false); trackWhatsAppClick(SITE_CONFIG.whatsapp) }}
-                className="btn-secondary w-full justify-center"
+                className="btn-ghost w-full justify-center border border-white/10"
               >
                 WhatsApp Us
               </a>

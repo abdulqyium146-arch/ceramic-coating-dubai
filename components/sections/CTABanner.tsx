@@ -39,11 +39,11 @@ export function CTABanner({
 
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <Link
-              href="/contact"
+              href="/book"
               onClick={() => trackQuoteRequest('cta_banner')}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-dark-950 px-6 py-3.5 text-sm font-bold text-white hover:bg-dark-900 transition-colors shadow-luxury"
             >
-              Get Free Quote
+              Book Now
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a

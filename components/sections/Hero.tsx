@@ -97,11 +97,11 @@ export function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-up [animation-delay:300ms]">
           <Link
-            href="/contact"
+            href="/book"
             onClick={() => trackQuoteRequest('hero')}
             className="btn-primary text-base px-8 py-4 rounded-2xl"
           >
-            Get Free Quote
+            Book Now — It&apos;s Free
           </Link>
           <a
             href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Hi, I'd like to get a ceramic coating quote for my car`}

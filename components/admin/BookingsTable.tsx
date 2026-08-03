@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Calendar } from 'lucide-react'
 import type { Booking } from '@/types/booking'
 import { BookingStatusBadge } from '@/components/admin/BookingStatusBadge'
@@ -83,9 +84,12 @@ export function BookingsTable({ bookings }: BookingsTableProps) {
               >
                 {/* Reference */}
                 <td className="px-4 py-3">
-                  <span className="font-mono text-xs font-bold text-gold-400">
+                  <Link
+                    href={`/admin/bookings/${booking.id}`}
+                    className="font-mono text-xs font-bold text-gold-400 hover:text-gold-300 transition-colors"
+                  >
                     #{booking.id.slice(0, 8).toUpperCase()}
-                  </span>
+                  </Link>
                 </td>
 
                 {/* Customer */}
@@ -117,7 +121,15 @@ export function BookingsTable({ bookings }: BookingsTableProps) {
 
                 {/* Actions */}
                 <td className="px-4 py-3 text-right">
-                  <BookingActions bookingId={booking.id} currentStatus={booking.status} />
+                  <div className="flex items-center justify-end gap-2">
+                    <Link
+                      href={`/admin/bookings/${booking.id}`}
+                      className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/20 transition-all"
+                    >
+                      View
+                    </Link>
+                    <BookingActions bookingId={booking.id} currentStatus={booking.status} />
+                  </div>
                 </td>
               </tr>
             ))}
@@ -134,9 +146,12 @@ export function BookingsTable({ bookings }: BookingsTableProps) {
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <div className="font-mono text-xs font-bold text-gold-400 mb-1">
+                <Link
+                  href={`/admin/bookings/${booking.id}`}
+                  className="font-mono text-xs font-bold text-gold-400 hover:text-gold-300 transition-colors mb-1 block"
+                >
                   #{booking.id.slice(0, 8).toUpperCase()}
-                </div>
+                </Link>
                 <div className="text-sm font-semibold text-white">{booking.full_name}</div>
                 <div className="text-xs text-white/40">{booking.phone}</div>
               </div>
@@ -145,6 +160,12 @@ export function BookingsTable({ bookings }: BookingsTableProps) {
                 <BookingActions bookingId={booking.id} currentStatus={booking.status} />
               </div>
             </div>
+            <Link
+              href={`/admin/bookings/${booking.id}`}
+              className="flex items-center justify-center w-full rounded-xl border border-white/10 bg-white/5 py-2 text-xs font-semibold text-white/60 hover:text-white hover:border-white/20 transition-all"
+            >
+              View Full Details
+            </Link>
 
             <div className="border-t border-white/5 pt-3 grid grid-cols-2 gap-2 text-xs">
               <div>

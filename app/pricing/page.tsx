@@ -116,7 +116,7 @@ export default function PricingPage() {
                 </ul>
 
                 <Link
-                  href="/contact"
+                  href="/book"
                   className={cn(
                     'block w-full text-center rounded-xl py-3 text-sm font-bold transition-all',
                     pkg.recommended
@@ -124,7 +124,7 @@ export default function PricingPage() {
                       : 'btn-secondary'
                   )}
                 >
-                  Get This Package
+                  Book This Package
                 </Link>
               </div>
             ))}
@@ -169,8 +169,8 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-primary w-full justify-center">
-                  Get Quote
+                <Link href="/book" className="btn-primary w-full justify-center">
+                  Book Now
                 </Link>
               </div>
             ))}
@@ -206,8 +206,8 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-ghost text-xs w-full justify-center border border-white/10">
-                  Get Quote
+                <Link href="/book" className="btn-ghost text-xs w-full justify-center border border-white/10">
+                  Book Now
                 </Link>
               </div>
             ))}
