@@ -34,11 +34,16 @@ export function ContactContent() {
     trackGenerateLead(payload.service || 'enquiry')
 
     startTransition(async () => {
-      const result = await submitContactForm(payload)
-      if (result.success) {
-        setSubmitted(true)
-      } else {
-        setServerError(result.error ?? 'Something went wrong. Please try WhatsApp instead.')
+      try {
+        const result = await submitContactForm(payload)
+        if (result.success) {
+          setSubmitted(true)
+        } else {
+          setServerError(result.error ?? 'Something went wrong. Please try WhatsApp instead.')
+        }
+      } catch (err) {
+        console.error('Contact form client error:', err)
+        setServerError('An unexpected error occurred. Please try WhatsApp instead.')
       }
     })
   }
