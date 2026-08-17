@@ -22,7 +22,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/gallery/bmw-xm-ceramic-coating-dubai.webp"
-          alt="BMW XM ceramic coating Dubai — Ceramic My Car premium studio Al Quoz"
+          alt="BMW XM car ceramic coating services Dubai — Ceramic My Car premium studio Al Quoz"
           fill
           className="object-cover"
           style={{ opacity: 0.38, objectPosition: '68% center' }}
@@ -72,25 +72,23 @@ export function Hero() {
         <div className="inline-flex items-center gap-2 mb-8 animate-fade-up">
           <span className="badge-gold">
             <Award className="h-3 w-3" />
-            #1 Ceramic Coating Studio in Dubai
+            #1 Car Ceramic Coating Services in Dubai
           </span>
         </div>
 
         {/* Main Heading — Entity & Semantic SEO optimized */}
         <h1 className="heading-xl font-display font-black mb-6 text-balance animate-fade-up [animation-delay:100ms]">
-          <span className="text-white">Premium</span>{' '}
-          <span className="text-gradient-gold">Ceramic Coating</span>
+          <span className="text-gradient-gold">Car Ceramic Coating</span>
           <br />
-          <span className="text-white">& Car Detailing</span>{' '}
-          <span className="text-white/70">Dubai</span>
+          <span className="text-white">Services Dubai</span>
         </h1>
 
         <p className="mx-auto max-w-2xl text-lg md:text-xl text-white/70 leading-relaxed mb-10 animate-fade-up [animation-delay:200ms]">
-          Protect your vehicle with professional{' '}
+          Professional car ceramic coating services in Dubai from AED 1,500. Expert{' '}
           <strong className="text-white/90">nano-ceramic coating</strong>,{' '}
           <strong className="text-white/90">PPF</strong>,{' '}
-          <strong className="text-white/90">graphene coating</strong>, and expert{' '}
-          <strong className="text-white/90">paint protection</strong> in Dubai. Trusted by
+          <strong className="text-white/90">graphene coating</strong>, and{' '}
+          <strong className="text-white/90">paint correction</strong>. Trusted by
           Ferrari, Lamborghini, and Rolls-Royce owners across the UAE.
         </p>
 

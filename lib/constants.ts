@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: 'Ceramic My Car',
-  tagline: 'Premium Ceramic Coating & Paint Protection in Dubai',
+  tagline: 'Car Ceramic Coating Services Dubai | Premium Paint Protection',
   description:
-    "Dubai's #1 premium ceramic coating, PPF, graphene coating, and car detailing studio. Serving Dubai Marina, Business Bay, JVC, Palm Jumeirah, Downtown Dubai, and all of UAE.",
+    "Dubai's #1 car ceramic coating services studio. Nano ceramic coating, PPF, graphene coating & auto detailing in Dubai from AED 1,500. Serving Dubai Marina, Business Bay, JVC, Palm Jumeirah, Downtown Dubai, and all UAE areas.",
   url: 'https://ceramic-my-car.com',
   logo: '/images/logo.svg',
   phone: '+971555153180',

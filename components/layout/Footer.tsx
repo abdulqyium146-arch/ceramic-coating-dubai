@@ -22,12 +22,12 @@ export function Footer() {
                   Ceramic My Car
                 </p>
                 <p className="text-2xs font-medium text-white/40 uppercase tracking-widest">
-                  Dubai, UAE
+                  Car Ceramic Coating Services · Dubai
                 </p>
               </div>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed mb-6">
-              {"Dubai's premier ceramic coating and paint protection studio. Trusted by 2,400+ car owners since 2018."}
+              {"Dubai's #1 car ceramic coating services studio. Nano ceramic coating, PPF, graphene & detailing. Trusted by 2,400+ car owners since 2018."}
             </p>
 
             {/* Rating */}
@@ -202,7 +202,7 @@ export function Footer() {
       <div className="border-t border-white/5">
         <div className="section-container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40 text-center sm:text-left">
-            © {currentYear} {SITE_CONFIG.name}. All rights reserved. Al Quoz, Dubai, UAE.
+            © {currentYear} Ceramic My Car — Car Ceramic Coating Services Dubai. All rights reserved. Al Quoz, Dubai, UAE.
           </p>
           <div className="flex items-center gap-4">
             <Link href="/privacy-policy" className="text-xs text-white/40 hover:text-white/80 transition-colors">

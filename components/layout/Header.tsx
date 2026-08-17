@@ -36,7 +36,7 @@ export function Header() {
       <nav className="section-container" aria-label="Main navigation">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group" aria-label="Ceramic My Car Home">
+          <Link href="/" className="flex items-center gap-2 group" aria-label="Car Ceramic Coating Services Dubai — Ceramic My Car Home">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-gold shadow-glow-gold">
               <span className="text-sm font-black text-dark-950">C</span>
             </div>
@@ -45,7 +45,7 @@ export function Header() {
                 Ceramic My Car
               </p>
               <p className="text-2xs font-medium text-white/50 uppercase tracking-widest">
-                Dubai
+                Car Ceramic Coating Services · Dubai
               </p>
             </div>
           </Link>
