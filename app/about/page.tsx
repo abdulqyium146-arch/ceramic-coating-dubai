@@ -6,16 +6,17 @@ import { CTABanner } from '@/components/sections/CTABanner'
 import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'About Ceramic My Car | Premium Detailing Studio Dubai Since 2018',
+  title: 'About Car Ceramic Coating Services Dubai | Ceramic My Car Studio | Since 2018',
   description:
-    "Dubai's most trusted ceramic coating studio since 2018. GYEON Certified, Xpel Authorized, Ceramic Pro Certified. 2,400+ cars protected. 4.9★ Google rating.",
+    "Dubai's most trusted car ceramic coating services studio since 2018. GYEON Certified, Xpel Authorized, Ceramic Pro Certified. 2,400+ cars protected. 4.9★ Google rating.",
   keywords: [
-    'about Ceramic My Car Dubai',
-    'best ceramic coating studio Dubai',
-    'certified detailers Dubai',
-    'GYEON certified Dubai',
+    'car ceramic coating Dubai studio',
+    'about car ceramic coating Dubai',
+    'best car ceramic coating Dubai',
+    'GYEON certified car ceramic coating Dubai',
     'Xpel authorized Dubai',
-    'premium detailing studio Dubai',
+    'certified car ceramic coating Dubai',
+    'Ceramic My Car about',
   ],
 }
 

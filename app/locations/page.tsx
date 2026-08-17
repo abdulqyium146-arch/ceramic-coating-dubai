@@ -7,21 +7,21 @@ import { CTABanner } from '@/components/sections/CTABanner'
 import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Ceramic Coating Near Me Dubai | All Areas Covered | Ceramic My Car',
+  title: 'Car Ceramic Coating Services Dubai Near Me | Marina, JVC, Business Bay, Palm & All Areas',
   description:
-    'Ceramic coating, PPF, graphene coating & car detailing serving all Dubai areas: Dubai Marina, JVC, Business Bay, Palm Jumeirah, Downtown Dubai, Dubai Hills, Motor City, Al Quoz & more. 4.9★ rated.',
+    'Car ceramic coating services Dubai near you. Serving Dubai Marina, JVC, Business Bay, Palm Jumeirah, Downtown Dubai, Dubai Hills, Motor City, Al Quoz, Mirdif, Deira & all UAE. 4.9★ rated. Free pickup.',
   keywords: [
+    'car ceramic coating Dubai near me',
     'ceramic coating near me Dubai',
-    'ceramic coating Dubai Marina',
-    'ceramic coating JVC',
-    'ceramic coating Business Bay',
-    'ceramic coating Palm Jumeirah',
-    'ceramic coating Downtown Dubai',
-    'PPF Dubai',
-    'graphene coating Dubai',
+    'car ceramic coating Dubai Marina',
+    'car ceramic coating JVC',
+    'car ceramic coating Business Bay',
+    'car ceramic coating Palm Jumeirah',
+    'car ceramic coating Downtown Dubai',
+    'PPF near me Dubai',
+    'graphene coating near me Dubai',
     'car detailing near me Dubai',
-    'paint correction near me Dubai',
-    'window tinting near me Dubai',
+    'ceramic coating all areas Dubai',
   ],
   alternates: { canonical: `${SITE_CONFIG.url}/locations` },
 }

@@ -9,25 +9,24 @@ import { SITE_CONFIG } from '@/lib/constants'
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: 'Gallery | Ceramic Coating Before & After Results Dubai | Ceramic My Car',
+  title: 'Car Ceramic Coating Services Dubai Results | Before & After Photos | BMW, Porsche, Mercedes',
   description:
-    'Browse 20+ real ceramic coating, PPF, paint correction and detailing results on BMWs, Porsches, Mercedes, Teslas and more. See why Dubai trusts Ceramic My Car. 4.9★ Google rated.',
+    'Real car ceramic coating services Dubai before & after results. BMW, Porsche, Mercedes, Ferrari, Range Rover, Tesla & more. See why Dubai trusts Ceramic My Car. 4.9★ Google.',
   keywords: [
-    'ceramic coating before after Dubai',
+    'car ceramic coating Dubai before after',
     'ceramic coating results Dubai',
+    'car ceramic coating Dubai photos',
     'PPF results Dubai',
-    'car detailing gallery Dubai',
     'paint correction results Dubai',
-    'ceramic coating photos Dubai',
-    'BMW ceramic coating Dubai',
-    'Mercedes ceramic coating Dubai',
-    'Porsche ceramic coating Dubai',
-    'Tesla ceramic coating Dubai',
-    'ceramic my car gallery',
+    'BMW car ceramic coating Dubai',
+    'Porsche car ceramic coating Dubai',
+    'Mercedes car ceramic coating Dubai',
+    'Ferrari ceramic coating Dubai',
+    'car detailing gallery Dubai',
   ],
   alternates: { canonical: `${SITE_CONFIG.url}/gallery` },
   openGraph: {
-    title: 'Gallery — Real Ceramic Coating Results | Ceramic My Car Dubai',
+    title: 'Car Ceramic Coating Services Dubai Results | Before & After Photos | Ceramic My Car',
     description: 'Browse real results on BMWs, Porsches, Mercedes, Teslas and more. 4.9★ Google rated ceramic coating studio in Dubai.',
     images: [{ url: '/gallery/bmw-xm-ceramic-coating-dubai.webp', width: 900, height: 1200, alt: 'BMW XM ceramic coating Dubai — Ceramic My Car' }],
     url: `${SITE_CONFIG.url}/gallery`,

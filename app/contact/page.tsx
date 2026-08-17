@@ -6,15 +6,17 @@ import { generateBreadcrumbSchema } from '@/lib/schema'
 import { ContactContent, DirectionsButton } from '@/components/sections/ContactContent'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Get Free Ceramic Coating Quote Dubai',
+  title: 'Get Free Car Ceramic Coating Services Dubai Quote | Book Free Paint Inspection',
   description:
-    'Contact Ceramic My Car Dubai. Get a free quote for ceramic coating, PPF, or car detailing. Call, WhatsApp, or visit our Al Quoz studio. Free paint inspection available.',
+    'Get a free car ceramic coating services Dubai quote. Call, WhatsApp or visit our Al Quoz studio. Free paint inspection included. Serving all Dubai areas. Response within 2 hours.',
   keywords: [
-    'contact ceramic coating Dubai',
-    'ceramic coating quote Dubai',
+    'car ceramic coating Dubai quote',
+    'free ceramic coating quote Dubai',
+    'ceramic coating free inspection Dubai',
+    'contact car ceramic coating Dubai',
+    'book ceramic coating Dubai',
     'car detailing quote Dubai',
-    'Ceramic My Car contact',
-    'free inspection Dubai',
+    'free paint inspection Dubai',
   ],
 }
 

@@ -6,16 +6,16 @@ import { generateBreadcrumbSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Book Online | Ceramic Coating & Detailing Dubai | Ceramic My Car',
+  title: 'Book Car Ceramic Coating Services Dubai | Online Booking | Free Inspection Included',
   description:
-    'Book your ceramic coating, PPF, graphene coating, paint correction, or detailing service online. Free inspection included. Pickup available across all Dubai areas.',
+    'Book your car ceramic coating services Dubai online in 60 seconds. Ceramic coating, PPF, graphene coating, paint correction & detailing. Free paint inspection. Pickup across all Dubai areas.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/book`,
   },
   openGraph: {
-    title: 'Book Online | Ceramic My Car Dubai',
+    title: 'Book Car Ceramic Coating Services Dubai | Free Inspection | Ceramic My Car',
     description:
-      'Book your premium car protection service online. Free inspection. Pickup available. Serving all Dubai areas.',
+      'Book car ceramic coating services Dubai online. Free paint inspection included. Pickup available across all Dubai areas. Confirm within 2 hours.',
     url: `${SITE_CONFIG.url}/book`,
   },
 }

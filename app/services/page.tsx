@@ -7,17 +7,20 @@ import { generateBreadcrumbSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'All Services | Ceramic Coating, PPF, Graphene & Detailing Dubai',
+  title: 'Car Ceramic Coating Services Dubai | PPF, Graphene, Paint Correction & Detailing',
   description:
-    'Complete range of premium car protection services in Dubai: ceramic coating, PPF, graphene coating, paint correction, interior & exterior detailing, window tinting. Expert certified installers.',
+    'All car ceramic coating services in Dubai: nano ceramic coating, PPF, graphene coating, paint correction, interior & exterior detailing, window tinting. GYEON & Ceramic Pro certified installers.',
   keywords: [
-    'car detailing services Dubai',
+    'car ceramic coating Dubai services',
     'ceramic coating Dubai',
     'PPF Dubai',
-    'paint correction Dubai',
     'graphene coating Dubai',
+    'paint correction Dubai',
+    'interior detailing Dubai',
+    'exterior detailing Dubai',
     'window tinting Dubai',
-    'car protection Dubai',
+    'car protection services Dubai',
+    'nano ceramic coating Dubai',
   ],
 }
 

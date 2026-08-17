@@ -7,16 +7,18 @@ import { FAQS } from '@/content/faqs'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Ceramic Coating FAQ Dubai | Common Questions Answered',
+  title: 'Car Ceramic Coating Services Dubai FAQ | How Much? How Long Does It Last? Is It Worth It?',
   description:
-    'Answers to the most common questions about ceramic coating, PPF, graphene coating, and car detailing in Dubai. Expert answers from certified detailers.',
+    'Expert answers to all car ceramic coating services Dubai questions. How much does it cost? How long does it last? Ceramic coating vs PPF vs graphene? Certified detailer answers.',
   keywords: [
-    'ceramic coating FAQ Dubai',
-    'is ceramic coating worth it Dubai',
+    'car ceramic coating Dubai FAQ',
+    'how much does car ceramic coating cost in Dubai',
     'how long does ceramic coating last Dubai',
+    'is car ceramic coating worth it Dubai',
     'ceramic coating vs PPF Dubai',
-    'graphene coating vs ceramic Dubai',
-    'car detailing FAQ Dubai',
+    'graphene coating vs ceramic coating Dubai',
+    'car ceramic coating questions Dubai',
+    'nano ceramic coating FAQ Dubai',
   ],
 }
 
