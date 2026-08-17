@@ -6,7 +6,7 @@ import { generateBreadcrumbSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Book Car Ceramic Coating Services Dubai | Online Booking | Free Inspection Included',
+  title: 'Book Online | Free Paint Inspection | 60-Second Booking | Dubai',
   description:
     'Book your car ceramic coating services Dubai online in 60 seconds. Ceramic coating, PPF, graphene coating, paint correction & detailing. Free paint inspection. Pickup across all Dubai areas.',
   alternates: {

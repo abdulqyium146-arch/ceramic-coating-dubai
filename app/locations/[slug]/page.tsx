@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const location = DUBAI_LOCATIONS.find((l) => l.slug === slug)
   if (!location) return {}
   return {
-    title: `Ceramic Coating ${location.name} Dubai | #1 Car Detailing ${location.area}`,
-    description: `Best ceramic coating, PPF & car detailing in ${location.name}, Dubai. Certified installers serving ${location.area}. 4.9★ Google rated. Free inspection & pickup available.`,
+    title: `Car Ceramic Coating Services ${location.name} | Near Me | Free Pickup | 4.9★`,
+    description: `Professional car ceramic coating services in ${location.name}, Dubai. Ceramic coating, PPF, graphene coating & detailing. 4.9★ Google · Free inspection · Free pickup from ${location.area}.`,
     keywords: [
       `ceramic coating ${location.name}`,
       `car detailing ${location.name}`,

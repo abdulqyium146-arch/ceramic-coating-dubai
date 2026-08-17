@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = SERVICES.find((s) => s.slug === slug)
   if (!service) return {}
   return {
-    title: service.seoTitle,
+    title: { absolute: service.seoTitle },
     description: service.seoDescription,
     keywords: service.keywords,
     alternates: { canonical: `${SITE_CONFIG.url}/services/${slug}` },

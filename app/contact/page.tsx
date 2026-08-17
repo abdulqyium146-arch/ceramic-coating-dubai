@@ -6,7 +6,7 @@ import { generateBreadcrumbSchema } from '@/lib/schema'
 import { ContactContent, DirectionsButton } from '@/components/sections/ContactContent'
 
 export const metadata: Metadata = {
-  title: 'Get Free Car Ceramic Coating Services Dubai Quote | Book Free Paint Inspection',
+  title: 'Free Quote & Paint Inspection | Contact Us | Al Quoz Dubai',
   description:
     'Get a free car ceramic coating services Dubai quote. Call, WhatsApp or visit our Al Quoz studio. Free paint inspection included. Serving all Dubai areas. Response within 2 hours.',
   keywords: [

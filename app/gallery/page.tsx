@@ -9,7 +9,7 @@ import { SITE_CONFIG } from '@/lib/constants'
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: 'Car Ceramic Coating Services Dubai Results | Before & After Photos | BMW, Porsche, Mercedes',
+  title: 'Ceramic Coating Results Dubai | Before & After | BMW, Porsche, Ferrari',
   description:
     'Real car ceramic coating services Dubai before & after results. BMW, Porsche, Mercedes, Ferrari, Range Rover, Tesla & more. See why Dubai trusts Ceramic My Car. 4.9★ Google.',
   keywords: [

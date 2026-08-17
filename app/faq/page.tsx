@@ -7,7 +7,7 @@ import { FAQS } from '@/content/faqs'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Car Ceramic Coating Services Dubai FAQ | How Much? How Long Does It Last? Is It Worth It?',
+  title: 'Ceramic Coating Dubai FAQ | How Much? How Long? Is It Worth It?',
   description:
     'Expert answers to all car ceramic coating services Dubai questions. How much does it cost? How long does it last? Ceramic coating vs PPF vs graphene? Certified detailer answers.',
   keywords: [

@@ -18,9 +18,9 @@ import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Car Ceramic Coating Services Dubai | From AED 1,500 | PPF, Graphene & Detailing',
+  title: { absolute: 'Car Ceramic Coating Services Dubai | Near Me | From AED 1,500 | 4.9★ 847 Reviews' },
   description:
-    "Best car ceramic coating services in Dubai from AED 1,500. Nano ceramic coating, PPF, graphene coating & interior detailing. 4.9★ Google · 2,400+ cars protected · Free inspection · All Dubai areas.",
+    "#1 car ceramic coating services in Dubai from AED 1,500. Nano ceramic coating, PPF near me, graphene coating & interior detailing. 4.9★ Google · 2,400+ cars · Free inspection · All Dubai areas.",
   keywords: [
     'car ceramic coating Dubai',
     'ceramic coating Dubai',

@@ -75,16 +75,25 @@ export const SERVICES: Service[] = [
         answer:
           'You should avoid washing for 7 days after application to allow full curing. After that, you can wash normally — in fact, washing becomes much easier! We recommend hand washing or touchless car washes, and avoiding automatic brush car washes that can create micro-scratches.',
       },
+      {
+        question: 'How much does ceramic coating cost for an SUV in Dubai?',
+        answer: 'Ceramic coating for an SUV or 4x4 in Dubai costs from AED 2,200 for a 2-year package up to AED 9,500 for a 10-year elite package. SUVs have larger surface areas than sedans. Examples: Ceramic coating for a Range Rover starts from AED 3,500; for a Toyota Land Cruiser from AED 3,000. All packages include free paint inspection and decontamination.'
+      },
     ],
-    seoTitle: 'Ceramic Coating Dubai | Professional Nano Ceramic Coating | Ceramic My Car',
+    seoTitle: 'Ceramic Coating Dubai | From AED 1,500 | GYEON Certified | Near Me | 4.9★',
     seoDescription:
-      'Professional ceramic coating in Dubai from AED 1,500. 9H hardness, hydrophobic protection, UV shield. Serving all Dubai areas. Free inspection available.',
+      'Professional nano ceramic coating in Dubai from AED 1,500. 9H hardness, UV protection, hydrophobic shield. GYEON & Ceramic Pro certified. 4.9★ 847 reviews. Free paint inspection.',
     keywords: [
       'ceramic coating Dubai',
       'nano ceramic coating Dubai',
       'ceramic coating cost Dubai',
       'best ceramic coating Dubai',
       'ceramic coating near me Dubai',
+      'car ceramic coating services dubai',
+      'ceramic coating near me',
+      'best ceramic coating dubai',
+      'ceramic coating price dubai',
+      'interior ceramic coating',
     ],
   },
   {
@@ -134,16 +143,29 @@ export const SERVICES: Service[] = [
         answer:
           "Quality PPF from brands like Xpel or SunTek typically lasts 10 years in Dubai with proper care. The extreme UV can cause inferior films to yellow over time, which is why we only use premium films with advanced anti-yellowing technology.",
       },
+      {
+        question: 'How much does PPF cost in Dubai?',
+        answer: 'PPF (Paint Protection Film) in Dubai starts from AED 2,500 for partial front coverage (hood, bumper, mirrors) and goes up to AED 8,000–15,000 for full-body coverage on a luxury vehicle. Xpel Ultimate Plus full-body coverage on a mid-size sedan typically costs AED 6,000–9,000. All quotes are free with no obligation.'
+      },
+      {
+        question: 'PPF vs ceramic coating — which should I choose in Dubai?',
+        answer: 'For Dubai driving, the best answer is both. PPF provides physical protection from rock chips and scratches that ceramic cannot prevent. Ceramic coating adds chemical resistance, UV protection, and a hydrophobic layer that makes PPF easier to clean. If budget allows, apply PPF first then ceramic coat over it. If choosing one: PPF for highway driving and rock chip risk; ceramic coating for UV protection, gloss, and maintenance ease.'
+      },
     ],
-    seoTitle: 'PPF Dubai | Paint Protection Film | Xpel & SunTek | Ceramic My Car',
+    seoTitle: 'PPF Dubai | Paint Protection Film From AED 2,500 | Xpel Authorized',
     seoDescription:
-      'Premium Paint Protection Film (PPF) in Dubai. Self-healing Xpel, SunTek, 3M film. Computer-cut precision fit. Full body or partial coverage. Free quote.',
+      'Self-healing Paint Protection Film (PPF) in Dubai from AED 2,500. Xpel & SunTek authorized. Computer-cut precision fit. 10-year manufacturer warranty. Free quote today.',
     keywords: [
       'PPF Dubai',
       'paint protection film Dubai',
       'Xpel PPF Dubai',
       'clear bra Dubai',
       'rock chip protection Dubai',
+      'ppf in dubai',
+      'ppf near me dubai',
+      'xpel ppf dubai',
+      'paint protection film price dubai',
+      'car ppf dubai',
     ],
   },
   {
@@ -187,15 +209,27 @@ export const SERVICES: Service[] = [
         answer:
           "For Dubai's specific conditions — extreme heat, hard water, sand — graphene coating's anti-static and heat-resistant properties make it worth the premium. The reduced water spotting alone can save significant time and effort maintaining your vehicle in Dubai.",
       },
+      {
+        question: 'How much does graphene coating cost in Dubai?',
+        answer: 'Graphene coating in Dubai starts from AED 2,500 for a standard sedan and ranges to AED 6,000+ for luxury vehicles or full-correction packages. It costs slightly more than standard ceramic coating due to the advanced graphene technology, but the improved anti-static, heat resistance, and reduced water spotting make it worth the premium for Dubai conditions.'
+      },
+      {
+        question: 'Is graphene coating worth it in Dubai?',
+        answer: "Yes — graphene coating is especially worth it in Dubai for three reasons: (1) Dubai's hard water causes severe water spotting; graphene's anti-static properties dramatically reduce this. (2) Extreme heat (50°C+) can stress standard ceramic; graphene dissipates heat better. (3) Sand and dust stick to statically charged surfaces; graphene's anti-static charge repels them. For any car parked outdoors in Dubai, graphene is the better long-term investment."
+      },
     ],
-    seoTitle: 'Graphene Coating Dubai | Next-Gen Paint Protection | Ceramic My Car',
+    seoTitle: 'Graphene Coating Dubai | From AED 2,500 | Superior to Ceramic | Free Inspect',
     seoDescription:
-      "Graphene coating in Dubai — superior to ceramic coating with anti-static properties, heat resistance, and reduced water spotting. Perfect for Dubai's climate.",
+      'Graphene coating in Dubai from AED 2,500 — superior to standard ceramic with anti-static, heat resistance & reduced water spotting. GYEON certified. Free paint inspection.',
     keywords: [
       'graphene coating Dubai',
       'graphene ceramic coating Dubai',
       'best coating Dubai',
       'graphene vs ceramic Dubai',
+      'graphene coating for cars in dubai',
+      'is graphene coating worth it uae',
+      'graphene coating vs ceramic dubai',
+      'graphene paint protection dubai',
     ],
   },
   {
@@ -241,9 +275,9 @@ export const SERVICES: Service[] = [
           "Paint correction can remove scratches that exist within the clear coat layer. Scratches you can feel with your fingernail have typically gone through the clear coat into the base coat and cannot be removed by polishing — they require touch-up paint or panel repainting. During your free inspection, we'll assess which scratches are correctable.",
       },
     ],
-    seoTitle: 'Paint Correction Dubai | Swirl Mark Removal | Machine Polishing | Ceramic My Car',
+    seoTitle: 'Paint Correction Dubai | Swirl Removal From AED 800 | Free Paint Inspection',
     seoDescription:
-      'Professional paint correction in Dubai. Remove swirl marks, scratches, oxidation. Machine polishing by certified detailers. Book your free paint inspection.',
+      'Professional paint correction in Dubai from AED 800. Remove swirl marks, scratches & oxidation by certified detailers. Essential before ceramic coating. Free inspection available.',
     keywords: [
       'paint correction Dubai',
       'swirl mark removal Dubai',
@@ -290,9 +324,9 @@ export const SERVICES: Service[] = [
           "For Dubai's conditions — dust, sand, and extreme heat that degrades materials — we recommend interior detailing every 3–6 months. Regular maintenance keeps leather supple, prevents UV damage to the dash, and maintains a clean cabin environment.",
       },
     ],
-    seoTitle: 'Interior Detailing Dubai | Leather Conditioning | Deep Clean | Ceramic My Car',
+    seoTitle: 'Interior Detailing Dubai | From AED 400 | Steam Clean + Leather Care | Near Me',
     seoDescription:
-      'Premium interior detailing in Dubai. Leather conditioning, steam cleaning, sanitization, odour removal. Starting from AED 400. Book online today.',
+      'Premium interior detailing in Dubai from AED 400. Deep steam clean, leather conditioning, sanitization & odour removal. Book online today. Al Quoz studio — all Dubai areas.',
     keywords: [
       'interior detailing Dubai',
       'car interior cleaning Dubai',
@@ -338,9 +372,9 @@ export const SERVICES: Service[] = [
           "A car wash only removes surface dirt. Exterior detailing goes much deeper — removing bonded contamination (iron fallout, tar, industrial fallout) that a wash cannot remove, then protecting the paint with wax or sealant. The result is a deeper, longer-lasting clean with actual paint protection.",
       },
     ],
-    seoTitle: 'Exterior Detailing Dubai | Full Exterior Car Care | Ceramic My Car',
+    seoTitle: 'Exterior Detailing Dubai | Hand Wash + Clay Bar | From AED 250 | Near Me',
     seoDescription:
-      'Professional exterior detailing in Dubai. Hand wash, clay bar, iron decontamination, wax/sealant. Starting from AED 250. Book your appointment today.',
+      'Professional exterior detailing in Dubai from AED 250. Safe hand wash, clay bar, iron decontamination & wax/sealant protection. Book online — all Dubai areas served.',
     keywords: [
       'exterior detailing Dubai',
       'car detailing Dubai',
@@ -391,16 +425,24 @@ export const SERVICES: Service[] = [
         answer:
           'Window tinting in Dubai starts from AED 800 for a standard 5-window application with a good-quality film. Premium nano-ceramic films from Xpel or 3M range from AED 1,500–3,000 depending on vehicle size.',
       },
+      {
+        question: 'Is ceramic window tint worth it in Dubai?',
+        answer: "Absolutely. Ceramic window tint is significantly better than dyed or metallic film in Dubai's extreme heat. It rejects up to 99% of UV rays and 70% of infrared heat without interfering with GPS, phone signals, or satellite radio. While it costs more than basic film (AED 800 vs AED 1,500–3,000 for ceramic), the heat reduction alone reduces air conditioning load by up to 30%, improving fuel economy and protecting your interior."
+      },
     ],
-    seoTitle: 'Window Tinting Dubai | Nano-Ceramic Window Film | RTA Compliant | Ceramic My Car',
+    seoTitle: 'Window Tinting Dubai | From AED 800 | 99% UV Block | RTA Legal | Xpel Film',
     seoDescription:
-      'Premium window tinting in Dubai. 99% UV rejection, 70% heat rejection. Xpel, SunTek, 3M films. RTA compliant. Starting from AED 800. Free quote.',
+      'Professional window tinting in Dubai from AED 800. 99% UV rejection, 70% heat block. Xpel, SunTek & 3M nano-ceramic films. RTA compliant. Lifetime warranty. Free quote.',
     keywords: [
       'window tinting Dubai',
       'car window film Dubai',
       'UV window tint Dubai',
       'Xpel tint Dubai',
       'car tinting Dubai',
+      'car window tinting dubai',
+      'window tinting near me',
+      'ceramic window tint dubai',
+      'window tinting dubai price',
     ],
   },
 ]

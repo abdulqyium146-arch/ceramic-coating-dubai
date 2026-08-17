@@ -30,22 +30,35 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = SERVICES.find((s) => s.slug === serviceSlug)
   if (!location || !service) return {}
 
+  const shortLabel: Record<string, string> = {
+    'ceramic-coating': 'Ceramic Coating',
+    'ppf': 'PPF',
+    'graphene-coating': 'Graphene Coating',
+    'paint-correction': 'Paint Correction',
+    'interior-detailing': 'Interior Detailing',
+    'exterior-detailing': 'Exterior Detailing',
+    'window-tinting': 'Window Tinting',
+  }
+  const label = shortLabel[serviceSlug] ?? service.title
+  const title = `${label} ${location.name} Dubai | Near Me From AED ${service.startingPrice.toLocaleString()} | 4.9★`
+  const description = `Professional ${label.toLowerCase()} in ${location.name}, Dubai from AED ${service.startingPrice.toLocaleString()}. GYEON certified installers. 4.9★ Google (847 reviews). Free paint inspection. Free pickup from ${location.area}. Same-week appointments.`
+
   const canonicalUrl = `${SITE_CONFIG.url}/locations/${slug}/${serviceSlug}`
   return {
-    title: `${service.title} ${location.name} Dubai | Professional ${service.title} Near ${location.area} | Ceramic My Car`,
-    description: `Professional ${service.title.toLowerCase()} in ${location.name}, Dubai. Starting from AED ${service.startingPrice.toLocaleString()}. Certified installers. 4.9★ Google rated. Free inspection & pickup from ${location.name}. Book today.`,
+    title: { absolute: title },
+    description,
     keywords: [
-      `${service.title.toLowerCase()} ${location.name}`,
-      `${service.title.toLowerCase()} near me ${location.name}`,
-      `${service.title.toLowerCase()} ${location.area} Dubai`,
-      `best ${service.title.toLowerCase()} ${location.name}`,
-      `${service.title.toLowerCase()} ${location.name} price`,
+      `${label.toLowerCase()} ${location.name}`,
+      `${label.toLowerCase()} near me ${location.name}`,
+      `${label.toLowerCase()} ${location.area} Dubai`,
+      `best ${label.toLowerCase()} ${location.name}`,
+      `${label.toLowerCase()} ${location.name} price`,
       `car detailing ${location.name}`,
-      `${service.title.toLowerCase()} Dubai`,
+      `${label.toLowerCase()} Dubai`,
     ],
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${service.title} in ${location.name}, Dubai | Ceramic My Car`,
+      title: `${label} in ${location.name}, Dubai | Ceramic My Car`,
       description: `${service.shortDescription} Serving ${location.area}. Starting from AED ${service.startingPrice.toLocaleString()}. Free inspection.`,
       url: canonicalUrl,
     },

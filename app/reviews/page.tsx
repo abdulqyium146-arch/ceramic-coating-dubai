@@ -7,7 +7,7 @@ import { generateBreadcrumbSchema, generateReviewSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Car Ceramic Coating Services Dubai Reviews | 4.9★ Google | 847+ Verified Customers',
+  title: { absolute: '4.9★ Ceramic Coating Dubai Reviews | 847 Verified Google Reviews | Ceramic My Car' },
   description:
     'Genuine car ceramic coating services Dubai reviews. 4.9 stars from 847+ verified Google customers. Ferrari, Lamborghini, Range Rover, BMW, Mercedes owners share their Ceramic My Car experiences.',
   keywords: [

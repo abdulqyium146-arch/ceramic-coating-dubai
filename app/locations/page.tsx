@@ -7,7 +7,7 @@ import { CTABanner } from '@/components/sections/CTABanner'
 import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Car Ceramic Coating Services Dubai Near Me | Marina, JVC, Business Bay, Palm & All Areas',
+  title: { absolute: 'Car Ceramic Coating Services Dubai Near Me | All Areas | Marina, JVC, Business Bay' },
   description:
     'Car ceramic coating services Dubai near you. Serving Dubai Marina, JVC, Business Bay, Palm Jumeirah, Downtown Dubai, Dubai Hills, Motor City, Al Quoz, Mirdif, Deira & all UAE. 4.9★ rated. Free pickup.',
   keywords: [

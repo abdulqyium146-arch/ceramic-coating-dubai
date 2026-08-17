@@ -8,9 +8,9 @@ import { SITE_CONFIG } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Car Ceramic Coating Services Dubai Price | How Much Does It Cost? From AED 1,500',
+  title: { absolute: 'Ceramic Coating Dubai Price List 2026 | From AED 1,500 | PPF, Graphene, Tinting' },
   description:
-    'Car ceramic coating services Dubai prices from AED 1,500. PPF from AED 2,500. Graphene coating from AED 2,500. Transparent pricing, no hidden fees. Free paint inspection included. All vehicle types.',
+    'Complete car ceramic coating services Dubai price list 2026. Ceramic coating from AED 1,500, PPF from AED 2,500, graphene from AED 2,500, window tinting from AED 800. Transparent pricing, no hidden fees.',
   keywords: [
     'car ceramic coating Dubai price',
     'ceramic coating cost Dubai',
