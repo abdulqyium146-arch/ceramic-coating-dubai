@@ -5,9 +5,9 @@ export const SITE_CONFIG = {
     "Dubai's #1 car ceramic coating services studio. Nano ceramic coating, PPF, graphene coating & auto detailing in Dubai from AED 1,500. Serving Dubai Marina, Business Bay, JVC, Palm Jumeirah, Downtown Dubai, and all UAE areas.",
   url: 'https://ceramic-my-car.com',
   logo: '/images/logo.svg',
-  phone: '+971555153180',
-  phoneDisplay: '+971 55 515 3180',
-  whatsapp: '971555153180',
+  phone: '+971504617607',
+  phoneDisplay: '+971 50 461 7607',
+  whatsapp: '971504617607',
   email: 'info@ceramic-my-car.com',
   address: {
     street: 'Al Quoz Industrial Area 4',
