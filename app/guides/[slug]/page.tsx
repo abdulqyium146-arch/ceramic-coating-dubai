@@ -114,6 +114,40 @@ export default async function GuidePage({ params }: PageProps) {
         </section>
       ))}
 
+      {/* Comparison table */}
+      {guide.table && (
+        <section className="section-py bg-dark-900">
+          <div className="section-container max-w-4xl">
+            <h2 className="heading-md mb-8">{guide.table.caption}</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <caption className="sr-only">{guide.table.caption}</caption>
+                <thead>
+                  <tr className="border-b border-white/10">
+                    {guide.table.headers.map((h) => (
+                      <th key={h} scope="col" className="text-left py-3 px-4 font-bold text-white">
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {guide.table.rows.map((row, i) => (
+                    <tr key={i} className="border-b border-white/5">
+                      <th scope="row" className="text-left py-3 px-4 font-semibold text-white/80">
+                        {row[0]}
+                      </th>
+                      <td className="py-3 px-4 text-white/60">{row[1]}</td>
+                      <td className="py-3 px-4 text-white/60">{row[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQs */}
       <section className="section-py bg-dark-900">
         <div className="section-container max-w-3xl">

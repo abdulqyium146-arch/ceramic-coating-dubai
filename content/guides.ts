@@ -8,11 +8,12 @@ export interface Guide {
   intro: string[]
   takeaways: string[]
   sections: { heading: string; paragraphs: string[] }[]
+  table?: { caption: string; headers: [string, string, string]; rows: [string, string, string][] }
   faqs: { question: string; answer: string }[]
   relatedLinks: { label: string; href: string }[]
 }
 
-export const GUIDES: Guide[] = [
+const GUIDES_BASE: Guide[] = [
   {
     slug: 'ppf-faq-hub',
     h1: 'Paint Protection Film (PPF): The Complete Dubai FAQ Guide',
@@ -213,4 +214,268 @@ export const GUIDES: Guide[] = [
   },
 ]
 
+// Phase 4c: comparison + explainer guides.
+const GUIDES_EXTRA: Guide[] = [
+  {
+    slug: 'ppf-vs-ceramic-coating',
+    h1: 'PPF vs Ceramic Coating: The Honest Dubai Comparison',
+    seoTitle: 'PPF vs Ceramic Coating: Which Is Right? | Dubai Guide',
+    seoDescription:
+      'PPF vs ceramic coating: cost, protection & durability compared for Dubai. Plus when to get both. Honest advice from installers.',
+    intro: [
+      'This is the question we answer most at our Al Quoz studio \u2014 and the one the internet answers worst. PPF and ceramic coating are not competitors; they solve different problems. But because they\u2019re sold side by side, buyers treat them as an either/or choice and usually optimise for the wrong thing.',
+      'Here\u2019s the straight comparison: what each does, what each costs in Dubai, and the decision framework we walk customers through every day.',
+    ],
+    takeaways: [
+      'PPF = physical protection (chips, scratches). Ceramic = chemical/UV protection + gloss + easy washing.',
+      'If highway stone chips are your fear, only PPF helps. If UV fade and wash swirls are, ceramic wins.',
+      'Dubai cost: ceramic from AED 1,500; PPF from AED 2,500 (front) to AED 15,000 (full body).',
+      'The benchmark setup: PPF on impact zones + ceramic over everything.',
+      'Beware anyone selling one product as doing the other\u2019s job.',
+    ],
+    sections: [
+      {
+        heading: 'The Core Difference in One Paragraph',
+        paragraphs: [
+          'Paint protection film is a physical barrier \u2014 150\u2013200 microns of urethane that absorbs impacts. Ceramic coating is a chemical barrier \u2014 microns thick, bonded to the paint, blocking UV and chemicals while adding gloss and hydrophobics. One stops rocks; the other stops the sun. In Dubai, you face both.',
+        ],
+      },
+      {
+        heading: 'When to Choose PPF',
+        paragraphs: [
+          'Choose PPF when your primary enemy is physical: daily Sheikh Zayed Road commuting (stone chips), desert or wadi driving (sand rash, brush scratches), a brand-new car you want frozen at delivery condition, or a high-value car where resale depends on flawless paint. If you\u2019ve ever winced at a chip on your hood, that\u2019s the PPF use case.',
+        ],
+      },
+      {
+        heading: 'When to Choose Ceramic Coating',
+        paragraphs: [
+          'Choose ceramic when your primary enemies are chemical and cosmetic: a car parked outdoors under UV Index 11+, dark paint that shows every swirl, hatred of washing (hydrophobics cut wash time dramatically), or a budget under AED 3,000. For garage-kept cars that rarely see highways, ceramic alone is the value answer.',
+        ],
+      },
+      {
+        heading: 'When to Get Both (and How)',
+        paragraphs: [
+          'The Dubai benchmark: PPF on the front end (bumper, hood, mirrors, headlights \u2014 where 90% of chips land), ceramic coating over the entire car including the film. The film stops impacts; the ceramic adds UV protection, gloss and easy washing everywhere. Booked together it costs less than the two services separately \u2014 ask for a bundle quote.',
+        ],
+      },
+    ],
+    table: {
+      caption: 'Head-to-Head: PPF vs Ceramic Coating',
+      headers: ['Feature', 'PPF', 'Ceramic Coating'],
+      rows: [
+        ['Stops rock chips', 'Yes \u2014 its main job', 'No'],
+        ['UV / fade protection', 'Yes, under the film', 'Yes \u2014 excellent'],
+        ['Scratch resistance', 'Self-heals light scratches', 'Resists wash swirls only'],
+        ['Gloss enhancement', 'Slight', 'Dramatic wet-look'],
+        ['Hydrophobics / easy wash', 'Moderate', 'Excellent'],
+        ['Durability in Dubai', '~10 years', '2\u201310 years by tier'],
+        ['Typical cost', 'AED 2,500\u201315,000', 'AED 1,500\u20138,500+'],
+        ['Install time', '2\u20135 days', '1\u20133 days'],
+        ['Can combine?', 'Yes \u2014 ceramic over PPF', 'Yes \u2014 under nothing'],
+      ],
+    },
+    faqs: [
+      {
+        question: 'Is PPF better than ceramic coating?',
+        answer:
+          'Neither is better \u2014 they do different jobs. PPF is better at stopping physical damage; ceramic is better at UV protection, gloss and easy washing per dirham. The right question is which problem you have, not which product is "better".',
+      },
+      {
+        question: 'Can I get ceramic coating instead of PPF to save money?',
+        answer:
+          'Only if chips aren\u2019t your problem. Ceramic costs less and does more for gloss and washing \u2014 but it physically cannot stop a stone chip. If you commute on highways daily, the money "saved" becomes paint repair later.',
+      },
+      {
+        question: 'Should I do PPF or ceramic first on a new car?',
+        answer:
+          'If budget allows one: PPF on the front end first (chips happen from day one), ceramic later over everything. If doing both at once: PPF first, ceramic over the top \u2014 always in that order.',
+      },
+      {
+        question: 'Which lasts longer, PPF or ceramic coating?',
+        answer:
+          'Premium PPF lasts ~10 years; ceramic lasts 2\u201310 years depending on tier and maintenance. In practice they age differently \u2014 film fails at edges and yellows (cheap film), coating fades in hydrophobics \u2014 so "lasts longer" depends on what you measure.',
+      },
+      {
+        question: 'Is the PPF + ceramic combo worth it in Dubai?',
+        answer:
+          'For cars over ~AED 150,000 that see highways, yes \u2014 it\u2019s the closest to complete protection available. For a city runabout that\u2019s garage-kept, ceramic alone is the sensible spend.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'PPF service', href: '/services/ppf' },
+      { label: 'Ceramic coating service', href: '/services/ceramic-coating' },
+      { label: 'PPF price guide', href: '/pricing/ppf-price-dubai' },
+      { label: 'Ceramic coating price guide', href: '/pricing/ceramic-coating-price-dubai' },
+    ],
+  },
+  {
+    slug: 'graphene-vs-ceramic-dubai',
+    h1: 'Graphene vs Ceramic Coating: Dubai Comparison',
+    seoTitle: 'Graphene vs Ceramic Coating | Dubai Comparison Guide',
+    seoDescription:
+      'Graphene vs ceramic coating in Dubai: real differences, heat & dust performance, cost. Which coating suits your car?',
+    intro: [
+      'Graphene coating is marketed as ceramic\u2019s successor \u2014 and the marketing has outrun the explanation. Here\u2019s what graphene actually adds, where it genuinely matters in Dubai, and when standard ceramic remains the smarter buy.',
+      'Short version: graphene is ceramic chemistry plus a graphene nanostructure. Same family, upgraded properties \u2014 not a different species.',
+    ],
+    takeaways: [
+      'Graphene coatings add: anti-static dust repellence, better heat dissipation, reduced water spotting.',
+      'In Dubai\u2019s dust and 50\u00b0C heat, those three upgrades are genuinely noticeable.',
+      'Cost: graphene from AED 2,500 vs ceramic from AED 1,500.',
+      'For garage-kept cars, standard ceramic is the value pick.',
+      'Both need the same preparation and maintenance \u2014 graphene isn\u2019t fit-and-forget.',
+    ],
+    sections: [
+      {
+        heading: 'What Graphene Actually Adds',
+        paragraphs: [
+          'A graphene coating starts as a ceramic (SiO2) coating with reduced graphene oxide integrated into the matrix. The graphene adds three measurable properties: lower surface energy (water spots release instead of etching), anti-static behaviour (less dust attraction \u2014 huge in Dubai), and higher thermal conductivity (heat spreads instead of concentrating, reducing water-spot baking).',
+          'What it doesn\u2019t add: meaningful hardness over 9H ceramic, chip resistance (still a coating, not armour), or freedom from maintenance.',
+        ],
+      },
+      {
+        heading: 'The Dubai Verdict',
+        paragraphs: [
+          'Dubai is arguably the best case in the world for graphene: airborne dust coats cars within hours of washing, and 50\u00b0C panels bake water spots into paint fast. The anti-static and heat-dissipation properties attack Dubai\u2019s two signature problems directly. On a daily-driven car parked outdoors here, the difference over standard ceramic is real and visible within months.',
+          'On a garage-kept weekend car, the advantages shrink to marginal \u2014 and the ~AED 1,000 premium buys little you\u2019ll notice. That\u2019s when standard ceramic wins on value.',
+        ],
+      },
+      {
+        heading: 'Cost Comparison',
+        paragraphs: [
+          'Graphene coating in Dubai starts from AED 2,500 for a 5-year package on a sedan \u2014 roughly AED 1,000 more than the equivalent ceramic tier. The premium covers the graphene-infused product and identical preparation. Durability claims (5\u20137 years typical, up to 10 premium) mirror ceramic\u2019s, because the failure modes \u2014 contamination, neglect, UV \u2014 are the same.',
+        ],
+      },
+    ],
+    table: {
+      caption: 'Head-to-Head: Graphene vs Ceramic Coating',
+      headers: ['Property', 'Graphene Coating', 'Ceramic Coating (9H)'],
+      rows: [
+        ['Dust repellence', 'Anti-static \u2014 noticeably less dust', 'Standard \u2014 dust settles normally'],
+        ['Water spotting', 'Reduced \u2014 spots release easier', 'Good, but spots can bake on'],
+        ['Heat dissipation', 'Higher \u2014 less spot baking', 'Standard'],
+        ['Gloss', 'Deep, slightly darker tone', 'Sharp wet-look gloss'],
+        ['Hardness', '~9H\u201310H', '9H'],
+        ['Durability', '5\u201310 years by tier', '2\u201310 years by tier'],
+        ['Dubai starting price', 'From AED 2,500', 'From AED 1,500'],
+        ['Maintenance needs', 'Same: wash 2\u20134 weekly', 'Same'],
+      ],
+    },
+    faqs: [
+      {
+        question: 'Is graphene coating better than ceramic coating?',
+        answer:
+          'In measurable properties \u2014 dust repellence, heat dissipation, water-spot resistance \u2014 yes. In hardness and base durability, roughly equal. "Better" depends on whether you\u2019ll notice the upgrades: daily-driven outdoor cars in Dubai will; garage queens won\u2019t.',
+      },
+      {
+        question: 'How much does graphene coating cost in Dubai?',
+        answer:
+          'From AED 2,500 for a 5-year package on a sedan, up to AED 6,000+ for premium tiers on larger vehicles. About AED 1,000 more than the equivalent ceramic package \u2014 the preparation work is identical.',
+      },
+      {
+        question: 'Does graphene coating last longer than ceramic?',
+        answer:
+          'Not meaningfully. Both live or die by preparation and maintenance; claimed durability (5\u201310 years) overlaps heavily. Buy graphene for its properties, not for extra years.',
+      },
+      {
+        question: 'Is graphene coating worth it in Dubai?',
+        answer:
+          'For a daily driver parked outdoors \u2014 yes, the anti-static and heat properties target Dubai\u2019s exact problems. For a garage-kept car, standard ceramic gives 90% of the result for less money.',
+      },
+      {
+        question: 'Can graphene coating go over PPF?',
+        answer:
+          'Yes \u2014 like ceramic, it bonds to film and adds hydrophobics and dust repellence on top of physical protection. An excellent combination for new cars.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Graphene coating service', href: '/services/graphene-coating' },
+      { label: 'Ceramic coating service', href: '/services/ceramic-coating' },
+      { label: 'Ceramic coating price guide', href: '/pricing/ceramic-coating-price-dubai' },
+      { label: 'Ceramic coating FAQ guide', href: '/guides/ceramic-coating-faq-hub' },
+    ],
+  },
+  {
+    slug: 'what-is-paint-correction',
+    h1: 'What Is Paint Correction? The Complete Dubai Guide',
+    seoTitle: 'What Is Paint Correction? | Dubai Guide | Ceramic My Car',
+    seoDescription:
+      'What is paint correction? Stages, cost in Dubai (from AED 800), how long it lasts & when your car needs it. Honest explainer.',
+    intro: [
+      'Paint correction is machine polishing elevated to a discipline: the systematic removal of defects \u2014 swirls, oxidation, water-spot etching, light scratches \u2014 from your car\u2019s clear coat, measured in microns, finished to a level most people have never seen their paint achieve.',
+      'It\u2019s also the foundation under everything we do. Ceramic coating and PPF both lock in what\u2019s underneath \u2014 correction is what makes "underneath" worth locking in.',
+    ],
+    takeaways: [
+      'Paint correction = machine removal of clear-coat defects, not filling or hiding them.',
+      'Stages: single-stage (enhancement) to multi-stage (full correction); more stages = more defect removal.',
+      'Dubai cost: from AED 800 (single-stage) to AED 3,000+ (multi-stage, large vehicles).',
+      'It\u2019s permanent \u2014 removed defects don\u2019t come back; new ones come from washing.',
+      'Required before ceramic coating or PPF on any imperfect paint.',
+    ],
+    sections: [
+      {
+        heading: 'What Correction Actually Removes',
+        paragraphs: [
+          'Swirl marks (spider-webbing from bad washing), oxidation and UV haze, water-spot etching, light scratches, holograms from previous bad polishing, and bird-dropping etch marks. What it cannot fix: scratches through to primer, stone chips (they need touch-up or PPF), or thin/failing clear coat \u2014 which is why we measure paint depth first.',
+          'The work is subtractive: abrasive compounds level the clear coat until defects disappear. A typical correction removes 2\u20135 microns from a 40\u201350 micron factory clear coat \u2014 safe when measured, dangerous when guessed.',
+        ],
+      },
+      {
+        heading: 'The Stages, Explained',
+        paragraphs: [
+          'Single-stage (enhancement): one polishing step, removes 50\u201370% of defects, restores gloss dramatically. Right for well-kept cars and as prep for coating. Multi-stage: compounding followed by refining (sometimes 3+ steps), removes 85\u201395%+ of defects. Right for neglected paint, dark colours, and show preparation.',
+          'More stages isn\u2019t "better" \u2014 it\u2019s more aggressive. The correct stage is the least aggressive one that achieves your goal, because clear coat is finite.',
+        ],
+      },
+      {
+        heading: 'Why Dubai Cars Need It More',
+        paragraphs: [
+          'Dust is the enemy: every dusty wipe without proper washing grinds micro-scratches in, and Dubai cars get dusty daily. Tunnel car washes \u2014 still common here \u2014 install swirls at industrial speed. Add UV oxidation on outdoor-parked cars and mineral etching from hard water, and the average 3-year-old Dubai car carries more defects than a 6-year-old European one.',
+          'That\u2019s why correction is bundled into our coating and PPF packages rather than sold as a surprise extra: in Dubai, "prep" isn\u2019t optional.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How much does paint correction cost in Dubai?',
+        answer:
+          'From AED 800 for single-stage enhancement on a sedan, AED 1,500\u20132,500 for two-stage correction, and AED 3,000+ for multi-stage work on large or badly defected vehicles. The free inspection determines which stage your paint actually needs.',
+      },
+      {
+        question: 'How long does paint correction last?',
+        answer:
+          'The correction itself is permanent \u2014 removed defects are gone forever. What returns is new damage from washing, dust and sun. Protected with ceramic coating afterward, a correction lasts years; unprotected on a daily driver, swirls creep back within 6\u201312 months.',
+      },
+      {
+        question: 'Is paint correction the same as polishing?',
+        answer:
+          'Polishing is the tool; correction is the discipline. A "polish" at a car wash is usually a filler-heavy glaze that hides swirls for weeks. True correction permanently removes them with measured, staged machine work. Ask whether defects are removed or filled \u2014 the answer tells you everything.',
+      },
+      {
+        question: 'Will paint correction thin my clear coat dangerously?',
+        answer:
+          'Not when done properly. We measure paint depth on every panel first and work within safe limits \u2014 typically removing 2\u20135 microns from 40\u201350 microns of factory clear. The danger is unmeasured, aggressive correction; measurement is what makes it safe.',
+      },
+      {
+        question: 'Do I need paint correction before ceramic coating?',
+        answer:
+          'On any imperfect paint, yes \u2014 coating locks in whatever\u2019s underneath permanently. On a brand-new car with delivery-fresh paint, a light single-stage enhancement usually suffices. The free inspection shows you exactly what your paint needs, with paint-depth readings to prove it.',
+      },
+      {
+        question: 'How long does paint correction take?',
+        answer:
+          'Single-stage: 1 day. Two-stage: 1\u20132 days. Multi-stage on a large vehicle: 2\u20133 days. It\u2019s slow, careful work \u2014 anyone promising full correction in 3 hours is selling a glaze, not correction.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Paint correction service', href: '/services/paint-correction' },
+      { label: 'Ceramic coating service', href: '/services/ceramic-coating' },
+      { label: 'Ceramic coating FAQ guide', href: '/guides/ceramic-coating-faq-hub' },
+      { label: 'Full price list', href: '/pricing' },
+    ],
+  },
+]
+
+// Combined export: the route and sitemap consume these.
+export const GUIDES: Guide[] = [...GUIDES_BASE, ...GUIDES_EXTRA]
 export const GUIDE_SLUGS = GUIDES.map((g) => g.slug)
