@@ -59,7 +59,7 @@ Note: "Request indexing" is rate-limited (~10/day). Do the rest via sitemap.
 ## 6. GBP (Google Business Profile) checklist
 
 - [ ] NAP matches site exactly: Ceramic My Car, Al Quoz Industrial Area 4, Dubai,
-      +971 55 515 3180, https://ceramic-my-car.com/
+      +971 55 515 8223, https://ceramic-my-car.com/
 - [ ] Primary category: "Auto detailing service" (or closest verified category)
 - [ ] Add services matching the 7 site pillars with descriptions
 - [ ] Upload 10+ real studio/work photos (before/after, team, premises)
