@@ -15,11 +15,16 @@ Branch: `seo/gsc-rebuild` | Baseline: `seo-data/gsc-data.md` (2,770 impr / 14 cl
 - [x] 2d (pending): replaced keyword-stuffed crawler link block with natural copy
 - Build verification: ⏳ pending
 
-## Phase 3 — Content optimisation (NOT STARTED)
-Order: `/services/ceramic-coating` → `/services/ppf` → `/` (de-cannibalise) → graphene → interior-detailing →
-paint-correction → window-tinting → exterior-detailing → `/pricing` → `/locations` hub → location hubs →
-location×service (protect the 9 ranking pages first; decide noindex vs unique content for the tail).
-Blocked on: owner answers in TODO_BUSINESS_FACTS.md (reviews, prices, certifications at minimum).
+## Phase 3 — Content optimisation (IN PROGRESS — batch 1 done 2026-10-07)
+- [x] 3a (2ace712): pillar content model (answer/how-it-works/process/myths/comparison/cost-factors sections)
+- [x] 3a: `/services/ceramic-coating` → ~2,000 words, answer block, 10 FAQs (was 6)
+- [x] 3a: `/services/ppf` → ~1,900 words, answer block, 10 FAQs (was 5)
+- [x] 3a: all 7 service titles rewritten to 41–58 chars (were 66–78), "Near Me"/rating stuffing removed
+- [x] 3b (fc1c6c2): homepage de-cannibalised → brand + "car protection studio Dubai"; hero links to 4 pillars
+- [ ] Deep content for: graphene-coating, interior-detailing, paint-correction, window-tinting, exterior-detailing
+- [ ] `/pricing` hub, `/locations` hub, 14 location hubs
+- [ ] Location×service: protect the 9 ranking pages; DECISION NEEDED on the ~89 tail pages (unique content vs noindex)
+- Build verification: ✅ green (145 pages, 2026-10-07)
 
 ## Phase 4 — New pages (NOT STARTED)
 Backlog: price subpages → guides (unblocked) → brand pages → vehicle pages → Abu Dhabi/Sharjah/Ajman + Arabic (gated).
