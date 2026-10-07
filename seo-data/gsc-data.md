@@ -1,0 +1,168 @@
+# GSC Data — ceramic-my-car.com (single source of truth)
+
+Saved from the master prompt, Section 12. Last 7 days, Search type: Web.
+
+## 12.1 Baseline
+
+- Clicks 14 | Impressions ~2,770 | CTR ~0.5% | Avg position ~26
+- Country: UAE 2,588 impr / 10 clicks (pos 26.6); India 44; Pakistan 19; US 22; UK 17
+- Device: Mobile 1,102 impr / 9 clicks (pos 16.8); Desktop 1,679 / 4 (pos 32.3); Tablet 13
+- Search appearance: Product snippets 1,065 impr / 3 clicks (pos 35)
+
+## 12.2 Current pages with GSC data (url | impressions | clicks | avg position)
+
+- / | 1099 | 5 | 16.16
+- /services/graphene-coating | 116 | 2 | 27.03
+- /services/ceramic-coating | 365 | 1 | 22.33
+- /locations/al-quoz | 99 | 1 | 43.98
+- /reviews | 26 | 1 | 12.5
+- /services/exterior-detailing | 16 | 1 | 41.69
+- /locations/jvc/window-tinting | 5 | 1 | 3.4
+- /locations/deira/interior-detailing | 5 | 1 | 3.6
+- /services/ppf | 672 | 0 | 38.79
+- /locations/dubai-hills | 115 | 0 | 59.98
+- /pricing | 88 | 0 | 26.68
+- /locations/bur-dubai | 84 | 0 | 59.37
+- /services/interior-detailing | 83 | 0 | 60.2
+- /locations/deira | 29 | 0 | 54.21
+- /faq | 28 | 0 | 21.61
+- /services/window-tinting | 54 | 0 | 38.39
+- /services | 51 | 0 | 61.43
+- /locations/downtown-dubai | 22 | 0 | 69.32
+- /services/paint-correction | 21 | 0 | 30.52
+- /about | 21 | 0 | 32.76
+- /locations/dubai-marina | 17 | 0 | 57.88
+- /locations/downtown-dubai/ppf | 16 | 0 | 54.0
+- /locations/mirdif/window-tinting | 14 | 0 | 3.64
+- /locations/jvc | 14 | 0 | 23.71
+- /contact | 12 | 0 | 82.25
+- /locations/palm-jumeirah/paint-correction | 11 | 0 | 29.36
+- /locations/al-quoz/ppf | 10 | 0 | 9.5
+- /gallery | 9 | 0 | 33.78
+- /locations/downtown-dubai/graphene-coating | 9 | 0 | 37.89
+- /locations/deira/ppf | 7 | 0 | 3.0
+- /locations/downtown-dubai/window-tinting | 7 | 0 | 35.14
+- /locations/palm-jumeirah | 6 | 0 | 76.5
+- /locations/motor-city | 5 | 0 | 31.4
+- /locations/business-bay | 5 | 0 | 33.0
+- /locations/mirdif/ppf | 5 | 0 | 48.2
+- /locations/arabian-ranches | 5 | 0 | 68.4
+- /locations/deira/window-tinting | 4 | 0 | 6.25
+- /locations/motor-city/window-tinting | 4 | 0 | 7.75
+- /locations/emirates-hills | 4 | 0 | 66.75
+- /locations/mirdif/graphene-coating | 4 | 0 | 83.5
+- /locations/mirdif | 4 | 0 | 91.0
+- /locations/palm-jumeirah/graphene-coating | 4 | 0 | 94.5
+- /locations/downtown-dubai/interior-detailing | 3 | 0 | 69.67
+- /locations/dubai-marina/graphene-coating | 3 | 0 | 77.0
+
+## 12.3 INTENT CLUSTER -> TARGET PAGE MAP
+
+Format: CLUSTER => TARGET URL [ACTION] (queries, impressions, avg pos) top queries
+
+- **Service: ceramic coating** => `/services/ceramic-coating` [OPTIMISE existing] (164q, 786 impr, pos 14)
+  - ceramic coating dubai (69); ceramic coating (59); car ceramic coating dubai (45); ceramic coating car (33); car ceramic coating (32); ceramic coating in dubai (29); ceramic car coating dubai (28); best ceramic coating in dubai (20); ceramic paint protection dubai (19); ceramic coating for cars (17); car ceramic coating services (15); car detailing ceramic coating (14)
+- **Service: ppf** => `/services/ppf` [OPTIMISE existing] (98q, 371 impr, pos 46)
+  - paint protection film (33); paint protection film dubai (26); ppf dubai (21); ppf coating (20); ppf car (13); paint protection film installers (11); paint protection films (10); ppf in dubai (9); paint protection film ppf (8); best ppf in dubai (7); car ppf dubai (7); ppf paint protection film (7)
+- **Price: ceramic-coating** => `/pricing/ceramic-coating-price-dubai` [NEW (price subpage) + link from /pricing] (26q, 130 impr, pos 14)
+  - ceramic coating car cost (17); ceramic coating price in dubai (17); ceramic coating price (13); ceramic coating for cars price (12); ceramic coating price dubai (10); nano ceramic coating price uae (7); full car ceramic coating cost (6); new car ceramic coating cost (5); car ceramic coating price (5); ceramic coating dubai price (5); ceramic car coating cost (5); ceramic coating price in uae (4)
+- **Price: ppf** => `/pricing/ppf-price-dubai` [NEW (price subpage) + link from /pricing] (23q, 108 impr, pos 23)
+  - ppf coating price in dubai (13); ceramic coating over paint protection film price in uae (10); ppf coating price (8); paint protection film dubai price (8); ppf paint protection film cost (8); ppf cost (7); ppf installation cost (7); ppf price dubai (6); cheap paint protection film (5); ppf coating cost (5); car ppf cost (5); average price for paint protection film (4)
+- **Near me / ceramic-coating** => `/locations (hub) + /services/ceramic-coating` [OPTIMISE existing] (11q, 96 impr, pos 18)
+  - ceramic coating near me (28); car ceramic coating near me (26); ceramic coating car near me (8); best ceramic car coating near me (7); ceramic coat car near me (6); ceramic car coating services near me (5); car film protection near me (5); ceramic car paint protection near me (4); car detailing ceramic coating near me (4); nano ceramic coating near me (2); "ceramic coating near me" (1)
+- **Service: interior-detailing** => `/services/interior-detailing` [OPTIMISE existing] (34q, 92 impr, pos 50)
+  - car interior detailing dubai (12); car interior cleaning dubai (9); interior car detailing (8); interior detailing (7); car detailing interior (6); interior detailing dubai (5); best interior detailing dubai (3); car interior cleaning (3); interior deep steam detailing uae (2); interior deep steam detailing service uae (2); interior deep steam detailing (2); car interior ceramic coating (2)
+- **Service: graphene** => `/services/graphene-coating` [OPTIMISE existing] (16q, 88 impr, pos 33)
+  - graphene car paint protection in dubai (14); graphene paint protection in dubai (14); graphene paint coating in dubai (12); graphene coating for cars in dubai (10); graphene coating for cars (9); graphene coating (5); graphene ceramic coating (5); graphene car paint protection (4); graphene paint protection (3); paint protection graphene (3); graphene paint coating (2); graphene coating uae (2)
+- **Near me / ppf** => `/locations (hub) + /services/ppf` [OPTIMISE existing] (9q, 84 impr, pos 39)
+  - paint protection film near me (17); car ppf near me (16); ppf car near me (16); ppf installers near me (10); paint protection film installers near me (8); car paint protection film near me (7); ppf coating near me (4); ppf near me (4); "car ppf near me" (2)
+- **Brand: xpel / ppf** => `/brands/xpel-ppf` [NEW] (15q, 77 impr, pos 36)
+  - xpel ppf (8); xpel paint protection film cost (7); xpel ultimate paint protection film (7); xpel protection film (7); xpel ppf cost (6); xpel ppf roll (6); xpel middle east ppf (5); xpel paint protection film (5); xpel ppf for sale (5); xpel ppf price (5); xpel uae ppf (5); xpel paint protection film dubai (4)
+- **Service: paint-correction** => `/services/paint-correction` [OPTIMISE existing] (22q, 72 impr, pos 9)
+  - paint correction dubai (14); ceramic coating car polish (13); paint correction (10); ceramic car polish (7); car polish and ceramic coating (7); ceramic polish car (5); best car polish in dubai (1); best ceramic car polish (1); ceramic polish (1); car polish ceramic coating (1); car polish dubai (1); car polish coating (1)
+- **Service: detailing** => `/services/exterior-detailing + /services/interior-detailing` [OPTIMISE existing] (19q, 55 impr, pos 24)
+  - car detailing dubai (19); car care dubai (6); car detailing in dubai (5); dubai car detailing (3); auto detailing (3); car detailing in al qouz (2); majestic car care (2); best car detailing dubai (2); my car detailing (2); car detailing (2); luxury car detailing dubai (1); premier car care (1)
+- **City: abu-dhabi / ceramic-coating** => `/locations/abu-dhabi/ceramic-coating` [NEW (confirm you serve this city)] (8q, 35 impr, pos 40)
+  - best ceramic protection abu dhabi (7); nano ceramic coating in abu dhabi (6); best ceramic coating abu dhabi (5); best ceramic paint protection abu dhabi (5); best car ceramic abu dhabi (4); nano ceramic coating abu dhabi (4); ceramic pro abu dhabi (2); ceramic coating abu dhabi (2)
+- **Service: window-tinting** => `/services/window-tinting` [OPTIMISE existing] (13q, 27 impr, pos 55)
+  - ceramic window tint (10); ceramic window tinting film (3); window tint ceramic film (3); ceramic tint (2); ceramic reflective tint (1); ceramic coating and window tint (1); car tinting deals in dubai (1); premier window tint (1); ceramic car window tint (1); ceramic film tint (1); car tinting dubai (1); clear ceramic window tint (1)
+- **Local: al-quoz** => `/locations/al-quoz` [OPTIMISE existing] (5q, 26 impr, pos 43)
+  - car wrapping in al quoz (11); car detailing dubai al quoz (6); car detailing al quoz (5); auto detailing al quoz (3); auto detailing services al quoz (1)
+- **Service: exterior-detailing** => `/services/exterior-detailing` [OPTIMISE existing] (7q, 17 impr, pos 37)
+  - exterior detailing (5); car exterior detailing (4); exterior car detailing dubai (2); car wash and detailing services (2); ceramic coated car wash (2); ceramic coating car wash (1); exterior car detailing (1)
+- **Brand: 3m / ceramic-coating** => `/brands/3m-ceramic-coating` [NEW] (1q, 15 impr, pos 48)
+  - 3m ceramic coating dubai (15)
+- **Informational / ppf** => `/guides/ppf-faq-hub` [NEW (guide/FAQ)] (4q, 14 impr, pos 28)
+  - how much to ppf a car (5); how much does paint protection film cost (4); how much is paint protection film for a car (3); how much ppf cost (2)
+- **Near me / paint-correction** => `/locations (hub) + /services/paint-correction` [OPTIMISE existing] (6q, 13 impr, pos 14)
+  - ceramic car polish near me (5); car paint correction near me (2); paint correction near me (2); car polish near me (2); polishing car near me (1); paint correction and ceramic coating near me (1)
+- **Price: paint-correction** => `/pricing/paint-correction-price-dubai` [NEW (price subpage) + link from /pricing] (4q, 13 impr, pos 9)
+  - car polish dubai price (6); ceramic polish for car price (5); paint correction price (1); car polishing price in uae (1)
+- **Brand: xpel** => `/brands/xpel` [NEW] (1q, 13 impr, pos 38)
+  - xpel dubai (13)
+- **Near me / detailing** => `/locations (hub) + /services/exterior-detailing` [OPTIMISE existing] (4q, 12 impr, pos 18)
+  - car detailing near me (8); car detailing service near me (2); detailing near me (1); detailing studio near me (1)
+- **Brand: ceramic-pro / ceramic-coating** => `/brands/ceramic-pro-ceramic-coating` [NEW] (3q, 11 impr, pos 21)
+  - ceramic pro car coating (5); ceramic pro car detailing (4); ceramic protective coating for cars (2)
+- **Informational / ceramic-coating** => `/guides/ceramic-coating-faq-hub` [NEW (guide/FAQ)] (6q, 10 impr, pos 7)
+  - how much does car ceramic coating cost (5); ceramic coating car what is it (1); how much ceramic coating cost (1); car ceramic coating reviews (1); how much ceramic coating (1); how much does ceramic cost (1)
+- **Car make: mercedes / ceramic-coating** => `/vehicles/mercedes/ceramic-coating` [NEW] (2q, 9 impr, pos 4)
+  - mercedes ceramic coating price (8); mercedes ceramic coating (1)
+- **Price: window-tinting** => `/pricing/window-tinting-price-dubai` [NEW (price subpage) + link from /pricing] (6q, 9 impr, pos 34)
+  - ceramic tint cost (4); ceramic window tint cost near me (1); ceramic window tint cost (1); ceramic coating and tint package (1); cost for ceramic window tint (1); ceramic film tint price (1)
+- **Arabic** => `/ar (new Arabic hub + service pages)` [NEW] (3q, 8 impr, pos 27)
+  - حماية السيارات دبي (4); سيراميك للسيارات ابوظبي (3); تلميع السيارات (1)
+- **Misc / low-intent** => `/ (home) or ignore` [REVIEW] (6q, 7 impr, pos 22)
+  - my car (2); mycar (1); yes. (1); cx-3 mazda (1); treat my car (1); paint prtection (1)
+- **Local: al-quoz / ppf** => `/locations/al-quoz/ppf` [OPTIMISE existing] (1q, 6 impr, pos 11)
+  - ppf installation in al quoz (6)
+- **Local: al-quoz / window-tinting** => `/locations/al-quoz/window-tinting` [OPTIMISE existing] (2q, 6 impr, pos 31)
+  - car tinting al quoz (4); window tinting al quoz (2)
+- **Brand: 3m / ppf** => `/brands/3m-ppf` [NEW] (1q, 6 impr, pos 16)
+  - 3m paint protection film cost dubai (6)
+- **Near me / interior-detailing** => `/locations (hub) + /services/interior-detailing` [OPTIMISE existing] (4q, 6 impr, pos 30)
+  - interior car detailing near me (2); interior detailing near me (2); auto interior cleaning near me (1); interior deep cleaning car near me (1)
+- **City: abu-dhabi / paint-correction** => `/locations/abu-dhabi/paint-correction` [NEW (confirm you serve this city)] (1q, 6 impr, pos 42)
+  - best ceramic polish abu dhabi (6)
+- **Brand: stek / ppf** => `/brands/stek-ppf` [NEW] (1q, 5 impr, pos 50)
+  - stek dynoprism paint protection film dubai uae (5)
+- **Near me / window-tinting** => `/locations (hub) + /services/window-tinting` [OPTIMISE existing] (5q, 5 impr, pos 40)
+  - ceramic window tint near me (1); window tint $99 near me (1); ceramic tint near me (1); nano ceramic tint near me (1); ceramic car tint near me (1)
+- **Near me** => `/locations (hub) + /services (hub)` [OPTIMISE existing] (3q, 4 impr, pos 17)
+  - car seat cover wash near me (2); hydrodipping near me (1); car film near me (1)
+- **Local: deira / ppf** => `/locations/deira/ppf` [OPTIMISE existing] (1q, 4 impr, pos 10)
+  - paint protection film in deira dubai (4)
+- **Informational** => `/guides/general-faq-hub` [NEW (guide/FAQ)] (2q, 3 impr, pos 18)
+  - service my car review (2); how much does it cost (1)
+- **Local: al-quoz / ceramic-coating** => `/locations/al-quoz/ceramic-coating` [OPTIMISE existing] (2q, 3 impr, pos 3)
+  - car ceramic coating al quoz (2); powder coating al quoz (1)
+- **Brand: carvogue** => `/brands/carvogue` [NEW] (1q, 2 impr, pos 46)
+  - carvogue dubai (2)
+- **Price: graphene** => `/pricing/graphene-price-dubai` [NEW (price subpage) + link from /pricing] (1q, 2 impr, pos 10)
+  - graphene coating price (2)
+- **Price: general** => `/pricing` [OPTIMISE existing] (2q, 2 impr, pos 4)
+  - price (1); car detailing price in dubai (1)
+- **Car make: range-rover / ppf** => `/vehicles/range-rover/ppf` [NEW] (1q, 2 impr, pos 48)
+  - ppf range rover (2)
+- **Brand: vkool** => `/brands/vkool` [NEW] (1q, 2 impr, pos 50)
+  - vkool dubai (2)
+- **Brand: gyeon / ceramic-coating** => `/brands/gyeon-ceramic-coating` [NEW] (1q, 1 impr, pos 12)
+  - gyeon ceramic coating (1)
+- **Brand: 3m / detailing** => `/brands/3m-detailing` [NEW] (1q, 1 impr, pos 54)
+  - 3m car care near me (1)
+- **Informational / detailing** => `/guides/detailing-faq-hub` [NEW (guide/FAQ)] (1q, 1 impr, pos 5)
+  - what is auto detailing (1)
+- **City: sharjah / ceramic-coating** => `/locations/sharjah/ceramic-coating` [NEW (confirm you serve this city)] (1q, 1 impr, pos 29)
+  - car ceramic coating sharjah (1)
+- **City: ajman / ceramic-coating** => `/locations/ajman/ceramic-coating` [NEW (confirm you serve this city)] (1q, 1 impr, pos 1)
+  - best ceramic coating ajman (1)
+- **Car make: range-rover** => `/vehicles/range-rover` [NEW] (1q, 1 impr, pos 3)
+  - range rover sports (1)
+- **Near me / graphene** => `/locations (hub) + /services/graphene-coating` [OPTIMISE existing] (1q, 1 impr, pos 99)
+  - graphene coating near me (1)
+- **Local: jvc** => `/locations/jvc` [OPTIMISE existing] (1q, 1 impr, pos 11)
+  - jvc car detailing (1)
+- **Informational / window-tinting** => `/guides/window-tinting-faq-hub` [NEW (guide/FAQ)] (1q, 1 impr, pos 11)
+  - how much for ceramic tint (1)
+- **Informational / graphene** => `/guides/graphene-faq-hub` [NEW (guide/FAQ)] (1q, 1 impr, pos 12)
+  - how much is graphene (1)
