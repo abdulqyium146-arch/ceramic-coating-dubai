@@ -7,6 +7,7 @@ import { SERVICE_SLUGS } from '@/content/services'
 import { PRICE_PAGE_SLUGS } from '@/content/price-pages'
 import { GUIDE_SLUGS } from '@/content/guides'
 import { BRAND_PAGE_SLUGS } from '@/content/brands'
+import { VEHICLE_PAGE_PARAMS } from '@/content/vehicles'
 import { lastModified, type SitemapUrl } from './sitemap-utils'
 
 const abs = (path: string) => `${SITE_CONFIG.url}${path}`
@@ -21,6 +22,7 @@ const COMBO_TEMPLATE = [
 const PRICE_PAGE_TEMPLATE = ['app/pricing/[slug]/page.tsx', 'content/price-pages.ts', 'content/pricing.ts']
 const GUIDE_TEMPLATE = ['app/guides/[slug]/page.tsx', 'content/guides.ts']
 const BRAND_TEMPLATE = ['app/brands/[slug]/page.tsx', 'content/brands.ts']
+const VEHICLE_TEMPLATE = ['app/vehicles/[brand]/[service]/page.tsx', 'content/vehicles.ts']
 
 export function staticPageUrls(): SitemapUrl[] {
   const defs: [string, string[]][] = [
@@ -71,6 +73,14 @@ export function guideUrls(): SitemapUrl[] {
 export function brandUrls(): SitemapUrl[] {
   const lm = lastModified(BRAND_TEMPLATE)
   return BRAND_PAGE_SLUGS.map((slug) => ({ loc: abs(`/brands/${slug}`), lastmod: lm }))
+}
+
+export function vehicleUrls(): SitemapUrl[] {
+  const lm = lastModified(VEHICLE_TEMPLATE)
+  return VEHICLE_PAGE_PARAMS.map((p) => ({
+    loc: abs(`/vehicles/${p.brand}/${p.service}`),
+    lastmod: lm,
+  }))
 }
 
 /** Newest lastmod across a child sitemap's URLs — used for the index entry. */
