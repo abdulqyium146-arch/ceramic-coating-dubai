@@ -23,7 +23,9 @@ Branch: `seo/gsc-rebuild` | Baseline: `seo-data/gsc-data.md` (2,770 impr / 14 cl
 - [x] 3b (fc1c6c2): homepage de-cannibalised → brand + "car protection studio Dubai"; hero links to 4 pillars
 - [x] 3c (db0db64): deep content for remaining 5 pillars — graphene (8 FAQs), paint-correction (8),
   interior-detailing (7), exterior-detailing (7), window-tinting (9); all with answer/process/myths/comparison
-- [ ] `/pricing` hub, `/locations` hub, 14 location hubs
+- [x] 3d (527c914): pricing hub (answer block, FAQ schema, pillar links), locations hub (near-me
+  answer block, 5 FAQs + schema, crawler-block + drive-time fixes), location hub template ×14
+  (titles de-stuffed, rating/drive-time claims removed, Area 1/4 address fix)
 - [ ] Location×service: protect the 9 ranking pages; DECISION NEEDED on the ~89 tail pages (unique content vs noindex)
 - Build verification: ✅ green (145 pages, 2026-10-07)
 
