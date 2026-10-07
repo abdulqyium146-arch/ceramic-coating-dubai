@@ -45,7 +45,9 @@ Branch: `seo/gsc-rebuild` | Baseline: `seo-data/gsc-data.md` (2,770 impr / 14 cl
 - Build verification: ✅ green (159 pages, 2026-10-07)
 
 ## ⏳ Waiting on owner
-- Push approval for `seo/gsc-rebuild` (local-only; needs token) → then run INDEXING_CHECKLIST.md
+- [x] PUSHED 2026-10-07: `seo/gsc-rebuild` → GitHub (23 commits). NOTE: `.github/workflows/seo.yml`
+  excluded — token lacked `workflow` scope. Re-add via GitHub web UI or a workflow-scoped token.
+- [ ] Merge PR → master, Vercel deploys → then run INDEXING_CHECKLIST.md (GSC, URL Inspection, GBP)
 - TODO_BUSINESS_FACTS.md answers unlock: review schema, more price/brand pages, cities, Arabic
 
 ## Phase 4 — New pages (NOT STARTED)
