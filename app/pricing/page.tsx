@@ -3,32 +3,55 @@ import Link from 'next/link'
 import { CheckCircle2, Star } from 'lucide-react'
 import { PRICING_PACKAGES } from '@/content/pricing'
 import { CTABanner } from '@/components/sections/CTABanner'
-import { generateBreadcrumbSchema } from '@/lib/schema'
+import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Ceramic Coating Dubai Price List 2026 | From AED 1,500 | PPF, Graphene, Tinting' },
+  title: { absolute: 'Car Detailing Price List Dubai | Ceramic My Car' },
   description:
-    'Complete car ceramic coating services Dubai price list 2026. Ceramic coating from AED 1,500, PPF from AED 2,500, graphene from AED 2,500, window tinting from AED 800. Transparent pricing, no hidden fees.',
-  keywords: [
-    'car ceramic coating Dubai price',
-    'ceramic coating cost Dubai',
-    'how much does ceramic coating cost in Dubai',
-    'ceramic coating price Dubai',
-    'PPF price Dubai',
-    'graphene coating cost Dubai',
-    'car detailing price Dubai',
-    'nano ceramic coating price Dubai',
-    'ceramic coating packages Dubai',
-  ],
+    'Transparent car detailing price list Dubai: ceramic coating, PPF, graphene, tinting & detailing packages. No hidden fees — get an exact quote today.',
 }
+
+const PRICING_FAQS = [
+  {
+    question: 'Are there any hidden fees?',
+    answer:
+      'No. Our pricing is fully transparent. The quote you receive covers everything in the package description. The only additions would be optional extras you specifically request, such as wheel coating or engine bay detailing.',
+  },
+  {
+    question: 'Why is there a price range between sedan, SUV, and exotic?',
+    answer:
+      'Larger vehicles require more product, more time, and more labour. Exotic vehicles require specialised handling, greater care around aerodynamic components, and additional time. The price reflects the additional material and expertise required.',
+  },
+  {
+    question: 'Do you offer payment plans?',
+    answer:
+      'Yes, we accept all major credit cards and can arrange payment plans for packages over AED 5,000 through our banking partners. Contact us to discuss options.',
+  },
+  {
+    question: 'What is included in the "free inspection"?',
+    answer:
+      'A free paint inspection includes: paint thickness gauge measurement across all panels, paint condition assessment under inspection lighting, swirl mark and scratch evaluation, contamination check, and a personalised written recommendation for the best protection package for your specific vehicle and budget.',
+  },
+  {
+    question: 'How much does ceramic coating cost in Dubai?',
+    answer:
+      'Ceramic coating in Dubai starts from AED 1,500 for a 2-year package on a standard sedan. The exact price depends on your vehicle size, paint condition and the warranty tier you choose — use our package cards above as a guide and get a free exact quote via WhatsApp.',
+  },
+  {
+    question: 'How much does PPF cost in Dubai?',
+    answer:
+      'Paint protection film in Dubai starts from AED 2,500 for partial-front coverage and ranges to AED 8,000–15,000 for full-body coverage on a luxury vehicle. Book a free inspection for an exact quote for your car.',
+  },
+]
 
 export default function PricingPage() {
   const breadcrumb = generateBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
     { name: 'Pricing', url: `${SITE_CONFIG.url}/pricing` },
   ])
+  const faqSchema = generateFAQSchema(PRICING_FAQS)
 
   const ceramicPackages = PRICING_PACKAGES.filter((p) => p.service === 'ceramic-coating')
   const ppfPackages = PRICING_PACKAGES.filter((p) => p.service === 'ppf')
@@ -37,6 +60,7 @@ export default function PricingPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Header */}
       <section className="relative pt-32 pb-16 bg-dark-950">
@@ -49,11 +73,12 @@ export default function PricingPage() {
           </nav>
           <h1 className="heading-lg mb-4">
             Transparent{' '}
-            <span className="text-gradient-gold">Pricing</span>
+            <span className="text-gradient-gold">Pricing in Dubai</span>
           </h1>
-          <p className="text-white/60 max-w-2xl mx-auto text-lg">
-            Honest, no-hidden-fee pricing for all our services. Every package includes a free
-            paint inspection. Prices vary by vehicle size — get an exact quote via WhatsApp or phone.
+          <p className="speakable text-white/60 max-w-2xl mx-auto text-lg">
+            Car protection pricing in Dubai: ceramic coating from AED 1,500, PPF from AED 2,500,
+            graphene coating from AED 2,500, paint correction from AED 800 and detailing from
+            AED 250. Honest, no-hidden-fee packages — every one includes a free paint inspection.
           </p>
         </div>
       </section>
@@ -225,29 +250,33 @@ export default function PricingPage() {
             Pricing <span className="text-gradient-gold">FAQs</span>
           </h2>
           <div className="space-y-4">
-            {[
-              {
-                q: 'Are there any hidden fees?',
-                a: 'No. Our pricing is fully transparent. The quote you receive covers everything in the package description. The only additions would be optional extras you specifically request, such as wheel coating or engine bay detailing.',
-              },
-              {
-                q: 'Why is there a price range between sedan, SUV, and exotic?',
-                a: "Larger vehicles require more product, more time, and more labour. Exotic vehicles (Ferraris, Lamborghinis, McLarens) require specialised handling, greater care around aerodynamic components, and additional time. The price reflects the additional material and expertise required.",
-              },
-              {
-                q: 'Do you offer payment plans?',
-                a: 'Yes, we accept all major credit cards and can arrange payment plans for packages over AED 5,000 through our banking partners. Contact us to discuss options.',
-              },
-              {
-                q: 'What is included in the "free inspection"?',
-                a: "A free paint inspection includes: paint thickness gauge measurement across all panels, paint condition assessment under inspection lighting, swirl mark and scratch evaluation, contamination check, and a personalised written recommendation for the best protection package for your specific vehicle and budget.",
-              },
-            ].map((faq, i) => (
+            {PRICING_FAQS.map((faq, i) => (
               <div key={i} className="glass-card p-6">
-                <h3 className="text-sm font-bold text-white mb-3">{faq.q}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{faq.a}</p>
+                <h3 className="text-sm font-bold text-white mb-3">{faq.question}</h3>
+                <p className="text-sm text-white/60 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-white/40">
+              Want the full detail on a service? See{' '}
+              <Link href="/services/ceramic-coating" className="text-gold-400 hover:text-gold-300 underline underline-offset-2">
+                ceramic coating
+              </Link>
+              ,{' '}
+              <Link href="/services/ppf" className="text-gold-400 hover:text-gold-300 underline underline-offset-2">
+                PPF
+              </Link>
+              ,{' '}
+              <Link href="/services/graphene-coating" className="text-gold-400 hover:text-gold-300 underline underline-offset-2">
+                graphene coating
+              </Link>{' '}
+              and{' '}
+              <Link href="/services/window-tinting" className="text-gold-400 hover:text-gold-300 underline underline-offset-2">
+                window tinting
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>

@@ -4,37 +4,54 @@ import { MapPin, ArrowRight } from 'lucide-react'
 import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 import { SERVICES } from '@/content/services'
 import { CTABanner } from '@/components/sections/CTABanner'
-import { generateBreadcrumbSchema } from '@/lib/schema'
+import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Car Ceramic Coating Services Dubai Near Me | All Areas | Marina, JVC, Business Bay' },
+  title: { absolute: 'Car Protection Services Across Dubai | Ceramic My Car' },
   description:
-    'Car ceramic coating services Dubai near you. Serving Dubai Marina, JVC, Business Bay, Palm Jumeirah, Downtown Dubai, Dubai Hills, Motor City, Al Quoz, Mirdif, Deira & all UAE. 4.9★ rated. Free pickup.',
-  keywords: [
-    'car ceramic coating Dubai near me',
-    'ceramic coating near me Dubai',
-    'car ceramic coating Dubai Marina',
-    'car ceramic coating JVC',
-    'car ceramic coating Business Bay',
-    'car ceramic coating Palm Jumeirah',
-    'car ceramic coating Downtown Dubai',
-    'PPF near me Dubai',
-    'graphene coating near me Dubai',
-    'car detailing near me Dubai',
-    'ceramic coating all areas Dubai',
-  ],
+    'Car protection near you in Dubai: ceramic coating, PPF, graphene & detailing across Dubai Marina, JVC, Deira, Palm Jumeirah & all areas. Free pickup.',
   alternates: { canonical: `${SITE_CONFIG.url}/locations` },
 }
+
+const LOCATIONS_FAQS = [
+  {
+    question: 'Do you offer ceramic coating near me in Dubai?',
+    answer:
+      'Yes — wherever you are in Dubai. Our Al Quoz studio serves all 14 major communities including Dubai Marina, JVC, Business Bay, Deira, Palm Jumeirah, Mirdif and Downtown. Choose a studio visit or request vehicle pickup for qualifying packages.',
+  },
+  {
+    question: 'How does pickup work for my area?',
+    answer:
+      'Book online or via WhatsApp, and we collect your vehicle from your home or office, bring it to our climate-controlled Al Quoz studio for the service, and return it when done. Pickup is complimentary for qualifying packages — ask when booking.',
+  },
+  {
+    question: 'Is there a price difference between areas?',
+    answer:
+      'No. Pricing is identical across all Dubai areas — it depends on your vehicle size, paint condition and the package you choose, never on your location. See our transparent price list for exact package prices.',
+  },
+  {
+    question: 'Which areas do you serve?',
+    answer:
+      'We serve Dubai Marina, JVC, JVT, Business Bay, Palm Jumeirah, Downtown Dubai, Dubai Hills, Al Quoz, Motor City, Emirates Hills, Arabian Ranches, Mirdif, Deira and Bur Dubai — essentially every Dubai community.',
+  },
+  {
+    question: 'Can I visit the studio instead of using pickup?',
+    answer:
+      'Absolutely. Our studio is in Al Quoz Industrial Area 4, easily reachable via Sheikh Zayed Road or Al Khail Road. Many customers prefer to drop off in person for the free paint inspection and walkthrough.',
+  },
+]
 
 export default function LocationsPage() {
   const breadcrumb = generateBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
     { name: 'Locations', url: `${SITE_CONFIG.url}/locations` },
   ])
+  const faqSchema = generateFAQSchema(LOCATIONS_FAQS)
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 bg-dark-950">
@@ -46,12 +63,13 @@ export default function LocationsPage() {
             <span className="text-white/80">Locations</span>
           </nav>
           <h1 className="heading-lg mb-4">
-            Ceramic Coating Near Me —{' '}
+            Car Protection Near You —{' '}
             <span className="text-gradient-gold">All Dubai Areas</span>
           </h1>
-          <p className="text-white/60 max-w-2xl mx-auto text-lg">
-            Professional ceramic coating, PPF, graphene coating, paint correction, detailing and
-            window tinting for every Dubai community. Pickup available. 4.9★ Google rated.
+          <p className="speakable text-white/60 max-w-2xl mx-auto text-lg">
+            Looking for ceramic coating, PPF or detailing near you in Dubai? Ceramic My Car serves
+            all 14 major Dubai communities from our Al Quoz studio — with free vehicle pickup for
+            qualifying packages, so premium car protection comes to you.
           </p>
         </div>
       </section>
@@ -193,8 +211,9 @@ export default function LocationsPage() {
                 <span className="text-gradient-gold">Al Quoz, Dubai</span>
               </h2>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
-                Centrally located in Al Quoz Industrial Area — 10–25 minutes from any Dubai
-                community via Sheikh Zayed Road or Al Khail Road.
+                Centrally located in Al Quoz Industrial Area with easy access via
+                Sheikh Zayed Road or Al Khail Road — plus free vehicle pickup for
+                qualifying packages, so you never need to drive to us.
               </p>
 
               <address className="not-italic space-y-3 text-sm mb-6">
@@ -253,38 +272,56 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Dense crawler anchor text */}
+      {/* Service-area overview — natural cross-links for users and crawlers */}
       <section className="section-py bg-dark-900 border-t border-white/5">
-        <div className="section-container max-w-4xl">
-          <h2 className="text-sm font-semibold text-white/60 mb-4 text-center">
-            Ceramic Coating Near Me — All Dubai Communities
+        <div className="section-container max-w-4xl text-center">
+          <h2 className="text-sm font-semibold text-white/60 mb-4">
+            Every Service, Every Dubai Community
           </h2>
-          <p className="text-xs text-white/25 leading-relaxed text-center">
-            {DUBAI_LOCATIONS.map((loc, i) => (
-              <span key={loc.slug}>
-                <Link
-                  href={`/locations/${loc.slug}`}
-                  className="hover:text-white/50 transition-colors"
-                >
-                  Ceramic Coating {loc.name}
-                </Link>
-                {i < DUBAI_LOCATIONS.length - 1 ? ' · ' : ''}
-              </span>
-            ))}
+          <p className="text-xs text-white/25 leading-relaxed">
+            Ceramic My Car serves{' '}
+            <Link href="/locations" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              all Dubai areas
+            </Link>{' '}
+            — from Dubai Marina and Palm Jumeirah to Deira and Mirdif. Explore our{' '}
+            <Link href="/services/ceramic-coating" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              ceramic coating
+            </Link>
+            ,{' '}
+            <Link href="/services/ppf" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              paint protection film
+            </Link>
+            ,{' '}
+            <Link href="/services/graphene-coating" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              graphene coating
+            </Link>{' '}
+            and{' '}
+            <Link href="/services" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              full service range
+            </Link>
+            , or check{' '}
+            <Link href="/pricing" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              transparent pricing
+            </Link>
+            .
           </p>
-          <p className="text-xs text-white/20 leading-relaxed text-center mt-3">
-            {SERVICES.map((svc, i) => (
-              <span key={svc.slug}>
-                <Link
-                  href={`/services/${svc.slug}`}
-                  className="hover:text-white/40 transition-colors"
-                >
-                  {svc.title} Dubai
-                </Link>
-                {i < SERVICES.length - 1 ? ' · ' : ''}
-              </span>
+        </div>
+      </section>
+
+      {/* Locations FAQ */}
+      <section className="section-py bg-dark-950 border-t border-white/5">
+        <div className="section-container max-w-3xl">
+          <h2 className="heading-md text-center mb-10">
+            Service Area <span className="text-gradient-gold">FAQ</span>
+          </h2>
+          <div className="space-y-4">
+            {LOCATIONS_FAQS.map((faq, index) => (
+              <div key={index} className="glass-card p-6">
+                <h3 className="text-sm font-bold text-white mb-3">{faq.question}</h3>
+                <p className="text-sm text-white/60 leading-relaxed">{faq.answer}</p>
+              </div>
             ))}
-          </p>
+          </div>
         </div>
       </section>
 
