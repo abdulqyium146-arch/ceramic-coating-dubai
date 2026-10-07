@@ -21,7 +21,8 @@ Branch: `seo/gsc-rebuild` | Baseline: `seo-data/gsc-data.md` (2,770 impr / 14 cl
 - [x] 3a: `/services/ppf` → ~1,900 words, answer block, 10 FAQs (was 5)
 - [x] 3a: all 7 service titles rewritten to 41–58 chars (were 66–78), "Near Me"/rating stuffing removed
 - [x] 3b (fc1c6c2): homepage de-cannibalised → brand + "car protection studio Dubai"; hero links to 4 pillars
-- [ ] Deep content for: graphene-coating, interior-detailing, paint-correction, window-tinting, exterior-detailing
+- [x] 3c (db0db64): deep content for remaining 5 pillars — graphene (8 FAQs), paint-correction (8),
+  interior-detailing (7), exterior-detailing (7), window-tinting (9); all with answer/process/myths/comparison
 - [ ] `/pricing` hub, `/locations` hub, 14 location hubs
 - [ ] Location×service: protect the 9 ranking pages; DECISION NEEDED on the ~89 tail pages (unique content vs noindex)
 - Build verification: ✅ green (145 pages, 2026-10-07)
