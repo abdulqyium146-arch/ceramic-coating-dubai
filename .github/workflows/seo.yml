@@ -1,0 +1,36 @@
+name: SEO quality gate
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  seo-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: SEO lint
+        run: node scripts/seo-lint.mjs
+
+  build:
+    runs-on: ubuntu-latest
+    needs: seo-lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Production build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+          RESEND_API_KEY: re_placeholder
+          INDEXNOW_KEY: placeholder-key
+          INDEXNOW_SECRET: placeholder-secret
