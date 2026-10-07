@@ -68,7 +68,7 @@ export default async function ServicePage({ params }: PageProps) {
     url: `${SITE_CONFIG.url}/services/${slug}`,
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', 'h2', '.speakable'],
+      cssSelector: ['.speakable'],
     },
   }
 

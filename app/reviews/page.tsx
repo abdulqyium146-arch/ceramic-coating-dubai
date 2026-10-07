@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Star, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS } from '@/content/testimonials'
 import { CTABanner } from '@/components/sections/CTABanner'
-import { generateBreadcrumbSchema, generateReviewSchema } from '@/lib/schema'
+import { generateBreadcrumbSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -27,19 +27,13 @@ export default function ReviewsPage() {
     { name: 'Reviews', url: `${SITE_CONFIG.url}/reviews` },
   ])
 
-  const reviewSchema = generateReviewSchema(
-    TESTIMONIALS.map((t) => ({
-      author: t.name,
-      rating: t.rating,
-      text: t.review,
-      date: t.date,
-    }))
-  )
+  // NOTE (Phase 2 audit): Review JSON-LD removed 2026-10-07 pending owner
+  // verification that testimonials are real Google reviews —
+  // see seo-data/TODO_BUSINESS_FACTS.md §1. Visible reviews stay until confirmed.
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
 
       {/* Header */}
       <section className="relative pt-32 pb-16 bg-dark-950">

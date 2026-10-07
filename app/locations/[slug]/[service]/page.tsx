@@ -287,7 +287,7 @@ export default async function ServiceLocationPage({ params }: PageProps) {
     name: `${service.title} ${location.name} Dubai`,
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', 'h2', '.speakable'],
+      cssSelector: ['.speakable'],
     },
   }
 

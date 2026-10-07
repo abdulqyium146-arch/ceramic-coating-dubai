@@ -1,4 +1,4 @@
-import { SITE_CONFIG } from './constants'
+import { SITE_CONFIG, DUBAI_LOCATIONS } from './constants'
 
 export function generateLocalBusinessSchema() {
   return {
@@ -49,26 +49,18 @@ export function generateLocalBusinessSchema() {
         closes: '18:00',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: SITE_CONFIG.rating.value,
-      reviewCount: SITE_CONFIG.rating.count,
-      bestRating: 5,
-      worstRating: 1,
-    },
+    // NOTE (Phase 2 audit): aggregateRating removed 2026-10-07 pending owner
+    // verification of the 4.9/847 claim — see seo-data/TODO_BUSINESS_FACTS.md §1.
+    // Re-add only with real, visible Google reviews.
     sameAs: Object.values(SITE_CONFIG.socialMedia),
     hasMap: `https://maps.google.com/?q=${SITE_CONFIG.address.lat},${SITE_CONFIG.address.lng}`,
     priceRange: 'AED 250 – AED 15,000',
-    currenciesAccepted: 'AED, USD',
-    paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     areaServed: [
       { '@type': 'City', name: 'Dubai', containedInPlace: { '@type': 'Country', name: 'United Arab Emirates' } },
-      { '@type': 'City', name: 'Abu Dhabi', containedInPlace: { '@type': 'Country', name: 'United Arab Emirates' } },
-      { '@type': 'City', name: 'Sharjah', containedInPlace: { '@type': 'Country', name: 'United Arab Emirates' } },
-      { '@type': 'City', name: 'Ajman', containedInPlace: { '@type': 'Country', name: 'United Arab Emirates' } },
-      'Dubai Marina', 'Business Bay', 'Downtown Dubai', 'Palm Jumeirah',
-      'JVC', 'Dubai Hills', 'Al Quoz', 'Motor City', 'Emirates Hills',
-      'Arabian Ranches', 'Mirdif', 'Deira', 'Bur Dubai',
+      // NOTE (Phase 2 audit): Abu Dhabi / Sharjah / Ajman removed 2026-10-07 —
+      // service area unconfirmed. Restore only after owner confirmation
+      // (seo-data/TODO_BUSINESS_FACTS.md §4). Areas below = confirmed Dubai coverage.
+      ...DUBAI_LOCATIONS.map((l) => l.name),
     ],
     serviceType: [
       'Ceramic Coating',
