@@ -35,11 +35,18 @@ Branch: `seo/gsc-rebuild` | Baseline: `seo-data/gsc-data.md` (2,770 impr / 14 cl
   model-aware content, vehicles.xml sitemap)
 - [x] 4d (2747081): /guides/ppf-vs-ceramic-coating (24 impr), /guides/graphene-vs-ceramic-dubai
   (16 impr), /guides/what-is-paint-correction — head-to-head tables + FAQs + schema
-- [ ] Remaining new pages: more brand pages (3M, SunTek, GYEON — after brand-relationship
-  confirmation), more guides/vehicles as GSC data justifies
-- [ ] Phase 5: INDEXING_CHECKLIST, GSC resubmission, top-10 URL Inspection, GBP checklist, 30/60/90-day plan
-- [ ] CHANGELOG.md, scripts/seo-lint.ts, CI quality gate
+## Phase 5 — QA & Handover ✅ COMPLETE
+- [x] Honest-claims sweep (9b3596f): unverified 4.9★/847 claims removed from homepage hero,
+  footer, /reviews, /gallery, /about, /book, STATS; invented drive times removed; Area 1→4 fix
+- [x] scripts/seo-lint.mjs — 8-check quality gate, 0 failures
+- [x] .github/workflows/seo.yml — CI: lint + build on push/PR
+- [x] seo-data/INDEXING_CHECKLIST.md — deploy, GSC, URL Inspection top-10, GBP, 30/60/90 plan
+- [x] seo-data/CHANGELOG.md — full rebuild log
 - Build verification: ✅ green (159 pages, 2026-10-07)
+
+## ⏳ Waiting on owner
+- Push approval for `seo/gsc-rebuild` (local-only; needs token) → then run INDEXING_CHECKLIST.md
+- TODO_BUSINESS_FACTS.md answers unlock: review schema, more price/brand pages, cities, Arabic
 
 ## Phase 4 — New pages (NOT STARTED)
 Backlog: price subpages → guides (unblocked) → brand pages → vehicle pages → Abu Dhabi/Sharjah/Ajman + Arabic (gated).
