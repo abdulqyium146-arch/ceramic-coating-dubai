@@ -101,7 +101,7 @@ export default function ContactPage() {
               <div className="mt-6 glass-card p-4 border-gold-500/10">
                 <p className="text-xs font-semibold text-gold-400 mb-2">How to Find Us</p>
                 <ul className="space-y-1.5 text-xs text-white/50">
-                  <li>• Off Sheikh Zayed Road, Al Quoz Industrial Area 1</li>
+                  <li>• Off Sheikh Zayed Road, Al Quoz Industrial Area 4</li>
                   <li>• 10 min from Dubai Mall · 15 min from Dubai Marina</li>
                   <li>• Look for the Ceramic My Car sign on the building</li>
                   <li>• Free parking available on-site</li>

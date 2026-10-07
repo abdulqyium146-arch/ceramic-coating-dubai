@@ -27,23 +27,8 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed mb-6">
-              {"Dubai's #1 car ceramic coating services studio. Nano ceramic coating, PPF, graphene & detailing. Trusted by 2,400+ car owners since 2018."}
+              {"Car ceramic coating services studio in Dubai. Nano ceramic coating, PPF, graphene & detailing. Trusted by 2,400+ car owners since 2018."}
             </p>
-
-            {/* Rating */}
-            <div className="flex items-center gap-2 mb-6">
-              <div className="flex items-center gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
-                ))}
-              </div>
-              <span className="text-sm font-semibold text-white">
-                {SITE_CONFIG.rating.value} / 5
-              </span>
-              <span className="text-sm text-white/50">
-                ({SITE_CONFIG.rating.count} Google reviews)
-              </span>
-            </div>
 
             {/* Socials */}
             <div className="flex items-center gap-3">

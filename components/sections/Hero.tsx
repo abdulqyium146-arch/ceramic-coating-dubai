@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, ChevronDown, Shield, Star, Award } from 'lucide-react'
+import { Phone, ChevronDown, Shield, Award } from 'lucide-react'
 import { SITE_CONFIG, STATS } from '@/lib/constants'
 import { trackPhoneClick, trackWhatsAppClick, trackQuoteRequest } from '@/lib/analytics'
 
@@ -72,24 +72,35 @@ export function Hero() {
         <div className="inline-flex items-center gap-2 mb-8 animate-fade-up">
           <span className="badge-gold">
             <Award className="h-3 w-3" />
-            #1 Car Ceramic Coating Services in Dubai
+            Dubai&apos;s Car Protection Studio
           </span>
         </div>
 
-        {/* Main Heading — Entity & Semantic SEO optimized */}
+        {/* Main Heading — brand + broad entity: the ceramic-coating pillar owns "ceramic coating dubai" */}
         <h1 className="heading-xl font-display font-black mb-6 text-balance animate-fade-up [animation-delay:100ms]">
-          <span className="text-gradient-gold">Car Ceramic Coating</span>
+          <span className="text-gradient-gold">Ceramic My Car</span>
           <br />
-          <span className="text-white">Services Dubai</span>
+          <span className="text-white">Dubai&apos;s Car Protection Studio</span>
         </h1>
 
         <p className="mx-auto max-w-2xl text-lg md:text-xl text-white/70 leading-relaxed mb-10 animate-fade-up [animation-delay:200ms]">
-          Professional car ceramic coating services in Dubai from AED 1,500. Expert{' '}
-          <strong className="text-white/90">nano-ceramic coating</strong>,{' '}
-          <strong className="text-white/90">PPF</strong>,{' '}
-          <strong className="text-white/90">graphene coating</strong>, and{' '}
-          <strong className="text-white/90">paint correction</strong>. Trusted by
-          Ferrari, Lamborghini, and Rolls-Royce owners across the UAE.
+          Professional car protection in Dubai —{' '}
+          <Link href="/services/ceramic-coating" className="text-white/90 underline decoration-gold-500/40 underline-offset-4 hover:text-white">
+            ceramic coating
+          </Link>
+          ,{' '}
+          <Link href="/services/ppf" className="text-white/90 underline decoration-gold-500/40 underline-offset-4 hover:text-white">
+            paint protection film
+          </Link>
+          ,{' '}
+          <Link href="/services/graphene-coating" className="text-white/90 underline decoration-gold-500/40 underline-offset-4 hover:text-white">
+            graphene coating
+          </Link>{' '}
+          and{' '}
+          <Link href="/services/window-tinting" className="text-white/90 underline decoration-gold-500/40 underline-offset-4 hover:text-white">
+            window tinting
+          </Link>{' '}
+          from our Al Quoz studio, serving every community across Dubai.
         </p>
 
         {/* CTA Buttons */}
@@ -122,18 +133,9 @@ export function Hero() {
 
         {/* Trust Indicators */}
         <div className="flex flex-wrap items-center justify-center gap-6 mb-16 animate-fade-up [animation-delay:400ms]">
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-0.5">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
-              ))}
-            </div>
-            <span className="text-sm font-semibold text-white">
-              {SITE_CONFIG.rating.value}
-            </span>
-            <span className="text-sm text-white/50">
-              ({SITE_CONFIG.rating.count} Google Reviews)
-            </span>
+          <div className="flex items-center gap-2 text-sm text-white/70">
+            <Shield className="h-4 w-4 text-gold-400" />
+            <span className="font-semibold text-white">2,400+</span> cars protected
           </div>
           <div className="h-4 w-px bg-white/20" />
           <div className="flex items-center gap-2 text-sm text-white/70">

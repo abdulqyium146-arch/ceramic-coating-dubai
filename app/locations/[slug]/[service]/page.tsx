@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MapPin, CheckCircle2, Phone, Star, ArrowRight } from 'lucide-react'
+import { MapPin, CheckCircle2, Phone, ArrowRight } from 'lucide-react'
 import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 import { SERVICES, type Service } from '@/content/services'
 import { CTABanner } from '@/components/sections/CTABanner'
 import { generateBreadcrumbSchema, generateServiceSchema, generateFAQSchema } from '@/lib/schema'
+import { isIndexedCombo } from '@/lib/seo/sitemap-data'
 
 export const revalidate = 86400
 
@@ -40,13 +41,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     'window-tinting': 'Window Tinting',
   }
   const label = shortLabel[serviceSlug] ?? service.title
-  const title = `${label} ${location.name} Dubai | Near Me From AED ${service.startingPrice.toLocaleString()} | 4.9★`
-  const description = `Professional ${label.toLowerCase()} in ${location.name}, Dubai from AED ${service.startingPrice.toLocaleString()}. GYEON certified installers. 4.9★ Google (847 reviews). Free paint inspection. Free pickup from ${location.area}. Same-week appointments.`
+  const title = `${label} ${location.name} Dubai | Ceramic My Car`
+  const description = `Professional ${label.toLowerCase()} in ${location.name}, Dubai from AED ${service.startingPrice.toLocaleString()}. Free paint inspection. Free pickup from ${location.area}. Same-week appointments.`
 
   const canonicalUrl = `${SITE_CONFIG.url}/locations/${slug}/${serviceSlug}`
   return {
     title: { absolute: title },
     description,
+    robots: isIndexedCombo(slug, serviceSlug) ? undefined : { index: false, follow: true },
     keywords: [
       `${label.toLowerCase()} ${location.name}`,
       `${label.toLowerCase()} near me ${location.name}`,
@@ -94,7 +96,7 @@ function getServiceLocationFAQs(service: Service, location: LocationType) {
     return [
       {
         question: `Where can I get PPF near ${locName}?`,
-        answer: `Ceramic My Car is an Xpel Authorized Dealer located in Al Quoz, approximately 15–25 minutes from ${locName}. We are the nearest certified PPF installer to ${locArea} offering Xpel Ultimate Plus, SunTek Ultra, and 3M Pro Series with computer-cut patterns. We also offer vehicle collection from ${locName}.`,
+        answer: `Ceramic My Car is an Xpel installer located in Al Quoz, serving ${locArea} and all Dubai communities. We install Xpel Ultimate Plus, SunTek Ultra, and 3M Pro Series with computer-cut patterns. We also offer vehicle collection from ${locName}.`,
       },
       {
         question: `How much does PPF cost for ${locName} customers?`,
@@ -208,7 +210,7 @@ function getServiceContextParagraphs(service: Service, location: LocationType): 
   if (s === 'ppf') {
     return [
       `${locName} residents use some of Dubai's busiest arterial roads daily — Sheikh Zayed Road, Al Khail Road, and Mohammed Bin Zayed Road — where high-speed lorries and construction vehicles kick up rock chips and road debris at speeds exceeding 120 km/h. Paint Protection Film (PPF) is the only protection that physically absorbs these impacts before they reach your paint.`,
-      `As an Xpel Authorized Dealer, we install Xpel Ultimate Plus — the highest-rated PPF film globally with a clear self-healing top coat. Minor scratches from ${locArea}'s parking lots, door dings, and road debris disappear when the film is exposed to heat (even Dubai's ambient temperature is usually sufficient). Our computer-cut patterns ensure zero film overlap or gaps for a factory-perfect look.`,
+      `We install Xpel Ultimate Plus — a premium self-healing PPF film with a clear top coat. Minor scratches from ${locArea}'s parking lots, door dings, and road debris disappear when the film is exposed to heat (even Dubai's ambient temperature is usually sufficient). Our computer-cut patterns ensure zero film overlap or gaps for a factory-perfect look.`,
       `The combination of PPF plus ceramic coating over the top is the ultimate protection package for ${locName} vehicles. The PPF handles physical impacts; the ceramic coating provides chemical resistance, UV protection, and the deep hydrophobic gloss that makes the car easier to maintain in ${locArea}'s dusty conditions.`,
     ]
   }
@@ -287,7 +289,7 @@ export default async function ServiceLocationPage({ params }: PageProps) {
     name: `${service.title} ${location.name} Dubai`,
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', 'h2', '.speakable'],
+      cssSelector: ['.speakable'],
     },
   }
 
@@ -337,19 +339,19 @@ export default async function ServiceLocationPage({ params }: PageProps) {
               {service.title}{' '}
               <span className="text-gradient-gold">{location.name}</span>
               <br />
-              <span className="text-3xl sm:text-4xl text-white/70">Dubai — Professional {service.title} Near Me</span>
+              <span className="text-3xl sm:text-4xl text-white/70">Dubai</span>
             </h1>
 
             <p className="speakable text-white/70 text-lg leading-relaxed mb-8">
               {service.shortDescription} Serving {location.area} and all Dubai communities.
-              Certified installers. 4.9★ Google rated. Starting from AED {service.startingPrice.toLocaleString()}.
+              Certified installers. Starting from AED {service.startingPrice.toLocaleString()}.
               Free paint inspection. Vehicle pickup from {location.name} available.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-8 text-sm text-white/70">
               <span className="flex items-center gap-1.5">
-                <Star className="h-4 w-4 fill-gold-400 text-gold-400" />
-                4.9★ Google Rating
+                <CheckCircle2 className="h-4 w-4 text-gold-400" />
+                Free Paint Inspection
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-gold-400" />
@@ -562,29 +564,24 @@ export default async function ServiceLocationPage({ params }: PageProps) {
             ))}
           </div>
 
-          {/* Dense anchor text for crawlers */}
-          <div className="mt-8 glass-card p-5 border-white/5">
-            <p className="text-xs text-white/25 leading-relaxed text-center">
-              {service.title} near me:{' '}
-              {otherLocations.map((loc, i) => (
-                <span key={loc.slug}>
-                  <Link
-                    href={`/locations/${loc.slug}/${serviceSlug}`}
-                    className="hover:text-white/50 transition-colors"
-                  >
-                    {service.title} {loc.name}
-                  </Link>
-                  {i < otherLocations.length - 1 ? ' · ' : ''}
-                </span>
-              ))}
-            </p>
-          </div>
+          {/* Natural cross-link: hub pages for crawlers and users */}
+          <p className="mt-8 text-xs text-white/25 leading-relaxed text-center">
+            Not in {location.name}? Browse all{' '}
+            <Link href="/locations" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              Dubai areas we serve
+            </Link>{' '}
+            or explore our{' '}
+            <Link href="/services" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              full range of car protection services
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
       <CTABanner
         title={`Book ${service.title} in ${location.name}`}
-        subtitle={`Serving ${location.area} since 2018. Free paint inspection. Pickup from ${location.name} available. 4.9★ Google rated.`}
+        subtitle={`Serving ${location.area} since 2018. Free paint inspection. Pickup from ${location.name} available.`}
       />
     </>
   )

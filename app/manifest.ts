@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Ceramic My Car — Premium Ceramic Coating Dubai',
     short_name: 'Ceramic My Car',
     description:
-      "Dubai's #1 ceramic coating, PPF & graphene coating studio. Serving all Dubai areas since 2018.",
+      "Ceramic coating, PPF & graphene coating studio in Dubai. Serving all Dubai areas since 2018.",
     start_url: '/',
     display: 'standalone',
     background_color: '#0a0a0f',

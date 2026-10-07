@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MapPin, CheckCircle2, Phone, Star, ArrowRight } from 'lucide-react'
+import { MapPin, CheckCircle2, Phone, ArrowRight } from 'lucide-react'
 import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 import { SERVICES } from '@/content/services'
 import { CTABanner } from '@/components/sections/CTABanner'
@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const location = DUBAI_LOCATIONS.find((l) => l.slug === slug)
   if (!location) return {}
   return {
-    title: `Car Ceramic Coating Services ${location.name} | Near Me | Free Pickup | 4.9★`,
-    description: `Professional car ceramic coating services in ${location.name}, Dubai. Ceramic coating, PPF, graphene coating & detailing. 4.9★ Google · Free inspection · Free pickup from ${location.area}.`,
+    title: `Ceramic Coating ${location.name} Dubai | Ceramic My Car`,
+    description: `Ceramic coating, PPF, graphene coating & detailing in ${location.name}, Dubai. Free paint inspection and vehicle pickup from ${location.area}.`,
     keywords: [
       `ceramic coating ${location.name}`,
       `car detailing ${location.name}`,
@@ -66,8 +66,8 @@ export default async function LocationPage({ params }: PageProps) {
       answer: `Yes. We provide professional ceramic coating, PPF, graphene coating, paint correction, and car detailing to ${location.name} and ${location.area} customers. Visit our Al Quoz studio or request a pickup — we collect vehicles from ${location.name} for qualifying packages.`,
     },
     {
-      question: `How long does the drive from ${location.name} to your studio take?`,
-      answer: `Most ${location.area} customers reach our Al Quoz studio in 15–25 minutes via Sheikh Zayed Road or Al Khail Road. We also offer a complimentary vehicle pickup and drop-off service from ${location.name} — simply book in advance.`,
+      question: `How do I get my car to your studio from ${location.name}?`,
+      answer: `Two options: drive to our Al Quoz studio (easily reachable via Sheikh Zayed Road or Al Khail Road), or request our complimentary vehicle pickup and drop-off service from ${location.name} when you book a qualifying package. Most ${location.area} customers choose pickup for multi-day services like ceramic coating and PPF.`,
     },
     {
       question: `What is the best ceramic coating for ${location.name} cars?`,
@@ -92,7 +92,7 @@ export default async function LocationPage({ params }: PageProps) {
     name: `Ceramic Coating ${location.name} Dubai`,
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', 'h2', '.speakable'],
+      cssSelector: ['.speakable'],
     },
   }
 
@@ -144,15 +144,10 @@ export default async function LocationPage({ params }: PageProps) {
             <p className="speakable text-white/70 text-lg leading-relaxed mb-8">
               Professional ceramic coating, paint protection film (PPF), graphene coating,
               paint correction, interior detailing, exterior detailing, and window tinting for{' '}
-              {location.area} residents. Certified installers. 4.9★ Google rated. Free paint
-              inspection. Pickup from {location.name} available.
+              {location.area} residents. Free paint inspection. Pickup from {location.name} available.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-8 text-sm text-white/70">
-              <span className="flex items-center gap-1.5">
-                <Star className="h-4 w-4 fill-gold-400 text-gold-400" />
-                4.9 Google Rating
-              </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-gold-400" />
                 Serving {location.area} since 2018
@@ -198,7 +193,7 @@ export default async function LocationPage({ params }: PageProps) {
             <div className="space-y-4 text-white/65 text-sm leading-relaxed">
               <p>
                 {location.name} is home to some of Dubai&apos;s most discerning vehicle owners —
-                from daily drivers to Lamborghinis, Ferraris, and Rolls-Royces. Our{' '}
+                from daily drivers to high-end luxury cars. Our{' '}
                 <Link href="/services/ceramic-coating" className="text-gold-400 hover:text-gold-300 transition-colors underline-offset-2 underline decoration-gold-500/30">
                   professional ceramic coating in {location.name}
                 </Link>{' '}
@@ -238,12 +233,11 @@ export default async function LocationPage({ params }: PageProps) {
               </h3>
               <ul className="space-y-2">
                 {[
-                  `GYEON Certified and Xpel Authorized — the only credentials that matter in Dubai`,
-                  `Complimentary vehicle collection from ${location.name} for packages over AED 3,000`,
-                  `Climate-controlled Al Quoz studio — 15–25 min from ${location.area}`,
+                  `Certified installers — GYEON and Xpel trained technicians`,
+                  `Complimentary vehicle collection from ${location.name} for qualifying packages`,
+                  `Climate-controlled Al Quoz studio serving ${location.area}`,
                   `Free paint depth gauge inspection before every job`,
-                  `Warranty certificates registered to your VIN number`,
-                  `4.9★ from 847 verified Google reviews — Dubai's highest-rated detailing studio`,
+                  `Clear warranty terms on every package — see transparent pricing`,
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-4 w-4 text-gold-400 shrink-0 mt-0.5" />
@@ -306,21 +300,26 @@ export default async function LocationPage({ params }: PageProps) {
             ))}
           </div>
 
-          {/* Dense anchor text block for crawlers */}
-          <div className="mt-8 glass-card p-5 border-white/5">
-            <p className="text-xs text-white/25 leading-relaxed text-center">
-              Ceramic coating near me:{' '}
-              {nearbyLocations.map((loc, i) => (
+          {/* Natural cross-links to nearby areas */}
+          <div className="mt-8 text-center">
+            <p className="text-xs text-white/25 leading-relaxed">
+              Also serving nearby:{' '}
+              {nearbyLocations.slice(0, 6).map((loc, i, arr) => (
                 <span key={loc.slug}>
                   <Link
                     href={`/locations/${loc.slug}`}
-                    className="hover:text-white/50 transition-colors"
+                    className="hover:text-white/50 transition-colors underline underline-offset-2"
                   >
-                    Ceramic Coating {loc.name}
+                    {loc.name}
                   </Link>
-                  {i < nearbyLocations.length - 1 ? ' · ' : ''}
+                  {i < arr.length - 1 ? ' · ' : ''}
                 </span>
-              ))}
+              ))}{' '}
+              — see{' '}
+              <Link href="/locations" className="hover:text-white/50 transition-colors underline underline-offset-2">
+                all Dubai areas we serve
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -346,16 +345,16 @@ export default async function LocationPage({ params }: PageProps) {
               </h2>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
                 Our climate-controlled studio is located in Al Quoz Industrial Area,
-                just 15–25 minutes from {location.name} via Sheikh Zayed Road or
-                Al Khail Road. We also offer complimentary vehicle pickup from{' '}
-                {location.name} for qualifying packages over AED 3,000.
+                easily reachable via Sheikh Zayed Road or Al Khail Road. We also offer
+                complimentary vehicle pickup from{' '}
+                {location.name} for qualifying packages.
               </p>
 
               <address className="not-italic space-y-3 text-sm mb-6">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="h-4 w-4 text-gold-400 mt-0.5 shrink-0" />
                   <div className="text-white/70">
-                    <span className="font-semibold text-white">Al Quoz Industrial Area 1</span>
+                    <span className="font-semibold text-white">Al Quoz Industrial Area 4</span>
                     <br />Dubai, United Arab Emirates
                   </div>
                 </div>

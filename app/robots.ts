@@ -34,7 +34,6 @@ export default function robots(): MetadataRoute.Robots {
     ],
     sitemap: [
       `${SITE_CONFIG.url}/sitemap.xml`,
-      `${SITE_CONFIG.url}/sitemap-images.xml`,
     ],
     host: SITE_CONFIG.url,
   }

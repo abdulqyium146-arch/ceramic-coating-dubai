@@ -18,9 +18,9 @@ import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: { absolute: 'Car Ceramic Coating Services Dubai | Near Me | From AED 1,500 | 4.9★ 847 Reviews' },
+  title: { absolute: 'Ceramic My Car | Car Protection Studio Dubai' },
   description:
-    "#1 car ceramic coating services in Dubai from AED 1,500. Nano ceramic coating, PPF near me, graphene coating & interior detailing. 4.9★ Google · 2,400+ cars · Free inspection · All Dubai areas.",
+    "Dubai's car protection studio: ceramic coating, PPF, graphene coating, detailing & tinting from our Al Quoz studio. Book your service online.",
   keywords: [
     'car ceramic coating Dubai',
     'ceramic coating Dubai',
@@ -41,14 +41,13 @@ export const metadata: Metadata = {
     'auto ceramic coating Dubai',
     'car coating Dubai',
     'ceramic my car Dubai',
-    'car ceramic coating Abu Dhabi',
     'best ceramic coating UAE',
   ],
   alternates: { canonical: SITE_CONFIG.url },
   openGraph: {
-    title: 'Car Ceramic Coating Dubai | From AED 1,500 | Ceramic My Car',
+    title: 'Ceramic My Car | Car Protection Studio Dubai',
     description:
-      "Best car ceramic coating in Dubai from AED 1,500. PPF, graphene coating, nano ceramic & interior car ceramic coating. 4.9★ Google · 2,400+ cars. Free inspection.",
+      "Dubai's car protection studio: ceramic coating, PPF, graphene coating & detailing from our Al Quoz studio. Book your service online.",
     images: [{ url: '/images/og-home.jpg', width: 1200, height: 630 }],
   },
 }
@@ -230,7 +229,7 @@ export default function HomePage() {
           {/* Row 2 — Location hub (Koray: every location reachable from home) */}
           <div className="mb-12">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-5">
-              Ceramic Coating &amp; PPF Near Me — All Dubai Locations
+              Ceramic Coating &amp; PPF — All Dubai Locations
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
               {DUBAI_LOCATIONS.map((loc) => (
@@ -269,7 +268,7 @@ export default function HomePage() {
               {[
                 { href: '/pricing', label: 'Ceramic Coating Prices Dubai', desc: 'Transparent pricing for all packages' },
                 { href: '/faq', label: 'Ceramic Coating FAQ Dubai', desc: 'Expert answers to common questions' },
-                { href: '/reviews', label: 'Customer Reviews Dubai', desc: '847 verified Google reviews at 4.9★' },
+                { href: '/reviews', label: 'Customer Reviews Dubai', desc: 'Real customer stories' },
                 { href: '/gallery', label: 'Before & After Gallery', desc: 'Real results on Dubai vehicles' },
                 { href: '/about', label: 'About Ceramic My Car', desc: 'Certified studio since 2018' },
                 { href: '/contact', label: 'Get Free Quote', desc: 'Free paint inspection available' },
@@ -315,8 +314,7 @@ export default function HomePage() {
                   {i < DUBAI_LOCATIONS.length - 1 ? ', ' : '. '}
                 </span>
               ))}
-              Also serving Abu Dhabi, Sharjah, Ajman &amp; UAE.
-              GYEON Certified · Xpel Authorized · 4.9★ Google · Al Quoz, Dubai, UAE.
+              GYEON Certified · Xpel Authorized · Al Quoz, Dubai, UAE.
               Детейлинг студия Дубай / {' '}
               <span lang="ar">تلميع السيارات دبي</span>.
             </p>

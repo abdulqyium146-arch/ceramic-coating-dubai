@@ -68,7 +68,7 @@ export default async function ServicePage({ params }: PageProps) {
     url: `${SITE_CONFIG.url}/services/${slug}`,
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', 'h2', '.speakable'],
+      cssSelector: ['.speakable'],
     },
   }
 
@@ -169,6 +169,149 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* AEO answer block — 40-60 word direct answer for AI engines */}
+      {service.answer && (
+        <section className="bg-dark-900 border-y border-white/5">
+          <div className="section-container py-8 max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-3">
+              Quick answer
+            </p>
+            <p className="speakable text-white/85 text-lg leading-relaxed">{service.answer}</p>
+          </div>
+        </section>
+      )}
+
+      {/* How it works */}
+      {service.howItWorks && service.howItWorks.length > 0 && (
+        <section className="section-py bg-dark-950">
+          <div className="section-container max-w-4xl">
+            <h2 className="heading-md mb-8">
+              How <span className="text-gradient-gold">{service.title}</span> Works
+            </h2>
+            <div className="space-y-5 text-white/70 leading-relaxed">
+              {service.howItWorks.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Dubai-specific factors */}
+      {service.dubaiFactors && service.dubaiFactors.length > 0 && (
+        <section className="section-py bg-dark-900">
+          <div className="section-container max-w-4xl">
+            <h2 className="heading-md mb-4">
+              Why Dubai Cars Need <span className="text-gradient-gold">{service.title}</span>
+            </h2>
+            <p className="text-white/50 text-sm mb-8">
+              The UAE&apos;s climate is among the harshest in the world for car paint. Here&apos;s what{' '}
+              {service.title.toLowerCase()} does about each threat.
+            </p>
+            <ul className="space-y-4" role="list">
+              {service.dubaiFactors.map((factor) => (
+                <li key={factor} className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-gold-400 shrink-0 mt-0.5" />
+                  <span className="text-white/80 text-sm leading-relaxed">{factor}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* Step-by-step process */}
+      {service.process && service.process.length > 0 && (
+        <section className="section-py bg-dark-950">
+          <div className="section-container max-w-4xl">
+            <h2 className="heading-md mb-8">
+              Our <span className="text-gradient-gold">{service.title}</span> Process
+            </h2>
+            <ol className="space-y-6" role="list">
+              {service.process.map((step, i) => (
+                <li key={step.title} className="flex gap-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold-500/15 text-sm font-black text-gold-400">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-base font-bold text-white mb-1.5">{step.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{step.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      {/* Honest comparison */}
+      {service.comparison && service.comparison.length > 0 && (
+        <section className="section-py bg-dark-900">
+          <div className="section-container max-w-4xl">
+            <h2 className="heading-md mb-8">
+              {service.comparisonTitle ?? (
+                <>
+                  {service.title} <span className="text-gradient-gold">vs Alternatives</span>
+                </>
+              )}
+            </h2>
+            <div className="space-y-5 text-white/70 leading-relaxed">
+              {service.comparison.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Myths vs truths */}
+      {service.myths && service.myths.length > 0 && (
+        <section className="section-py bg-dark-950">
+          <div className="section-container max-w-4xl">
+            <h2 className="heading-md mb-8 text-center">
+              {service.title} <span className="text-gradient-gold">Myths vs Truth</span>
+            </h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {service.myths.map((m) => (
+                <div key={m.myth} className="glass-card p-6">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-red-400/80 mb-2">
+                    Myth
+                  </p>
+                  <p className="text-sm font-semibold text-white/80 mb-3">{m.myth}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-2">
+                    Truth
+                  </p>
+                  <p className="text-sm text-white/60 leading-relaxed">{m.truth}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Cost factors */}
+      {service.costFactors && service.costFactors.length > 0 && (
+        <section className="section-py bg-dark-900">
+          <div className="section-container max-w-4xl">
+            <h2 className="heading-md mb-4">
+              What Affects <span className="text-gradient-gold">{service.title}</span> Pricing
+            </h2>
+            <p className="text-white/50 text-sm mb-8">
+              Every car is different. These are the factors that determine your exact quote — starting from{' '}
+              AED {service.startingPrice.toLocaleString()}.
+            </p>
+            <ul className="space-y-3" role="list">
+              {service.costFactors.map((factor) => (
+                <li key={factor} className="glass-card px-5 py-3.5 flex items-center gap-3">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold-400 shrink-0" />
+                  <span className="text-sm text-white/80">{factor}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* Benefits + Included */}
       <section className="section-py bg-dark-900">

@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 const TRUST_BADGES = [
   {
     icon: <Star className="h-5 w-5 text-gold-400" />,
-    label: '4.9★ Google Rating',
-    sub: '847+ verified reviews',
+    label: '2,400+ Cars Protected',
+    sub: 'since 2018',
   },
   {
     icon: <Shield className="h-5 w-5 text-gold-400" />,
