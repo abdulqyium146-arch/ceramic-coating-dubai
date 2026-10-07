@@ -43,17 +43,40 @@ export function locationPageUrls(): SitemapUrl[] {
 }
 
 export function serviceLocationUrls(): SitemapUrl[] {
+  // Only the 9 ranking combos stay in the sitemap; the tail is noindex
+  // (see INDEXED_SERVICE_LOCATIONS). Re-adding a combo here re-indexes it.
   const lm = lastModified(COMBO_TEMPLATE)
-  const urls: SitemapUrl[] = []
-  for (const loc of DUBAI_LOCATIONS) {
-    for (const slug of SERVICE_SLUGS) {
-      urls.push({ loc: abs(`/locations/${loc.slug}/${slug}`), lastmod: lm })
-    }
-  }
-  return urls
+  return INDEXED_SERVICE_LOCATIONS.map((c) => ({
+    loc: abs(`/locations/${c.location}/${c.service}`),
+    lastmod: lm,
+  }))
 }
 
 /** Newest lastmod across a child sitemap's URLs — used for the index entry. */
 export function newestLastmod(urls: SitemapUrl[]): string {
   return urls.reduce((max, u) => (u.lastmod > max ? u.lastmod : max), '1970-01-01')
+}
+
+/**
+ * Location x service combos that stay indexed (Phase 3 audit): these 9 already
+ * rank on page 1–2 in GSC and are worth protecting. All other combos are
+ * `noindex,follow` until they get genuinely unique local content — see
+ * seo-data/AUDIT.md §2.3. Reversible: add a combo here to re-index it.
+ */
+export const INDEXED_SERVICE_LOCATIONS: { location: string; service: string }[] = [
+  { location: 'jvc', service: 'window-tinting' }, // pos 3.4
+  { location: 'deira', service: 'interior-detailing' }, // pos 3.6
+  { location: 'deira', service: 'ppf' }, // pos 3.0
+  { location: 'mirdif', service: 'window-tinting' }, // pos 3.6
+  { location: 'deira', service: 'window-tinting' }, // pos 6.3
+  { location: 'motor-city', service: 'window-tinting' }, // pos 7.8
+  { location: 'al-quoz', service: 'ppf' }, // pos 9.5
+  { location: 'al-quoz', service: 'ceramic-coating' }, // pos 3.0
+  { location: 'jvc', service: 'ppf' }, // pos 3.0
+]
+
+export function isIndexedCombo(locationSlug: string, serviceSlug: string): boolean {
+  return INDEXED_SERVICE_LOCATIONS.some(
+    (c) => c.location === locationSlug && c.service === serviceSlug
+  )
 }

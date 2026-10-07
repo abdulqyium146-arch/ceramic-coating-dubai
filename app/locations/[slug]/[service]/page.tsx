@@ -7,6 +7,7 @@ import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 import { SERVICES, type Service } from '@/content/services'
 import { CTABanner } from '@/components/sections/CTABanner'
 import { generateBreadcrumbSchema, generateServiceSchema, generateFAQSchema } from '@/lib/schema'
+import { isIndexedCombo } from '@/lib/seo/sitemap-data'
 
 export const revalidate = 86400
 
@@ -40,13 +41,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     'window-tinting': 'Window Tinting',
   }
   const label = shortLabel[serviceSlug] ?? service.title
-  const title = `${label} ${location.name} Dubai | Near Me From AED ${service.startingPrice.toLocaleString()} | 4.9★`
-  const description = `Professional ${label.toLowerCase()} in ${location.name}, Dubai from AED ${service.startingPrice.toLocaleString()}. GYEON certified installers. 4.9★ Google (847 reviews). Free paint inspection. Free pickup from ${location.area}. Same-week appointments.`
+  const title = `${label} ${location.name} Dubai | Ceramic My Car`
+  const description = `Professional ${label.toLowerCase()} in ${location.name}, Dubai from AED ${service.startingPrice.toLocaleString()}. Free paint inspection. Free pickup from ${location.area}. Same-week appointments.`
 
   const canonicalUrl = `${SITE_CONFIG.url}/locations/${slug}/${serviceSlug}`
   return {
     title: { absolute: title },
     description,
+    robots: isIndexedCombo(slug, serviceSlug) ? undefined : { index: false, follow: true },
     keywords: [
       `${label.toLowerCase()} ${location.name}`,
       `${label.toLowerCase()} near me ${location.name}`,
