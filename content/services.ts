@@ -1,3 +1,13 @@
+export interface ProcessStep {
+  title: string
+  text: string
+}
+
+export interface MythFact {
+  myth: string
+  truth: string
+}
+
 export interface Service {
   id: string
   title: string
@@ -15,6 +25,15 @@ export interface Service {
   seoTitle: string
   seoDescription: string
   keywords: string[]
+  // Phase 3: deep content sections (optional — rendered only when present)
+  answer?: string // 40-60 word AEO answer block (directly under H1)
+  howItWorks?: string[] // what it is / how it works / what it is not
+  dubaiFactors?: string[] // UAE-specific benefits (heat, UV, dust, hard water…)
+  process?: ProcessStep[] // step-by-step process
+  comparisonTitle?: string
+  comparison?: string[] // honest comparison vs alternatives
+  myths?: MythFact[] // common myths → truths
+  costFactors?: string[] // what drives the price
 }
 
 export const SERVICES: Service[] = [
@@ -79,10 +98,100 @@ export const SERVICES: Service[] = [
         question: 'How much does ceramic coating cost for an SUV in Dubai?',
         answer: 'Ceramic coating for an SUV or 4x4 in Dubai costs from AED 2,200 for a 2-year package up to AED 9,500 for a 10-year elite package. SUVs have larger surface areas than sedans. Examples: Ceramic coating for a Range Rover starts from AED 3,500; for a Toyota Land Cruiser from AED 3,000. All packages include free paint inspection and decontamination.'
       },
+      {
+        question: 'What is the best ceramic coating in Dubai?',
+        answer:
+          'The "best" ceramic coating depends on your car and how you use it — but look for three things: genuine SiO2 content (not a spray sealant labelled as ceramic), a written warranty of at least 2 years, and an installer who does full paint decontamination and machine polishing before application. We install professional-grade GYEON, Ceramic Pro and IGL coatings, each selected for Dubai\'s UV and heat after real-world testing.',
+      },
+      {
+        question: 'Ceramic coating vs PPF — which is better for Dubai?',
+        answer:
+          'They solve different problems. Ceramic coating gives chemical resistance, UV protection, hydrophobic gloss and easier washing — but zero protection against rock chips. PPF physically absorbs impacts but costs 3–5x more. For Dubai highway driving, the ultimate setup is PPF on impact zones (front bumper, hood, mirrors) with ceramic coating over the entire car, including over the PPF.',
+      },
+      {
+        question: 'How long does ceramic coating application take?',
+        answer:
+          'A proper ceramic coating job takes 1–3 days including preparation and curing. Day one is decontamination and machine polishing (this is 80% of the work), day two is panel-by-panel coating application, and the coating then needs 12–24 hours to cure before the car should get wet. Any "2-hour ceramic coating" skips the preparation — and the preparation is what makes it last.',
+      },
+      {
+        question: 'Does ceramic coating protect against scratches and rock chips?',
+        answer:
+          'Ceramic coating resists light swirl marks and chemical etching, but it is only microns thin — it cannot stop rock chips or key scratches. Only paint protection film (PPF), at 150–200 microns thick, absorbs physical impacts. If stone chips on Sheikh Zayed Road are your main worry, choose PPF; if UV fade, gloss and easy washing matter most, ceramic coating is the answer.',
+      },
     ],
-    seoTitle: 'Ceramic Coating Dubai | From AED 1,500 | GYEON Certified | Near Me | 4.9★',
+    seoTitle: 'Ceramic Coating Dubai | 9H Protection | Ceramic My Car',
     seoDescription:
-      'Professional nano ceramic coating in Dubai from AED 1,500. 9H hardness, UV protection, hydrophobic shield. GYEON & Ceramic Pro certified. 4.9★ 847 reviews. Free paint inspection.',
+      'Ceramic coating in Dubai: 9H hardness, UV protection & hydrophobic gloss. Professional multi-year paint protection. Book a free inspection today.',
+    answer:
+      'Ceramic coating is a liquid SiO2 polymer that chemically bonds to your car\u2019s paint, forming a hard, hydrophobic layer that resists UV rays, chemicals and dirt. In Dubai it typically lasts 2\u20135 years \u2014 up to 10 for premium packages \u2014 keeping washing easier and protecting gloss and resale value in extreme heat.',
+    howItWorks: [
+      'Ceramic coating starts as a liquid polymer based on silicon dioxide (SiO2) \u2014 essentially liquid glass. When applied to properly prepared paint, it cross-links and cures into a rigid, transparent layer that bonds at a molecular level. This is the key difference from wax or sealant, which merely sit on top of the paint and wash away within weeks.',
+      'The cured layer is rated up to 9H on the pencil hardness scale \u2014 harder than factory clear coat. It creates an extremely flat surface at a microscopic level, which is why water beads so aggressively and dirt struggles to stick. Contaminants sit on top of the coating rather than bonding to your paint.',
+      'What ceramic coating does not do matters just as much: it is only a few microns thick, so it cannot absorb rock chips or deep scratches \u2014 that is paint protection film\u2019s job. It also doesn\u2019t make your car self-cleaning; you\u2019ll still wash it, just far less often and with far less effort.',
+    ],
+    dubaiFactors: [
+      'Extreme UV (Index 11+): Dubai has some of the highest UV radiation on earth. Unprotected clear coat begins oxidising within months here \u2014 fading, chalking and micro-cracking. Ceramic coating\u2019s UV-blocking chemistry absorbs that radiation instead of letting it reach your paint.',
+      '45\u201350\u00b0C heat and airborne sand: fine desert sand is mildly abrasive and settles on every horizontal panel daily. The coating\u2019s slick, hydrophobic surface means sand releases in a rinse instead of grinding into the clear coat during washing.',
+      'Hard desalinated water: Dubai tap water is mineral-heavy. Droplets evaporate in minutes in summer, leaving mineral spots that etch into unprotected paint. Ceramic coating dramatically reduces water-spot bonding.',
+      'Bird droppings and tree sap: at 45\u00b0C ambient, bird droppings etch paint in hours, not days. The coating\u2019s chemical resistance buys you critical time to remove contaminants before they burn through the clear coat.',
+    ],
+    process: [
+      {
+        title: 'Paint inspection and wash',
+        text: 'We assess every panel under inspection lighting, measure paint depth with a digital gauge, and document existing defects. Then a safe two-bucket wash removes loose dirt without adding swirls.',
+      },
+      {
+        title: 'Decontamination',
+        text: 'Iron fallout remover dissolves embedded brake dust and industrial particles, tar remover lifts road tar, and a clay bar treatment removes anything still bonded to the surface. The paint must be surgically clean before polishing.',
+      },
+      {
+        title: 'Machine polishing',
+        text: 'Single to multi-stage machine polishing removes swirl marks, water etching and oxidation. This step is non-negotiable: ceramic coating locks in whatever is underneath it, so the paint must be flawless first.',
+      },
+      {
+        title: 'Panel-by-panel coating application',
+        text: 'The SiO2 coating is applied one panel at a time in a controlled, dust-free environment, levelled with microfibre to an even film. Edges, emblems and trim are masked for crisp lines.',
+      },
+      {
+        title: 'Curing and quality control',
+        text: 'The coating cures for 12\u201324 hours (infrared-assisted where needed). We re-inspect every panel under lighting, then walk you through aftercare: no washing for 7 days, then simple maintenance washes.',
+      },
+    ],
+    comparisonTitle: 'Ceramic Coating vs PPF vs Wax \u2014 What\u2019s Right for You?',
+    comparison: [
+      'Versus wax and sealants: a quality carnauba wax lasts 4\u201312 weeks in Dubai \u2014 heat literally melts it off the paint. A synthetic sealant stretches to 4\u20136 months. Ceramic coating lasts years, not weeks, with far stronger chemical and UV resistance. If you\u2019re waxing quarterly, ceramic coating pays for itself in under two years.',
+      'Versus PPF (paint protection film): ceramic coating wins on gloss, hydrophobics, UV protection and price; PPF wins on physical impact protection. They are complements, not competitors \u2014 the ultimate Dubai setup is PPF on the front end with ceramic coating over the whole car, including over the film.',
+      'Versus graphene coating: graphene is essentially ceramic coating upgraded with carbon nanostructure \u2014 adding anti-static dust repellence, better heat dissipation and reduced water spotting. It costs more; for garage-kept cars the difference is subtle, for daily-driven cars parked outdoors in Dubai it is noticeable.',
+    ],
+    myths: [
+      {
+        myth: 'Ceramic coating makes paint scratch-proof.',
+        truth:
+          'No coating makes paint scratch-proof. Ceramic coating resists fine swirls and marring far better than bare clear coat, but keys, rock chips and shopping carts will still mark it. Scratch-proof claims are marketing fiction.',
+      },
+      {
+        myth: 'You never need to wash a coated car again.',
+        truth:
+          'Coated cars still get dirty \u2014 they just clean dramatically easier. Expect to wash half as often, with dirt releasing in a simple rinse instead of aggressive scrubbing. Neglect it for a year and even a coating will clog with bonded contamination.',
+      },
+      {
+        myth: 'The brand of coating is all that matters.',
+        truth:
+          'Preparation is roughly 80% of the result. A mid-tier coating over perfectly corrected paint will outperform a flagship coating slapped over swirls every time \u2014 and the defects get sealed in permanently. Judge the installer\u2019s prep process, not just the bottle.',
+      },
+      {
+        myth: 'Ceramic coating lasts a lifetime.',
+        truth:
+          'No. Real-world durability is 2\u20135 years for standard packages and up to 7\u201310 for premium ones in Dubai\u2019s climate, depending on maintenance. "Lifetime coating" usually means a warranty with so many exclusions it is effectively meaningless \u2014 always read the terms.',
+      },
+    ],
+    costFactors: [
+      'Vehicle size and paint area \u2014 a compact sedan takes far less product and labour than a full-size SUV',
+      'Paint condition \u2014 heavily swirled or oxidised paint needs multi-stage correction before coating',
+      'Coating tier and warranty length \u2014 2-year packages vs 10-year flagship coatings',
+      'Number of layers and panels coated \u2014 paint only, or paint plus wheels, glass and trim',
+      'Add-on protection \u2014 interior ceramic, fabric protection or PPF on impact zones',
+    ],
     keywords: [
       'ceramic coating Dubai',
       'nano ceramic coating Dubai',
@@ -151,10 +260,105 @@ export const SERVICES: Service[] = [
         question: 'PPF vs ceramic coating — which should I choose in Dubai?',
         answer: 'For Dubai driving, the best answer is both. PPF provides physical protection from rock chips and scratches that ceramic cannot prevent. Ceramic coating adds chemical resistance, UV protection, and a hydrophobic layer that makes PPF easier to clean. If budget allows, apply PPF first then ceramic coat over it. If choosing one: PPF for highway driving and rock chip risk; ceramic coating for UV protection, gloss, and maintenance ease.'
       },
+      {
+        question: 'What is the best PPF brand in Dubai?',
+        answer:
+          'The three proven premium films are Xpel (Ultimate Plus), SunTek (Ultra) and 3M (Pro Series) \u2014 all with self-healing top coats and 10-year warranties against yellowing, cracking and peeling. We install all three and recommend based on your car and budget rather than pushing one brand. Avoid no-name films: in Dubai\u2019s UV, cheap PPF yellows within 18 months and can be brutally expensive to remove.',
+      },
+      {
+        question: 'How long does PPF installation take?',
+        answer:
+          'Partial front coverage (bumper, hood strip, mirrors, headlights) takes 1\u20132 days; a full front end takes 2\u20133 days; full-body coverage on a sedan takes 3\u20135 days. The film then needs 24\u201348 hours for edges to fully set \u2014 avoid pressure washers and automatic car washes for the first week.',
+      },
+      {
+        question: 'Can PPF be removed without damaging the paint?',
+        answer:
+          'Yes \u2014 when it\u2019s a quality film removed professionally. Premium films use adhesives engineered to release cleanly with heat, even after years in Dubai\u2019s sun. Problems arise with cheap films whose adhesive bakes onto the paint, or DIY removal that pulls at edges. Professional removal takes 2\u20134 hours and leaves factory paint untouched.',
+      },
+      {
+        question: 'Does PPF turn yellow in Dubai\u2019s sun?',
+        answer:
+          'Premium PPF (Xpel, SunTek, 3M) will not yellow \u2014 their top coats include UV inhibitors specifically engineered for high-sun climates, backed by 10-year anti-yellowing warranties. Yellowing is a cheap-film problem: unprotected urethane oxidises fast under UV Index 11+. If a quote seems too good to be true, ask which exact film is being installed and demand the manufacturer warranty in writing.',
+      },
+      {
+        question: 'Is PPF worth it on a leased car?',
+        answer:
+          'Often yes. Lease-return inspections in the UAE charge for paint damage \u2014 stone chips, bumper scuffs and door dings add up to thousands of dirhams in end-of-lease penalties. A partial-front PPF package costs less than most penalty bills and peels off at return, revealing untouched factory paint. Many of our PPF customers are specifically protecting lease deposits.',
+      },
     ],
-    seoTitle: 'PPF Dubai | Paint Protection Film From AED 2,500 | Xpel Authorized',
+    seoTitle: 'PPF Dubai | Paint Protection Film | Ceramic My Car',
     seoDescription:
-      'Self-healing Paint Protection Film (PPF) in Dubai from AED 2,500. Xpel & SunTek authorized. Computer-cut precision fit. 10-year manufacturer warranty. Free quote today.',
+      'Paint protection film in Dubai: self-healing, invisible rock-chip defence with computer-cut fit. 10-year film warranty. Get your free PPF quote today.',
+    answer:
+      'Paint protection film (PPF) is a clear, self-healing urethane film applied over your car\u2019s paintwork. It physically absorbs rock chips, scratches and road debris that ceramic coatings can\u2019t stop. In Dubai, quality PPF lasts about 10 years \u2014 minor scratches disappear with heat \u2014 making it ideal for highway driving.',
+    howItWorks: [
+      'PPF is a thermoplastic urethane film, typically 150\u2013200 microns thick \u2014 roughly 50 times thicker than a ceramic coating. Its top layer is an elastomeric "self-healing" coat: light scratches and swirl marks in the film reflow and vanish when exposed to heat, which in Dubai means most minor marks heal on their own in ambient temperatures.',
+      'Installation is a wet-application craft. Patterns are computer-cut to your exact make and model (no blades on your paint), then laid with a slip solution and squeegeed into place in a dust-controlled bay. Edges are wrapped where possible so the film is genuinely hard to detect.',
+      'Coverage is modular: most Dubai drivers choose partial-front (bumper, partial hood, mirrors, headlights) or full-front (entire hood and fenders) packages, with full-body for exotics and new luxury cars. You protect the impact zones without paying for panels that rarely get hit.',
+    ],
+    dubaiFactors: [
+      'Highway rock chips: at 120 km/h on Sheikh Zayed Road, a pebble kicked up by a lorry hits with enough energy to chip straight through clear coat. Construction traffic across Dubai makes this a daily \u2014 not occasional \u2014 hazard. PPF is the only protection that absorbs these impacts.',
+      'Sandstorm abrasion: fine wind-blown sand at speed acts like sandpaper on leading edges \u2014 bumpers, mirrors, hood lips. Film takes the abrasion; the paint underneath stays factory-fresh.',
+      'UV yellowing (cheap films): Dubai\u2019s UV destroys unprotected urethane. Premium films carry UV inhibitors and 10-year anti-yellowing warranties; budget films can yellow visibly within two summers.',
+      'Parking damage: tight mall and street parking means door dings and bumper scuffs. PPF won\u2019t stop a hard impact, but it absorbs the light contact that would otherwise mean a respray.',
+    ],
+    process: [
+      {
+        title: 'Coverage consultation',
+        text: 'We inspect the car and map your driving: highway commuter, city runabout, or weekend exotic. That determines whether partial-front, full-front or full-body coverage makes sense \u2014 we won\u2019t sell you film you don\u2019t need.',
+      },
+      {
+        title: 'Decontamination and paint correction',
+        text: 'The paint is fully decontaminated and machine-polished first. Film magnifies whatever is underneath it, so swirls and water spots must be corrected before a single panel is wrapped.',
+      },
+      {
+        title: 'Computer-cut patterns',
+        text: 'Patterns are plotted from a digital database for your exact model and trim \u2014 cut on the plotter, never with a blade on your paint. Complex curves get custom bulk-cut pieces by our installers.',
+      },
+      {
+        title: 'Film application',
+        text: 'In a dust-controlled bay, each panel is laid with slip solution, positioned to the millimetre, and squeegeed with zero trapped air or fingers. Edges are wrapped around panel lips wherever the geometry allows.',
+      },
+      {
+        title: 'Curing and handover',
+        text: 'The car rests 24\u201348 hours while edges set. We re-inspect every edge and seam under lighting, then brief you on aftercare: no pressure washers near edges for a week, then wash normally.',
+      },
+    ],
+    comparisonTitle: 'PPF vs Ceramic Coating vs Vinyl Wrap',
+    comparison: [
+      'Versus ceramic coating: PPF is armour, ceramic is sunscreen. PPF stops rock chips, scratches and scuffs; ceramic coating stops UV fade, chemical etching and makes washing easier. Neither replaces the other \u2014 the benchmark Dubai setup is PPF on impact zones with ceramic coating over the entire car, film included.',
+      'Versus vinyl wrap: wraps change colour; PPF preserves it. Wrap vinyl is thinner (around 100 microns), has no self-healing top coat, and offers a fraction of the impact protection. Choose wrap for a new look, PPF for invisible protection of factory paint.',
+      'Versus doing nothing: a front bumper respray in Dubai costs AED 1,500\u20133,000 and never quite matches factory orange-peel. One bad stone-chip season can exceed the cost of a partial-front PPF package \u2014 before counting the resale hit of repainted panels.',
+    ],
+    myths: [
+      {
+        myth: 'PPF is visible and ruins the car\u2019s looks.',
+        truth:
+          'Modern premium film is optically clear \u2014 on a correct install you cannot see it beyond a metre away. Visible edges, orange-peel texture and haze are signs of cheap film or poor installation, not of PPF itself.',
+      },
+      {
+        myth: 'PPF will damage my paint when removed.',
+        truth:
+          'Quality films are engineered to release cleanly with heat after a decade in the sun. Damage stories almost always involve budget films with aggressive adhesives, or paint that was already failing (resprays, heavy oxidation) before the film went on.',
+      },
+      {
+        myth: 'PPF needs no maintenance.',
+        truth:
+          'PPF still needs washing \u2014 contamination bonds to the film\u2019s top coat just like paint. The difference: it washes easier, and the self-healing layer erases the swirls that washing would otherwise leave. An annual inspection keeps edges sealed.',
+      },
+      {
+        myth: 'All PPF yellows in Dubai within a couple of years.',
+        truth:
+          'Only cheap, UV-unprotected film does. Xpel, SunTek and 3M films carry 10-year warranties specifically covering yellowing, because their top coats include UV inhibitors. Ask for the film name and the written manufacturer warranty \u2014 that\u2019s the entire difference.',
+      },
+    ],
+    costFactors: [
+      'Coverage area \u2014 partial front vs full front vs full body is the single biggest price driver',
+      'Film brand \u2014 Xpel Ultimate Plus, SunTek Ultra and 3M Pro Series sit at different price points',
+      'Vehicle size and complexity \u2014 a compact sedan vs a Range Rover with complex curves',
+      'Paint correction needed \u2014 film locks in defects, so correction comes first',
+      'Ceramic coating over the PPF \u2014 the popular add-on for hydrophobics and easier maintenance',
+    ],
     keywords: [
       'PPF Dubai',
       'paint protection film Dubai',
@@ -218,9 +422,9 @@ export const SERVICES: Service[] = [
         answer: "Yes — graphene coating is especially worth it in Dubai for three reasons: (1) Dubai's hard water causes severe water spotting; graphene's anti-static properties dramatically reduce this. (2) Extreme heat (50°C+) can stress standard ceramic; graphene dissipates heat better. (3) Sand and dust stick to statically charged surfaces; graphene's anti-static charge repels them. For any car parked outdoors in Dubai, graphene is the better long-term investment."
       },
     ],
-    seoTitle: 'Graphene Coating Dubai | From AED 2,500 | Superior to Ceramic | Free Inspect',
+    seoTitle: 'Graphene Coating Dubai | Anti-Static | Ceramic My Car',
     seoDescription:
-      'Graphene coating in Dubai from AED 2,500 — superior to standard ceramic with anti-static, heat resistance & reduced water spotting. GYEON certified. Free paint inspection.',
+      'Graphene coating in Dubai: anti-static, heat-resistant paint protection that beats hard-water spotting. Premium durability. Book a free inspection.',
     keywords: [
       'graphene coating Dubai',
       'graphene ceramic coating Dubai',
@@ -275,9 +479,9 @@ export const SERVICES: Service[] = [
           "Paint correction can remove scratches that exist within the clear coat layer. Scratches you can feel with your fingernail have typically gone through the clear coat into the base coat and cannot be removed by polishing — they require touch-up paint or panel repainting. During your free inspection, we'll assess which scratches are correctable.",
       },
     ],
-    seoTitle: 'Paint Correction Dubai | Swirl Removal From AED 800 | Free Paint Inspection',
+    seoTitle: 'Paint Correction Dubai | Swirl Removal | Ceramic My Car',
     seoDescription:
-      'Professional paint correction in Dubai from AED 800. Remove swirl marks, scratches & oxidation by certified detailers. Essential before ceramic coating. Free inspection available.',
+      'Paint correction in Dubai removes swirls, scratches & oxidation by machine polishing. The essential prep for ceramic coating. Free inspection available.',
     keywords: [
       'paint correction Dubai',
       'swirl mark removal Dubai',
@@ -324,9 +528,9 @@ export const SERVICES: Service[] = [
           "For Dubai's conditions — dust, sand, and extreme heat that degrades materials — we recommend interior detailing every 3–6 months. Regular maintenance keeps leather supple, prevents UV damage to the dash, and maintains a clean cabin environment.",
       },
     ],
-    seoTitle: 'Interior Detailing Dubai | From AED 400 | Steam Clean + Leather Care | Near Me',
+    seoTitle: 'Interior Car Detailing Dubai | Ceramic My Car',
     seoDescription:
-      'Premium interior detailing in Dubai from AED 400. Deep steam clean, leather conditioning, sanitization & odour removal. Book online today. Al Quoz studio — all Dubai areas.',
+      'Interior car detailing in Dubai: deep steam clean, leather care & odour removal. Showroom-fresh cabin in a day. Book your interior detail now.',
     keywords: [
       'interior detailing Dubai',
       'car interior cleaning Dubai',
@@ -372,9 +576,9 @@ export const SERVICES: Service[] = [
           "A car wash only removes surface dirt. Exterior detailing goes much deeper — removing bonded contamination (iron fallout, tar, industrial fallout) that a wash cannot remove, then protecting the paint with wax or sealant. The result is a deeper, longer-lasting clean with actual paint protection.",
       },
     ],
-    seoTitle: 'Exterior Detailing Dubai | Hand Wash + Clay Bar | From AED 250 | Near Me',
+    seoTitle: 'Exterior Car Detailing Dubai | Ceramic My Car',
     seoDescription:
-      'Professional exterior detailing in Dubai from AED 250. Safe hand wash, clay bar, iron decontamination & wax/sealant protection. Book online — all Dubai areas served.',
+      'Exterior car detailing in Dubai: safe hand wash, clay bar & iron decontamination with wax protection. Book your exterior detail today.',
     keywords: [
       'exterior detailing Dubai',
       'car detailing Dubai',
@@ -430,9 +634,9 @@ export const SERVICES: Service[] = [
         answer: "Absolutely. Ceramic window tint is significantly better than dyed or metallic film in Dubai's extreme heat. It rejects up to 99% of UV rays and 70% of infrared heat without interfering with GPS, phone signals, or satellite radio. While it costs more than basic film (AED 800 vs AED 1,500–3,000 for ceramic), the heat reduction alone reduces air conditioning load by up to 30%, improving fuel economy and protecting your interior."
       },
     ],
-    seoTitle: 'Window Tinting Dubai | From AED 800 | 99% UV Block | RTA Legal | Xpel Film',
+    seoTitle: 'Car Window Tinting Dubai | Ceramic My Car',
     seoDescription:
-      'Professional window tinting in Dubai from AED 800. 99% UV rejection, 70% heat block. Xpel, SunTek & 3M nano-ceramic films. RTA compliant. Lifetime warranty. Free quote.',
+      'Window tinting in Dubai: nano-ceramic film blocking 99% UV & 70% heat. RTA-compliant, lifetime film warranty. Get a free tint quote.',
     keywords: [
       'window tinting Dubai',
       'car window film Dubai',
