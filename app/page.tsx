@@ -18,9 +18,9 @@ import { DUBAI_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: { absolute: 'Car Ceramic Coating Services Dubai | Near Me | From AED 1,500 | 4.9★ 847 Reviews' },
+  title: { absolute: 'Ceramic My Car | Car Protection Studio Dubai' },
   description:
-    "#1 car ceramic coating services in Dubai from AED 1,500. Nano ceramic coating, PPF near me, graphene coating & interior detailing. 4.9★ Google · 2,400+ cars · Free inspection · All Dubai areas.",
+    "Dubai's car protection studio: ceramic coating, PPF, graphene coating, detailing & tinting from our Al Quoz studio. Book your service online.",
   keywords: [
     'car ceramic coating Dubai',
     'ceramic coating Dubai',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: SITE_CONFIG.url },
   openGraph: {
-    title: 'Car Ceramic Coating Dubai | From AED 1,500 | Ceramic My Car',
+    title: 'Ceramic My Car | Car Protection Studio Dubai',
     description:
-      "Best car ceramic coating in Dubai from AED 1,500. PPF, graphene coating, nano ceramic & interior car ceramic coating. 4.9★ Google · 2,400+ cars. Free inspection.",
+      "Dubai's car protection studio: ceramic coating, PPF, graphene coating & detailing from our Al Quoz studio. Book your service online.",
     images: [{ url: '/images/og-home.jpg', width: 1200, height: 630 }],
   },
 }

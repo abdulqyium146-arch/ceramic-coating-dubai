@@ -36,11 +36,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'Car Ceramic Coating Services Dubai | Ceramic My Car | PPF, Graphene & Detailing',
-    template: '%s | Car Ceramic Coating Services Dubai',
+    default: 'Ceramic My Car | Car Protection Studio Dubai',
+    template: '%s | Ceramic My Car',
   },
   description:
-    "Dubai's #1 car ceramic coating studio since 2018. Nano ceramic coating, PPF, graphene coating & auto detailing from AED 1,500. 4.9★ Google · 2,400+ cars protected. Free inspection. All Dubai areas.",
+    "Dubai's car protection studio since 2018. Ceramic coating, PPF, graphene coating & auto detailing from AED 1,500. Free inspection. All Dubai areas.",
   keywords: [
     'car ceramic coating Dubai',
     'ceramic coating Dubai',
@@ -81,10 +81,10 @@ export const metadata: Metadata = {
     locale: 'en_AE',
     alternateLocale: ['ar_AE'],
     url: SITE_CONFIG.url,
-    siteName: 'Car Ceramic Coating Services Dubai | Ceramic My Car',
-    title: 'Car Ceramic Coating Services Dubai | Ceramic My Car | PPF & Detailing',
+    siteName: 'Ceramic My Car',
+    title: 'Ceramic My Car | Car Protection Studio Dubai',
     description:
-      "Dubai's #1 car ceramic coating studio since 2018. Nano ceramic coating, PPF, graphene coating & auto detailing from AED 1,500. 4.9★ Google · 2,400+ cars protected.",
+      "Dubai's car protection studio since 2018. Ceramic coating, PPF, graphene coating & auto detailing from AED 1,500. Free inspection.",
     images: [
       {
         url: '/images/og-default.jpg',
@@ -97,9 +97,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Car Ceramic Coating Dubai | Ceramic My Car | PPF & Detailing',
+    title: 'Ceramic My Car | Car Protection Studio Dubai',
     description:
-      "Dubai's #1 car ceramic coating studio. Nano ceramic coating, PPF, graphene & detailing from AED 1,500. 4.9★ · 2,400+ cars. Free inspection.",
+      "Dubai's car protection studio. Ceramic coating, PPF, graphene & detailing from AED 1,500. Free inspection. Book online.",
     images: ['/images/og-default.jpg'],
   },
   icons: {
