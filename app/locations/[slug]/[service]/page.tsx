@@ -562,23 +562,18 @@ export default async function ServiceLocationPage({ params }: PageProps) {
             ))}
           </div>
 
-          {/* Dense anchor text for crawlers */}
-          <div className="mt-8 glass-card p-5 border-white/5">
-            <p className="text-xs text-white/25 leading-relaxed text-center">
-              {service.title} near me:{' '}
-              {otherLocations.map((loc, i) => (
-                <span key={loc.slug}>
-                  <Link
-                    href={`/locations/${loc.slug}/${serviceSlug}`}
-                    className="hover:text-white/50 transition-colors"
-                  >
-                    {service.title} {loc.name}
-                  </Link>
-                  {i < otherLocations.length - 1 ? ' · ' : ''}
-                </span>
-              ))}
-            </p>
-          </div>
+          {/* Natural cross-link: hub pages for crawlers and users */}
+          <p className="mt-8 text-xs text-white/25 leading-relaxed text-center">
+            Not in {location.name}? Browse all{' '}
+            <Link href="/locations" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              Dubai areas we serve
+            </Link>{' '}
+            or explore our{' '}
+            <Link href="/services" className="hover:text-white/50 transition-colors underline underline-offset-2">
+              full range of car protection services
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
