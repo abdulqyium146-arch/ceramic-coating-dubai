@@ -80,6 +80,17 @@ export default function PricingPage() {
             graphene coating from AED 2,500, paint correction from AED 800 and detailing from
             AED 250. Honest, no-hidden-fee packages — every one includes a free paint inspection.
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/pricing/ceramic-coating-price-dubai"
+              className="btn-ghost text-xs"
+            >
+              Ceramic coating cost guide
+            </Link>
+            <Link href="/pricing/ppf-price-dubai" className="btn-ghost text-xs">
+              PPF cost guide
+            </Link>
+          </div>
         </div>
       </section>
 
