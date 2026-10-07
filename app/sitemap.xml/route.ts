@@ -4,6 +4,9 @@ import {
   servicePageUrls,
   locationPageUrls,
   serviceLocationUrls,
+  priceDetailUrls,
+  guideUrls,
+  brandUrls,
   newestLastmod,
 } from '@/lib/seo/sitemap-data'
 import { sitemapIndexXml, xmlResponse, lastModified } from '@/lib/seo/sitemap-utils'
@@ -16,6 +19,9 @@ export async function GET() {
     { id: 'services', urls: servicePageUrls() },
     { id: 'locations', urls: locationPageUrls() },
     { id: 'service-locations', urls: serviceLocationUrls() },
+    { id: 'pricing', urls: priceDetailUrls() },
+    { id: 'guides', urls: guideUrls() },
+    { id: 'brands', urls: brandUrls() },
   ]
   const entries = children.map((c) => ({
     loc: `${base}/sitemaps/${c.id}.xml`,
