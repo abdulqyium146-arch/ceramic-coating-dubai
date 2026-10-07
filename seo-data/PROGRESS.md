@@ -26,8 +26,16 @@ Branch: `seo/gsc-rebuild` | Baseline: `seo-data/gsc-data.md` (2,770 impr / 14 cl
 - [x] 3d (527c914): pricing hub (answer block, FAQ schema, pillar links), locations hub (near-me
   answer block, 5 FAQs + schema, crawler-block + drive-time fixes), location hub template ×14
   (titles de-stuffed, rating/drive-time claims removed, Area 1/4 address fix)
-- [ ] Location×service: protect the 9 ranking pages; DECISION NEEDED on the ~89 tail pages (unique content vs noindex)
-- Build verification: ✅ green (145 pages, 2026-10-07)
+## Phase 4 — New Pages (from cluster map)
+- [x] 4a (5e16987): /pricing/ceramic-coating-price-dubai (130 impr), /pricing/ppf-price-dubai (108 impr)
+  — answer blocks, live price tables, cost factors, 6 FAQs each + schema
+- [x] 4b (6593333): /guides/ppf-faq-hub, /guides/ceramic-coating-faq-hub (10 FAQs each + Article
+  schema), /brands/xpel-ppf (77 impr); new pricing/guides/brands sitemap children
+- [ ] Remaining new pages: vehicle pages (/vehicles/mercedes/ceramic-coating, /vehicles/range-rover/ppf),
+  more brand pages (3M, SunTek, GYEON — after brand-relationship confirmation), more guides
+- [ ] Phase 5: INDEXING_CHECKLIST, GSC resubmission, top-10 URL Inspection, GBP checklist, 30/60/90-day plan
+- [ ] CHANGELOG.md, scripts/seo-lint.ts, CI quality gate
+- Build verification: ✅ green (153 pages, 2026-10-07)
 
 ## Phase 4 — New pages (NOT STARTED)
 Backlog: price subpages → guides (unblocked) → brand pages → vehicle pages → Abu Dhabi/Sharjah/Ajman + Arabic (gated).
