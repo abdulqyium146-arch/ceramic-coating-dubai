@@ -6,9 +6,9 @@ import { CTABanner } from '@/components/sections/CTABanner'
 import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: "Dubai's #1 Ceramic Coating Studio Since 2018 | GYEON Certified",
+  title: 'About Our Ceramic Coating Studio Dubai | Ceramic My Car',
   description:
-    "Dubai's most trusted car ceramic coating services studio since 2018. GYEON Certified, Xpel Authorized, Ceramic Pro Certified. 2,400+ cars protected. 4.9★ Google rating.",
+    'Ceramic My Car studio in Al Quoz, Dubai since 2018. GYEON Certified, Xpel Authorized, Ceramic Pro Certified. 2,400+ cars protected.',
   keywords: [
     'car ceramic coating Dubai studio',
     'about car ceramic coating Dubai',
@@ -47,8 +47,8 @@ const MILESTONES = [
   { year: '2020', event: 'Xpel Authorized Dealer status achieved; launched PPF service' },
   { year: '2021', event: '1,000 cars protected milestone. Expanded studio to double capacity' },
   { year: '2022', event: 'Ceramic Pro Certified. Launched graphene coating service' },
-  { year: '2023', event: '2,000 cars protected. Named #1 Detailing Studio by Dubai Car Community' },
-  { year: '2024', event: '2,400+ cars protected. 847 Google reviews at 4.9★ average' },
+  { year: '2023', event: '2,000 cars protected milestone' },
+  { year: '2024', event: '2,400+ cars protected milestone' },
 ]
 
 export default function AboutPage() {

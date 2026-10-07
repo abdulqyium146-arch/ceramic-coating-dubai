@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Camera, Star, Car, Award } from 'lucide-react'
+import { Camera, ShieldCheck, Car, Award } from 'lucide-react'
 import { CTABanner } from '@/components/sections/CTABanner'
 import { GalleryGrid } from '@/components/gallery/GalleryGrid'
 import { generateBreadcrumbSchema } from '@/lib/schema'
@@ -11,7 +11,7 @@ export const revalidate = 86400
 export const metadata: Metadata = {
   title: 'Ceramic Coating Results Dubai | Before & After | BMW, Porsche, Ferrari',
   description:
-    'Real car ceramic coating services Dubai before & after results. BMW, Porsche, Mercedes, Ferrari, Range Rover, Tesla & more. See why Dubai trusts Ceramic My Car. 4.9★ Google.',
+    'Real car ceramic coating Dubai before & after results. BMW, Porsche, Mercedes, Ferrari, Range Rover, Tesla & more.',
   keywords: [
     'car ceramic coating Dubai before after',
     'ceramic coating results Dubai',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_CONFIG.url}/gallery` },
   openGraph: {
     title: 'Car Ceramic Coating Services Dubai Results | Before & After Photos | Ceramic My Car',
-    description: 'Browse real results on BMWs, Porsches, Mercedes, Teslas and more. 4.9★ Google rated ceramic coating studio in Dubai.',
+    description: 'Browse real results on BMWs, Porsches, Mercedes, Teslas and more at our Dubai studio.',
     images: [{ url: '/gallery/bmw-xm-ceramic-coating-dubai.webp', width: 900, height: 1200, alt: 'BMW XM ceramic coating Dubai — Ceramic My Car' }],
     url: `${SITE_CONFIG.url}/gallery`,
   },
@@ -119,7 +119,7 @@ export default function GalleryPage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
               {[
                 { icon: Car, value: '2,400+', label: 'Cars Protected' },
-                { icon: Star, value: '4.9★', label: 'Google Rating' },
+                { icon: ShieldCheck, value: '10-Yr', label: 'Max Warranty' },
                 { icon: Award, value: 'GYEON', label: 'Certified' },
                 { icon: Camera, value: '20+', label: 'Gallery Photos' },
               ].map(({ icon: Icon, value, label }) => (

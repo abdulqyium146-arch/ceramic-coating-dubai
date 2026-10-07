@@ -7,9 +7,9 @@ import { generateBreadcrumbSchema } from '@/lib/schema'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: { absolute: '4.9★ Ceramic Coating Dubai Reviews | 847 Verified Google Reviews | Ceramic My Car' },
+  title: { absolute: 'Ceramic Coating Dubai Reviews | Customer Stories | Ceramic My Car' },
   description:
-    'Genuine car ceramic coating services Dubai reviews. 4.9 stars from 847+ verified Google customers. Ferrari, Lamborghini, Range Rover, BMW, Mercedes owners share their Ceramic My Car experiences.',
+    'Car ceramic coating Dubai reviews from our customers. Ferrari, Lamborghini, Range Rover, BMW and Mercedes owners share their Ceramic My Car experiences.',
   keywords: [
     'car ceramic coating Dubai reviews',
     'ceramic coating Dubai reviews',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'Ceramic My Car reviews',
     'car detailing reviews Dubai',
     'ceramic coating Google reviews Dubai',
-    '4.9 star ceramic coating Dubai',
+    'ceramic coating customer reviews Dubai',
   ],
 }
 
@@ -48,19 +48,22 @@ export default function ReviewsPage() {
             Customer <span className="text-gradient-gold">Reviews</span>
           </h1>
 
-          {/* Rating Summary */}
+          {/* Review CTA */}
           <div className="inline-flex flex-col items-center glass-card px-12 py-8 mb-8">
-            <p className="text-6xl font-black text-gradient-gold mb-2">
-              {SITE_CONFIG.rating.value}
+            <p className="text-2xl font-black text-white mb-2">
+              Had work done by us?
             </p>
-            <div className="flex items-center gap-0.5 mb-2">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="h-6 w-6 fill-gold-400 text-gold-400" />
-              ))}
-            </div>
-            <p className="text-white/60 text-sm">
-              Based on {SITE_CONFIG.rating.count} Google reviews
+            <p className="text-white/60 text-sm mb-4">
+              Your honest feedback helps other Dubai drivers choose with confidence.
             </p>
+            <a
+              href="https://g.page/ceramicmycar/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-sm"
+            >
+              Leave a Google Review
+            </a>
           </div>
 
           <div className="flex justify-center">

@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, ChevronDown, Shield, Star, Award } from 'lucide-react'
+import { Phone, ChevronDown, Shield, Award } from 'lucide-react'
 import { SITE_CONFIG, STATS } from '@/lib/constants'
 import { trackPhoneClick, trackWhatsAppClick, trackQuoteRequest } from '@/lib/analytics'
 
@@ -133,18 +133,9 @@ export function Hero() {
 
         {/* Trust Indicators */}
         <div className="flex flex-wrap items-center justify-center gap-6 mb-16 animate-fade-up [animation-delay:400ms]">
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-0.5">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
-              ))}
-            </div>
-            <span className="text-sm font-semibold text-white">
-              {SITE_CONFIG.rating.value}
-            </span>
-            <span className="text-sm text-white/50">
-              ({SITE_CONFIG.rating.count} Google Reviews)
-            </span>
+          <div className="flex items-center gap-2 text-sm text-white/70">
+            <Shield className="h-4 w-4 text-gold-400" />
+            <span className="font-semibold text-white">2,400+</span> cars protected
           </div>
           <div className="h-4 w-px bg-white/20" />
           <div className="flex items-center gap-2 text-sm text-white/70">

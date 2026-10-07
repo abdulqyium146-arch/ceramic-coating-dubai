@@ -229,7 +229,7 @@ export default function HomePage() {
           {/* Row 2 — Location hub (Koray: every location reachable from home) */}
           <div className="mb-12">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-5">
-              Ceramic Coating &amp; PPF Near Me — All Dubai Locations
+              Ceramic Coating &amp; PPF — All Dubai Locations
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
               {DUBAI_LOCATIONS.map((loc) => (
@@ -268,7 +268,7 @@ export default function HomePage() {
               {[
                 { href: '/pricing', label: 'Ceramic Coating Prices Dubai', desc: 'Transparent pricing for all packages' },
                 { href: '/faq', label: 'Ceramic Coating FAQ Dubai', desc: 'Expert answers to common questions' },
-                { href: '/reviews', label: 'Customer Reviews Dubai', desc: '847 verified Google reviews at 4.9★' },
+                { href: '/reviews', label: 'Customer Reviews Dubai', desc: 'Real customer stories' },
                 { href: '/gallery', label: 'Before & After Gallery', desc: 'Real results on Dubai vehicles' },
                 { href: '/about', label: 'About Ceramic My Car', desc: 'Certified studio since 2018' },
                 { href: '/contact', label: 'Get Free Quote', desc: 'Free paint inspection available' },
@@ -314,8 +314,7 @@ export default function HomePage() {
                   {i < DUBAI_LOCATIONS.length - 1 ? ', ' : '. '}
                 </span>
               ))}
-              Also serving Abu Dhabi, Sharjah, Ajman &amp; UAE.
-              GYEON Certified · Xpel Authorized · 4.9★ Google · Al Quoz, Dubai, UAE.
+              GYEON Certified · Xpel Authorized · Al Quoz, Dubai, UAE.
               Детейлинг студия Дубай / {' '}
               <span lang="ar">تلميع السيارات دبي</span>.
             </p>

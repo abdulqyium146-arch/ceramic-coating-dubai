@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'Ceramic My Car',
   tagline: 'Car Ceramic Coating Services Dubai | Premium Paint Protection',
   description:
-    "Dubai's #1 car ceramic coating services studio. Nano ceramic coating, PPF, graphene coating & auto detailing in Dubai from AED 1,500. Serving Dubai Marina, Business Bay, JVC, Palm Jumeirah, Downtown Dubai, and all UAE areas.",
+    "Car ceramic coating services studio in Dubai. Nano ceramic coating, PPF, graphene coating & auto detailing in Dubai from AED 1,500. Serving Dubai Marina, Business Bay, JVC, Palm Jumeirah, Downtown Dubai, and all Dubai areas.",
   url: 'https://ceramic-my-car.com',
   logo: '/images/logo.svg',
   phone: '+971555153180',
@@ -86,8 +86,8 @@ export const DUBAI_LOCATIONS = [
 export const STATS = [
   { value: '2,400+', label: 'Cars Protected' },
   { value: '6+', label: 'Years in Dubai' },
-  { value: '4.9★', label: 'Google Rating' },
-  { value: '100%', label: 'Satisfaction Rate' },
+  { value: '7', label: 'Pro Services' },
+  { value: '10-Yr', label: 'Max Warranty' },
 ]
 
 export const TRUST_BADGES = [

@@ -109,7 +109,7 @@ export const FAQS: FAQ[] = [
     category: 'General',
     question: 'Do you offer a warranty on your services?',
     answer:
-      "Yes. All our services include warranties: Ceramic Coating — 2 to 10 years depending on the product tier. PPF — 10-year manufacturer's warranty on the film. Window Tinting — Lifetime manufacturer's warranty. All warranties are backed by the product manufacturer and are registered to your vehicle by VIN number.",
+      "Yes. All our services include warranties: Ceramic Coating — 2 to 10 years depending on the product tier. PPF — 10-year manufacturer's warranty on the film. Window Tinting — Lifetime manufacturer's warranty. All warranties are backed by the product manufacturer and documented with your service record.",
   },
   {
     id: '16',
@@ -123,7 +123,7 @@ export const FAQS: FAQ[] = [
     category: 'Ceramic Coating',
     question: 'Where can I find ceramic coating near me in Dubai?',
     answer:
-      "Ceramic My Car's studio is in Al Quoz, Dubai — 10–25 minutes from every major community via Sheikh Zayed Road or Al Khail Road. Nearest ceramic coating to: Dubai Marina (15 min), Business Bay (10 min), JVC (15 min), Palm Jumeirah (20 min), Downtown Dubai (12 min), Dubai Hills (20 min), Mirdif (25 min). We also offer complimentary vehicle pickup from your location for packages over AED 3,000. Call us or WhatsApp to arrange.",
+      "Ceramic My Car's studio is in Al Quoz, Dubai — easily reachable via Sheikh Zayed Road or Al Khail Road from every major community, including Dubai Marina, Business Bay, JVC, Palm Jumeirah, Downtown Dubai, Dubai Hills and Mirdif. We also offer complimentary vehicle pickup from your location for qualifying packages. Call us or WhatsApp to arrange.",
   },
   {
     id: '18',
@@ -137,14 +137,14 @@ export const FAQS: FAQ[] = [
     category: 'General',
     question: 'Do you offer ceramic coating for Abu Dhabi and Ajman customers?',
     answer:
-      "Yes. We serve customers from Abu Dhabi, Ajman, Sharjah, Ras Al Khaimah, and across the UAE. Many Abu Dhabi residents choose Ceramic My Car for our GYEON and Xpel certifications, 4.9★ rating, and the quality difference. Our Al Quoz studio is approximately 90 minutes from Abu Dhabi centre. We offer complimentary vehicle collection from Abu Dhabi for packages over AED 5,000. Call or WhatsApp us to arrange UAE-wide service.",
+      "Our Al Quoz, Dubai studio welcomes customers from across the UAE, including Abu Dhabi, Sharjah and Ajman — many travel to us for our GYEON and Xpel certifications and the quality difference. We offer complimentary vehicle collection from Abu Dhabi for packages over AED 5,000. Call or WhatsApp us to arrange.",
   },
   {
     id: '20',
     category: 'PPF',
     question: 'Where can I get paint protection film (PPF) near me in Dubai?',
     answer:
-      "Ceramic My Car is an Xpel Authorized Dealer offering PPF installation near you in Dubai. Our Al Quoz studio is accessible from all Dubai communities in 10–25 minutes. We use computer-cut Xpel Ultimate Plus film — the highest-rated PPF in the world — with patterns cut to fit any vehicle make and model precisely. For car paint protection film near me: we offer a free PPF consultation, full-body and partial coverage options, and combine PPF with ceramic coating over the top for ultimate protection.",
+      "Ceramic My Car installs PPF in Dubai from our Al Quoz studio, accessible from all Dubai communities. We use computer-cut Xpel Ultimate Plus, SunTek Ultra and 3M Pro Series films — with patterns cut to fit any vehicle make and model precisely. We offer a free PPF consultation, full-body and partial coverage options, and combine PPF with ceramic coating over the top for ultimate protection.",
   },
   {
     id: '21',
