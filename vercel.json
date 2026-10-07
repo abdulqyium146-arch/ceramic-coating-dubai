@@ -4,6 +4,14 @@
   "installCommand": "npm install",
   "outputDirectory": ".next",
   "regions": ["bom1"],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.ceramic-my-car.com" }],
+      "destination": "https://ceramic-my-car.com/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -41,7 +41,6 @@ export const metadata: Metadata = {
     'auto ceramic coating Dubai',
     'car coating Dubai',
     'ceramic my car Dubai',
-    'car ceramic coating Abu Dhabi',
     'best ceramic coating UAE',
   ],
   alternates: { canonical: SITE_CONFIG.url },

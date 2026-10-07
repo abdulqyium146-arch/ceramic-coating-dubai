@@ -90,7 +90,7 @@ export const metadata: Metadata = {
         url: '/images/og-default.jpg',
         width: 1200,
         height: 630,
-        alt: 'Car Ceramic Coating Dubai — Ceramic My Car | PPF, Graphene & Detailing',
+        alt: 'Ceramic My Car — Car Ceramic Coating Dubai | PPF, Graphene & Detailing',
         type: 'image/jpeg',
       },
     ],
