@@ -31,11 +31,15 @@ Branch: `seo/gsc-rebuild` | Baseline: `seo-data/gsc-data.md` (2,770 impr / 14 cl
   — answer blocks, live price tables, cost factors, 6 FAQs each + schema
 - [x] 4b (6593333): /guides/ppf-faq-hub, /guides/ceramic-coating-faq-hub (10 FAQs each + Article
   schema), /brands/xpel-ppf (77 impr); new pricing/guides/brands sitemap children
-- [ ] Remaining new pages: vehicle pages (/vehicles/mercedes/ceramic-coating, /vehicles/range-rover/ppf),
-  more brand pages (3M, SunTek, GYEON — after brand-relationship confirmation), more guides
+- [x] 4c (df7701c): /vehicles/mercedes/ceramic-coating, /vehicles/range-rover/ppf (5 FAQs each,
+  model-aware content, vehicles.xml sitemap)
+- [x] 4d (2747081): /guides/ppf-vs-ceramic-coating (24 impr), /guides/graphene-vs-ceramic-dubai
+  (16 impr), /guides/what-is-paint-correction — head-to-head tables + FAQs + schema
+- [ ] Remaining new pages: more brand pages (3M, SunTek, GYEON — after brand-relationship
+  confirmation), more guides/vehicles as GSC data justifies
 - [ ] Phase 5: INDEXING_CHECKLIST, GSC resubmission, top-10 URL Inspection, GBP checklist, 30/60/90-day plan
 - [ ] CHANGELOG.md, scripts/seo-lint.ts, CI quality gate
-- Build verification: ✅ green (153 pages, 2026-10-07)
+- Build verification: ✅ green (159 pages, 2026-10-07)
 
 ## Phase 4 — New pages (NOT STARTED)
 Backlog: price subpages → guides (unblocked) → brand pages → vehicle pages → Abu Dhabi/Sharjah/Ajman + Arabic (gated).
